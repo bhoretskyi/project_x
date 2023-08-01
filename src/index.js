@@ -1,4 +1,4 @@
-import { getCategories } from './js/books_api';
+import { getCategories } from './js/books_api.js';
 
 const categorySection = document.querySelector('.book-kategories-js');
 
