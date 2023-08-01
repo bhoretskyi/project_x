@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://bhoretskyi.github.io/project_X/",
   "scripts": {
-    "start": "parcel src/*index.html",
+    "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /project_X/"
   },
   "repository": {
