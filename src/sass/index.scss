@@ -1,7 +1,7 @@
 @import './common';
 @import './reset';
 @import './book-kategories-list';
-
+@import './mixin';
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */

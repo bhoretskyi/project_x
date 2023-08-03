@@ -1,6 +1,6 @@
 import { getCategories } from './js/books_api.js';
 import { getBookByCategory } from './js/books_api.js';
-import SimpleLightbox from 'simplelightbox';
+//import SimpleLightbox from 'simplelightbox';
 
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
@@ -84,7 +84,7 @@ function pushBooksByCategory(e) {
           'beforeend',
 
 
-          `<div id='${book._id}' class="section-card" class="section-book-card">
+          `<div id='${book._id}' class="section-book-card section-card">
 
         <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
         <h4 class="section-book-card-title">${book.title}</h4>
