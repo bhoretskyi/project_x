@@ -50,10 +50,11 @@ function pushBooksByCategory(e) {
       filteredByCategoryBooks.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
-          `<div class="section-card">
-        <img src="${book.book_image}" alt="" width="335">
-        <h4 class="section-card-title">${book.title}</h4>
-        <p class="section-card-text">${book.author}</p>
+          `
+          <div class="section-book-card">
+        <img class="section-book-card-img" src="${book.book_image}" alt="" width="335">
+        <h4 class="section-book-card-title">${book.title}</h4>
+        <p class="section-book-card-text">${book.author}</p>
     </div>`
         );
       });
