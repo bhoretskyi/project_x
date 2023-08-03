@@ -20,15 +20,15 @@ allCategories.addEventListener('click', () => {
       );
       book.books.map(thisBook => {
         if (thisBook.list_name === book.list_name) {
-          console.log(thisBook.title);
-          sectionSelectedBooksByCategory.insertAdjacentHTML('beforeend', `<div>
+          sectionSelectedBooksByCategory.insertAdjacentHTML(
+            'beforeend',
+            `<div>
           <img src="${thisBook.book_image}" alt="" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
-      </div>`)
+      </div>`
+          );
         }
-        
-        
       });
     });
   });
