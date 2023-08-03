@@ -8,23 +8,30 @@ const sectionSelectedBooksByCategory =
   document.querySelector('.books-by-category');
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', () => {
-  getBookByCategory().then(resp =>
+  getBookByCategory().then(resp => {
+    sectionSelectedBooksByCategory.innerHTML = '';
+
     resp.map(book => {
-      console.log(book);
-      sectionSelectedBooksByCategory.innerHTML = '';
-      const books = book.books;
-      books.map(book => {
-        sectionSelectedBooksByCategory.insertAdjacentHTML(
-          'beforeend',
-          `<div>
-        <img src="${book.book_image}" alt="" width="335">
-        <h3>${book.title}</h3>
-        <p>${book.author}</p>
-    </div>`
-        );
+      sectionSelectedBooksByCategory.insertAdjacentHTML(
+        'beforeend',
+        `<div>
+  <h2>${book.list_name}</h2>
+</div>`
+      );
+      book.books.map(thisBook => {
+        if (thisBook.list_name === book.list_name) {
+          console.log(thisBook.title);
+          sectionSelectedBooksByCategory.insertAdjacentHTML('beforeend', `<div>
+          <img src="${thisBook.book_image}" alt="" width="335">
+          <h4>${thisBook.title}</h4>
+          <p>${thisBook.author}</p>
+      </div>`)
+        }
+        
+        
       });
-    })
-  );
+    });
+  });
 });
 
 function pushBooksByCategory(e) {
@@ -45,7 +52,7 @@ function pushBooksByCategory(e) {
           'beforeend',
           `<div>
         <img src="${book.book_image}" alt="" width="335">
-        <h3>${book.title}</h3>
+        <h4>${book.title}</h4>
         <p>${book.author}</p>
     </div>`
         );
