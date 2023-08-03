@@ -25,7 +25,7 @@ function startPage () {
           sectionSelectedBooksByCategory.insertAdjacentHTML(
             'beforeend',
             `<div id="${thisBook._id}">
-          <img src="${thisBook.book_image}" alt="" width="335">
+          <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
       </div>`
@@ -54,7 +54,7 @@ allCategories.addEventListener('click', () => {
           sectionSelectedBooksByCategory.insertAdjacentHTML(
             'beforeend',
             `<div id="${thisBook._id}">
-          <img src="${thisBook.book_image}" alt="" width="335">
+          <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
       </div>`
@@ -85,7 +85,7 @@ function pushBooksByCategory(e) {
 
           `<div id='${book._id}' class="section-card">
 
-        <img src="${book.book_image}" alt="" width="335">
+        <img src="${book.book_image}" alt="" loading="lazy" width="335">
         <h4 class="section-card-title">${book.title}</h4>
         <p class="section-card-text">${book.author}</p>
     </div>`
