@@ -7,6 +7,7 @@ const categorySectionList = document.querySelector('.book-kategories-list-js');
 const sectionSelectedBooksByCategory =
   document.querySelector('.books-by-category');
 sectionSelectedBooksByCategory.addEventListener('click', e =>
+
   console.dir(e.target.parentElement.id)
 );
 startPage();
