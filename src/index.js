@@ -28,10 +28,13 @@ startPage();
 function startPage() {
   getBookByCategory().then(resp => {
     resp.map(book => {
+      const name = book.list_name.split(' ' && '-');
+      console.log(name[3]);
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
         `
-  <h2>${book.list_name}</h2>
+  <h2>${name[0]}<p>${name[1]}<p/><p>${(name[2] = '')}<p/><p>${(name[3] =
+          '')}<p/><p>${(name[4] = '')}<p/><p>${(name[5] = '')}<p/></h2>
   `
       );
       book.books.map(thisBook => {
@@ -96,7 +99,6 @@ function pushBooksByCategory(e) {
       filteredByCategoryBooks.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
-
 
           `<div id='${book._id}' class="section-book-card section-card">
 
