@@ -102,8 +102,8 @@ function pushBooksByCategory(e) {
         <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
         <h4 class="section-book-card-title">${book.title}</h4>
         <p class="section-book-card-text">${book.author}</p>
-
     </div>`
+
         );
       });
     })
