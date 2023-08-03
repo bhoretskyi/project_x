@@ -1,0 +1,28 @@
+
+.book-category:hover{
+color:#4F2EE8;
+cursor: pointer;
+}
+
+// .books-by-category{
+//     display: flex;
+//     gap:24px;
+//     flex-wrap: wrap;
+// }
+
+.section-card{
+    margin-top: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.section-card-title{
+   margin-top: 14px;
+   font-size: 16px;
+}
+
+.section-card-text{
+    font-family: DM Sans;
+    margin-top: 4px;
+    font-size: 12px;
+}
