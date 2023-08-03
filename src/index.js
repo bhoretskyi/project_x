@@ -98,7 +98,9 @@ function pushBooksByCategory(e) {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
 
+
           `<div id='${book._id}' class="section-book-card section-card">
+
 
         <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
         <h4 class="section-book-card-title">${book.title}</h4>
