@@ -8,14 +8,12 @@ export async function getCategories() {
 
 export async function getBookByCategory() {
   const response = await fetch(`${API}/books/top-books`);
-  const bookByCategory = await response.json()
-  return bookByCategory
+  const bookByCategory = await response.json();
+  return bookByCategory;
 }
 
 export async function getBookById(id) {
   const response = await fetch(`${API}/books/${id}`);
-  const bookById = await response.json()
-  return bookById
+  const bookById = await response.json();
+  return bookById;
 }
-
-

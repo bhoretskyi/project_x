@@ -1,6 +1,7 @@
-
 import { openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
+import { getBookByCategory, getCategories } from './js/books_api.js';
+import { getBookById } from './js/books_api.js';
 // import SimpleLightbox from 'simplelightbox';
 const modalContent = document.querySelector('.modal-content');
 const closeModalBtn = document.querySelector('.close');
@@ -97,15 +98,12 @@ function pushBooksByCategory(e) {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
 
-
-
           `<div id='${book._id}' class="section-book-card section-card">
 
         <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
         <h4 class="section-book-card-title">${book.title}</h4>
         <p class="section-book-card-text">${book.author}</p>
     </div>`
-
         );
       });
     })
