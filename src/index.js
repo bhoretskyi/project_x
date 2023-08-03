@@ -2,7 +2,6 @@ import { getCategories } from './js/books_api.js';
 import { getBookByCategory } from './js/books_api.js';
 import SimpleLightbox from 'simplelightbox';
 
-
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
 const sectionSelectedBooksByCategory =
@@ -10,15 +9,15 @@ const sectionSelectedBooksByCategory =
 sectionSelectedBooksByCategory.addEventListener('click', e =>
   console.dir(e.target.parentElement.id)
 );
-startPage()
-function startPage () {
+startPage();
+function startPage() {
   getBookByCategory().then(resp => {
     resp.map(book => {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
-        `<div>
+        `
   <h2>${book.list_name}</h2>
-  </div>`
+  `
       );
       book.books.map(thisBook => {
         if (thisBook.list_name === book.list_name) {
@@ -36,7 +35,6 @@ function startPage () {
   });
 }
 
-
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', () => {
   getBookByCategory().then(resp => {
@@ -45,7 +43,7 @@ allCategories.addEventListener('click', () => {
     resp.map(book => {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
-        `<div>
+        `
   <h2>${book.list_name}</h2>
 </div>`
       );
@@ -82,7 +80,6 @@ function pushBooksByCategory(e) {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
 
-
           `<div id='${book._id}' class="section-card">
 
         <img src="${book.book_image}" alt="" loading="lazy" width="335">
@@ -117,3 +114,4 @@ getBookByCategory()
     }
   })
   .catch(err => console.log(err));
+console.log(sectionSelectedBooksByCategory.children);
