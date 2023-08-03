@@ -1,11 +1,42 @@
 import { getCategories } from './js/books_api.js';
 import { getBookByCategory } from './js/books_api.js';
+import SimpleLightbox from 'simplelightbox';
+
 
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
 const sectionSelectedBooksByCategory =
   document.querySelector('.books-by-category');
-  sectionSelectedBooksByCategory.addEventListener('click', (e) =>console.dir(e))
+sectionSelectedBooksByCategory.addEventListener('click', e =>
+  console.dir(e.target.parentElement.id)
+);
+startPage()
+function startPage () {
+  getBookByCategory().then(resp => {
+    resp.map(book => {
+      sectionSelectedBooksByCategory.insertAdjacentHTML(
+        'beforeend',
+        `<div>
+  <h2>${book.list_name}</h2>
+  </div>`
+      );
+      book.books.map(thisBook => {
+        if (thisBook.list_name === book.list_name) {
+          sectionSelectedBooksByCategory.insertAdjacentHTML(
+            'beforeend',
+            `<div id="${thisBook._id}">
+          <img src="${thisBook.book_image}" alt="" width="335">
+          <h4>${thisBook.title}</h4>
+          <p>${thisBook.author}</p>
+      </div>`
+          );
+        }
+      });
+    });
+  });
+}
+
+
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', () => {
   getBookByCategory().then(resp => {
