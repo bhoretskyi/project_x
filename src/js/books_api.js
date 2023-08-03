@@ -12,5 +12,10 @@ export async function getBookByCategory() {
   return bookByCategory
 }
 
+export async function getBookById(id) {
+  const response = await fetch(`${API}/books/${id}`);
+  const bookById = await response.json()
+  return bookById
+}
 
 
