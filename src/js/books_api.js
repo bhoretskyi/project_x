@@ -11,3 +11,6 @@ export async function getBookByCategory() {
   const bookByCategory = await response.json()
   return bookByCategory
 }
+
+
+
