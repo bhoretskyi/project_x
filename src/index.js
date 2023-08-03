@@ -1,11 +1,45 @@
 import { getCategories } from './js/books_api.js';
 import { getBookByCategory } from './js/books_api.js';
+import SimpleLightbox from 'simplelightbox';
 
 const allCategories = document.querySelector('.all-categories-js');
-const categorySection = document.querySelector('.book-kategories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
 const sectionSelectedBooksByCategory =
   document.querySelector('.books-by-category');
+sectionSelectedBooksByCategory.addEventListener('click', e =>
+
+  console.dir(e.target.parentElement.id)
+);
+startPage();
+function startPage() {
+  getBookByCategory().then(resp => {
+    resp.map(book => {
+      sectionSelectedBooksByCategory.insertAdjacentHTML(
+        'beforeend',
+        `
+  <h2>${book.list_name}</h2>
+  `
+      );
+      book.books.map(thisBook => {
+        if (thisBook.list_name === book.list_name) {
+          sectionSelectedBooksByCategory.insertAdjacentHTML(
+            'beforeend',
+            `<div id="${thisBook._id}" hidden>
+          <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
+          <h4>${thisBook.title}</h4>
+          <p>${thisBook.author}</p>
+      </div>`
+          );
+          if (book.books[0].title === thisBook.title) {
+            const element = document.getElementById(thisBook._id);
+            element.hidden = false;
+          }
+        }
+      });
+    });
+  });
+}
+
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', () => {
   getBookByCategory().then(resp => {
@@ -14,16 +48,14 @@ allCategories.addEventListener('click', () => {
     resp.map(book => {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
-        `<div>
-  <h2>${book.list_name}</h2>
-</div>`
+        `<h2>${book.list_name}</h2>`
       );
       book.books.map(thisBook => {
         if (thisBook.list_name === book.list_name) {
           sectionSelectedBooksByCategory.insertAdjacentHTML(
             'beforeend',
-            `<div>
-          <img src="${thisBook.book_image}" alt="" width="335">
+            `<div id="${thisBook._id}">
+          <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
       </div>`
@@ -50,12 +82,15 @@ function pushBooksByCategory(e) {
       filteredByCategoryBooks.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
-          `
-          <div class="section-book-card">
-        <img class="section-book-card-img" src="${book.book_image}" alt="" width="335">
+
+
+          `<div id='${book._id}' class="section-card" class="section-book-card">
+
+        <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
         <h4 class="section-book-card-title">${book.title}</h4>
         <p class="section-book-card-text">${book.author}</p>
-т    </div>`
+    </div>`
+
         );
       });
     })
