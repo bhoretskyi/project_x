@@ -1,15 +1,29 @@
-import { getCategories } from './js/books_api.js';
-import { getBookByCategory } from './js/books_api.js';
-//import SimpleLightbox from 'simplelightbox';
+
+import { openModal } from './js/modal.js';
+import { closeModal } from './js/modal.js';
+// import SimpleLightbox from 'simplelightbox';
+const modalContent = document.querySelector('.modal-content');
+const closeModalBtn = document.querySelector('.close');
 
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
 const sectionSelectedBooksByCategory =
   document.querySelector('.books-by-category');
-sectionSelectedBooksByCategory.addEventListener('click', e =>
 
-  console.dir(e.target.parentElement.id)
-);
+closeModalBtn.addEventListener('click', closeModal);
+sectionSelectedBooksByCategory.addEventListener('click', e => {
+  openModal();
+  getBookById(e.target.parentElement.id)
+    .then(resp => {
+      console.log(resp);
+      modalContent.innerHTML = ` <img src="${resp.book_image}" alt="">
+      <h4>${resp.title}</h4>
+      <p>${resp.author}</p>
+      <p>${resp.description}</p>
+      `;
+    })
+    .catch(err => console.log(err));
+});
 startPage();
 function startPage() {
   getBookByCategory().then(resp => {
@@ -82,6 +96,7 @@ function pushBooksByCategory(e) {
       filteredByCategoryBooks.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
+
 
 
           `<div id='${book._id}' class="section-book-card section-card">
