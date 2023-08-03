@@ -31,7 +31,6 @@ function startPage() {
           );
           if (book.books[0].title === thisBook.title) {
             const element = document.getElementById(thisBook._id);
-            console.log(element);
             element.hidden = false;
           }
         }
