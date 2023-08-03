@@ -19,16 +19,23 @@ function startPage() {
   <h2>${book.list_name}</h2>
   `
       );
-      book.books.map(thisBook => {
+      book.books.map(thisBook => {;
         if (thisBook.list_name === book.list_name) {
           sectionSelectedBooksByCategory.insertAdjacentHTML(
             'beforeend',
-            `<div id="${thisBook._id}">
+            `<div id="${thisBook._id}" hidden>
           <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
       </div>`
           );
+          if ( book.books[0].title === thisBook.title) {
+            const element = document.getElementById(thisBook._id)
+            console.log(element);
+            element.hidden = false
+           
+          }
+        
         }
       });
     });
@@ -112,4 +119,3 @@ getBookByCategory()
     }
   })
   .catch(err => console.log(err));
-console.log(sectionSelectedBooksByCategory.children);
