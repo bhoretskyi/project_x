@@ -43,9 +43,7 @@ allCategories.addEventListener('click', () => {
     resp.map(book => {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
-        `
-  <h2>${book.list_name}</h2>
-</div>`
+        `<h2>${book.list_name}</h2>`
       );
       book.books.map(thisBook => {
         if (thisBook.list_name === book.list_name) {
