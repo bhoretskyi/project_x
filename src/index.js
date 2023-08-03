@@ -2,10 +2,10 @@ import { getCategories } from './js/books_api.js';
 import { getBookByCategory } from './js/books_api.js';
 
 const allCategories = document.querySelector('.all-categories-js');
-const categorySection = document.querySelector('.book-kategories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
 const sectionSelectedBooksByCategory =
   document.querySelector('.books-by-category');
+  sectionSelectedBooksByCategory.addEventListener('click', (e) =>console.dir(e))
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', () => {
   getBookByCategory().then(resp => {
@@ -22,7 +22,7 @@ allCategories.addEventListener('click', () => {
         if (thisBook.list_name === book.list_name) {
           sectionSelectedBooksByCategory.insertAdjacentHTML(
             'beforeend',
-            `<div>
+            `<div id="${thisBook._id}">
           <img src="${thisBook.book_image}" alt="" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
@@ -50,7 +50,7 @@ function pushBooksByCategory(e) {
       filteredByCategoryBooks.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
-          `<div>
+          `<div id='${book._id}'>
         <img src="${book.book_image}" alt="" width="335">
         <h4>${book.title}</h4>
         <p>${book.author}</p>
