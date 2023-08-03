@@ -29,7 +29,6 @@ function startPage() {
   getBookByCategory().then(resp => {
     resp.map(book => {
       const name = book.list_name.split(' ' && '-');
-      console.log(name[3]);
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
         `
@@ -80,7 +79,7 @@ allCategories.addEventListener('click', () => {
         }
       });
     });
-  });
+  }).catch(err=>console.log(err))
 });
 
 function pushBooksByCategory(e) {
