@@ -13,14 +13,24 @@ const sectionSelectedBooksByCategory =
 
 closeModalBtn.addEventListener('click', closeModal);
 sectionSelectedBooksByCategory.addEventListener('click', e => {
-  openModal();
+  if (!e.target.parentElement.id) {
+   return
+  }
+ 
   getBookById(e.target.parentElement.id)
     .then(resp => {
-      modalContent.innerHTML = ` <img src="${resp.book_image}" alt="" width='287' height='408'>
+     if (!resp) {
+      throw new Error('error')
+      
+     }
+      
+        openModal();
+        modalContent.innerHTML = ` <img src="${resp.book_image}" alt="" width='287' height='408'>
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p>
       `;
+      
     })
     .catch(err => console.log(err));
 });
@@ -58,28 +68,30 @@ function startPage() {
 
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', () => {
-  getBookByCategory().then(resp => {
-    sectionSelectedBooksByCategory.innerHTML = '';
+  getBookByCategory()
+    .then(resp => {
+      sectionSelectedBooksByCategory.innerHTML = '';
 
-    resp.map(book => {
-      sectionSelectedBooksByCategory.insertAdjacentHTML(
-        'beforeend',
-        `<h2>${book.list_name}</h2>`
-      );
-      book.books.map(thisBook => {
-        if (thisBook.list_name === book.list_name) {
-          sectionSelectedBooksByCategory.insertAdjacentHTML(
-            'beforeend',
-            `<div id="${thisBook._id}">
+      resp.map(book => {
+        sectionSelectedBooksByCategory.insertAdjacentHTML(
+          'beforeend',
+          `<h2>${book.list_name}</h2>`
+        );
+        book.books.map(thisBook => {
+          if (thisBook.list_name === book.list_name) {
+            sectionSelectedBooksByCategory.insertAdjacentHTML(
+              'beforeend',
+              `<div id="${thisBook._id}">
           <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
       </div>`
-          );
-        }
+            );
+          }
+        });
       });
-    });
-  }).catch(err=>console.log(err))
+    })
+    .catch(err => console.log(err));
 });
 
 function pushBooksByCategory(e) {
