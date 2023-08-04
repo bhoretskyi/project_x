@@ -20,6 +20,27 @@ const sectionSelectedBooksByCategory =
 
 closeModalBtn.addEventListener('click', closeModal);
 sectionSelectedBooksByCategory.addEventListener('click', e => {
+  if (e.target.type === 'button') {
+    const buttonSelectedCategory = e.target.parentElement.lastElementChild.textContent
+    getBookByCategory(buttonSelectedCategory)
+    .then(resp => {
+      sectionSelectedBooksByCategory.innerHTML = '';
+      resp.map(book => {
+        sectionSelectedBooksByCategory.insertAdjacentHTML(
+          'beforeend',
+
+          `<div id='${book._id}' class="section-book-card section-card">
+          <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
+          <h4 class="section-book-card-title">${book.title}</h4>
+          <p class="section-book-card-text">${book.author}</p>
+      </div>`
+        );
+      });
+    })
+    .catch(err => console.log(err));
+    return
+  }
+  
   if (!e.target.parentElement.id) {
     return;
   }
@@ -60,7 +81,11 @@ function startPage() {
           <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
+
+          
           <button type="button"> See more</button>
+          <span hidden>${thisBook.list_name}</span>
+
       </div>`
           );
           if (book.books[0].title === thisBook.title) {
