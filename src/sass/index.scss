@@ -1,14 +1,12 @@
 @import './common';
 @import './reset';
 @import './book-kategories-list';
-<<<<<<< Updated upstream
-@import './_fonts.scss';
+@import './fonts';
 
 
-=======
-@import './mixin';
-@import './all_categories';
->>>>>>> Stashed changes
+
+
+
 .modal {
     display: none;
     position: fixed;
