@@ -1,6 +1,10 @@
 import { openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
-import { getBookByCategory, getCategories } from './js/books_api.js';
+import {
+  getBestBook,
+  getCategories,
+  getBookByCategory,
+} from './js/books_api.js';
 import { getBookById } from './js/books_api.js';
 
 const modalContent = document.querySelector('.modal-content');
@@ -38,8 +42,8 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 });
 startPage();
 function startPage() {
-  sectionSelectedBooksByCategory.innerHTML =''
-  getBookByCategory().then(resp => {
+  sectionSelectedBooksByCategory.innerHTML = '';
+  getBestBook().then(resp => {
     resp.map(book => {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
@@ -70,7 +74,6 @@ function startPage() {
 
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', e => {
-  console.log(e);
   // sectionSelectedBooksByCategory.innerHTML = '';
   startPage();
 });
@@ -106,17 +109,16 @@ function pushBooksByCategory(e) {
 
   if (selectedCategory.length <= 33) {
     let categoryWords = selectedCategory.split(' ');
-    console.log(categoryWords);
+
     let firstWords = categoryWords.slice(0, -1).join(' ');
     let lastWord = categoryWords.slice(-1);
-    console.log(lastWord);
 
     // bookCategorytTitle.textContent = selectedCategory;
     bookCategoryTitleContainer.innerHTML = `<h2>${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
   }
 
   let booksArr = [];
-  getBookByCategory()
+  getBestBook()
     .then(resp => {
       sectionSelectedBooksByCategory.innerHTML = '';
       const filteredBooks = resp
@@ -140,7 +142,9 @@ function pushBooksByCategory(e) {
     })
     .catch(err => console.log(err));
 }
-
+getBookByCategory('Graphic Books and Manga').then(resp => {
+  console.log('hello')
+})
 getCategories()
   .then(resp => {
     sectionSelectedBooksByCategory.innerHTML = '';
@@ -156,10 +160,11 @@ getCategories()
   })
   .catch(err => console.log(err));
 
-getBookByCategory()
-  .then(resp => {
-    if (!resp) {
-      throw new Error('error');
-    }
-  })
-  .catch(err => console.log(err));
+// getBestBook()
+//   .then(resp => {
+//     if (!resp) {
+//       throw new Error('error');
+//     }
+//   })
+//   .catch(err => console.log(err));
+
