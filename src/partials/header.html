@@ -1,112 +1,114 @@
+<header>
 <section class="section header-section">
-    <div class="container header-container">
-      <div class="logo">
-        <a href="index.html" class="logo-link">
-          <svg class="icon-logo" width="24" height="24">
-            <use href="./images/symbol-defs.svg#icon-logo"></use>
-          </svg>
-          <svg class="icon-bookshelf" width="77" height="14">
-            <use href="./images/symbol-defs.svg#icon-Bookshelf"></use>
+  <div class="container header-container">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <svg class="icon-logo" width="24" height="24">
+          <use href="./images/symbol-defs.svg#icon-logo"></use>
+        </svg>
+        <svg class="icon-bookshelf" width="77" height="14">
+          <use href="./images/symbol-defs.svg#icon-Bookshelf"></use>
+        </svg>
+      </a>
+    </div>
+    <ul class="header-nav">
+      <li>
+        <a class="home-btn current js-link" href="index.html">Home</a>
+      </li>
+      <li>
+        <a
+          class="list-btn js-link shoppingListDesk is-hidden-btn"
+          href="shoplist.html"
+        >
+          Shopping list
+          <svg class="list-btn-svg fill" width="20" height="20">
+            <use href="./images/symbol-defs.svg#icon-uil_cart"></use>
           </svg>
         </a>
+      </li>
+    </ul>
+    <div class="settings-nav">
+      <div class="checkbox">
+        <input
+          class="checkbox-input"
+          type="checkbox"
+          value="None"
+          id="checkbox"
+          name="check"
+          checked
+        />
+        <label class="checkbox-lable" for="checkbox"></label>
       </div>
-      <ul class="header-nav">
-        <li>
-          <a class="home-btn current js-link" href="index.html">Home</a>
-        </li>
-        <li>
-          <a
-            class="list-btn js-link shoppingListDesk is-hidden-btn"
-            href="shoplist.html"
-          >
-            Shopping list
-            <svg class="list-btn-svg fill" width="20" height="20">
-              <use href="./images/symbol-defs.svg#icon-uil_cart"></use>
-            </svg>
-          </a>
-        </li>
-      </ul>
-      <div class="settings-nav">
-        <div class="checkbox">
-          <input
-            class="checkbox-input"
-            type="checkbox"
-            value="None"
-            id="checkbox"
-            name="check"
-            checked
-          />
-          <label class="checkbox-lable" for="checkbox"></label>
-        </div>
-        <button class="burger-meny-btn js-burger" type="button">
-          <svg class="burger-meny-icon" width="28" height="28">
-            <use href="./images/symbol-defs.svg#icon-burger-meny"></use>
+      <button class="burger-meny-btn js-burger" type="button">
+        <svg class="burger-meny-icon" width="28" height="28">
+          <use href="./images/symbol-defs.svg#icon-burger-meny"></use>
+        </svg>
+      </button>
+      <button class="close-menu-btn js-close-menu is-hidden-btn" type="button">
+        <svg class="close-menu-icon" width="18" height="18">
+          <use href="./images/symbol-defs.svg#close-btn-icon"></use>
+        </svg>
+      </button>
+      <div class="select-user-container is-hidden-btn">
+        <button class="user-btn">
+          <svg class="user-icon" width="19" height="19">
+            <use href="./images/symbol-defs.svg#icon-user-fill"></use>
+          </svg>
+          <span class="user-name-btn">user</span>
+          <svg class="arr-icon" width="14" height="8">
+            <use href="./images/symbol-defs.svg#icon-arr-down"></use>
           </svg>
         </button>
-        <button class="close-menu-btn js-close-menu is-hidden-btn" type="button">
-          <svg class="close-menu-icon" width="18" height="18">
-            <use href="./images/symbol-defs.svg#close-btn-icon"></use>
-          </svg>
-        </button>
-        <div class="select-user-container is-hidden-btn">
-          <button class="user-btn">
-            <svg class="user-icon" width="19" height="19">
-              <use href="./images/symbol-defs.svg#icon-user-fill"></use>
-            </svg>
-            <span class="user-name-btn">user</span>
-            <svg class="arr-icon" width="14" height="8">
-              <use href="./images/symbol-defs.svg#icon-arr-down"></use>
-            </svg>
-          </button>
-          <ul class="user-select js-user-select wraper-user-select is-hidden">
-            <li>
-              <button
-                class="log-out-btn-big user-select-btn js-log-out-btn"
-                type="button"
-              >
-                Log out
-                <svg class="log-out-icon big animate" width="14" height="10">
-                  <use href="./images/symbol-defs.svg#icon-arrow"></use>
-                </svg>
-              </button>
-            </li>
-            <li>
-              <button
-                class="log-out-btn-big user-select-btn js-user-select-btn settings"
-                type="button"
-              >
-                settings
-                <svg class="user-select-icon animate" width="18" height="14">
-                  <use href="./images/symbol-defs.svg#icon-settings-3"></use>
-                </svg>
-              </button>
-            </li>
-          </ul>
-          <!-- <button class="log-out-btn-big user-select-btn">
+        <ul class="user-select js-user-select wraper-user-select is-hidden">
+          <li>
+            <button
+              class="log-out-btn-big user-select-btn js-log-out-btn"
+              type="button"
+            >
               Log out
-              <svg class="log-out-icon big js-log-out-btn" width="14" height="10">
+              <svg class="log-out-icon big animate" width="14" height="10">
                 <use href="./images/symbol-defs.svg#icon-arrow"></use>
               </svg>
-            </button> -->
-          <!-- <button class="log-out-btn-big user-select-btn js-user-select-btn">
+            </button>
+          </li>
+          <li>
+            <button
+              class="log-out-btn-big user-select-btn js-user-select-btn settings"
+              type="button"
+            >
               settings
-              <svg class="log-out-icon big" width="18" height="14">
+              <svg class="user-select-icon animate" width="18" height="14">
                 <use href="./images/symbol-defs.svg#icon-settings-3"></use>
               </svg>
-            </button> -->
-        </div>
-        <button class="authorisation-btn authorisation-btn-desktop">
-          Sign up
-          <svg class="arr-icon-yellow" width="14" height="10">
-            <use href="./images/symbol-defs.svg#icon-arrow"></use>
-          </svg>
-        </button>
-        <!-- <button class="log-out-btn-big is-hidden-btn">
-          Log out
-          <svg class="log-out-icon big" width="14" height="10">
-            <use href="./images/symbol-defs.svg#icon-arrow"></use>
-          </svg>
-        </button> -->
+            </button>
+          </li>
+        </ul>
+        <button class="log-out-btn-big user-select-btn">
+            Log out
+            <svg class="log-out-icon big js-log-out-btn" width="14" height="10">
+              <use href="./images/symbol-defs.svg#icon-arrow"></use>
+            </svg>
+          </button>
+        <button class="log-out-btn-big user-select-btn js-user-select-btn">
+            settings
+            <svg class="log-out-icon big" width="18" height="14">
+              <use href="./images/symbol-defs.svg#icon-settings-3"></use>
+            </svg>
+          </button>
       </div>
+      <button class="authorisation-btn authorisation-btn-desktop">
+        Sign up
+        <svg class="arr-icon-yellow" width="14" height="10">
+          <use href="./images/symbol-defs.svg#icon-arrow"></use>
+        </svg>
+      </button>
+      <button class="log-out-btn-big is-hidden-btn">
+        Log out
+        <svg class="log-out-icon big" width="14" height="10">
+          <use href="./images/symbol-defs.svg#icon-arrow"></use>
+        </svg>
+      </button>
     </div>
-  </section>
+  </div>
+</section>
+</header>

@@ -1,7 +1,11 @@
+import './js/header.js';
+import './js/modal-login-form.js';
 import { openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
 import { getBookByCategory, getCategories } from './js/books_api.js';
 import { getBookById } from './js/books_api.js';
+
+
 // import SimpleLightbox from 'simplelightbox';
 const modalContent = document.querySelector('.modal-content');
 const closeModalBtn = document.querySelector('.close');
