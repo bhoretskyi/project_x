@@ -5,6 +5,7 @@ import { getBookById } from './js/books_api.js';
 
 const modalContent = document.querySelector('.modal-content');
 const closeModalBtn = document.querySelector('.close');
+const bookCategorytTitle = document.querySelector('.book-category-title');
 
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
@@ -36,6 +37,8 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 startPage();
 function startPage() {
   getBookByCategory().then(resp => {
+    bookCategorytTitle.textContent = 'Best Sellers Books';
+
     resp.map(book => {
       const name = book.list_name.split(' ' && '-');
       sectionSelectedBooksByCategory.insertAdjacentHTML(
@@ -101,6 +104,11 @@ allCategories.addEventListener('click', e => {
 
 function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
+
+  if (selectedCategory.length <= 33) {
+    bookCategorytTitle.textContent = selectedCategory;
+  }
+
   let booksArr = [];
   getBookByCategory()
     .then(resp => {
