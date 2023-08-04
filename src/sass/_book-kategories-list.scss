@@ -9,7 +9,7 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 40px;
-
+   // border: 1px solid red;
     @media screen and (min-width: 768px) {
         //border: 1px solid red;
             display: flex;
@@ -19,10 +19,11 @@
             padding-right: 32px;
             margin: 0 auto;
             
-            width: 768px;
+            width: 770px;
         }
         @media screen and (min-width: 1440px) {
             //border: 1px solid red;
+            margin-right: 24px;
             display: flex;
             flex-wrap: wrap;
             gap: 24px;
