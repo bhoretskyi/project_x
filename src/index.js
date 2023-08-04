@@ -84,9 +84,9 @@ function startPage() {
       );
       book.books.map(thisBook => {
         if (thisBook.list_name === book.list_name) {
-          sectionSelectedBooksByCategory.insertAdjacentHTML(
+          sectionSelectedBooksByCategory.insertAdjacentHTML(  
             'beforeend',
-            `<div id="${thisBook._id}" hidden>
+            `<div id="${thisBook._id}" class ="add-book-js">
           <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
