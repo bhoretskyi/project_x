@@ -43,6 +43,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 startPage();
 function startPage() {
   sectionSelectedBooksByCategory.innerHTML = '';
+  bookCategoryTitleContainer.innerHTML ='<h2>Best Sellers <span class="last-title-word">Books</span></h2>'
   getBestBook().then(resp => {
     resp.map(book => {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
