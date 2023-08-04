@@ -21,26 +21,34 @@ const sectionSelectedBooksByCategory =
 closeModalBtn.addEventListener('click', closeModal);
 sectionSelectedBooksByCategory.addEventListener('click', e => {
   if (e.target.type === 'button') {
-    const buttonSelectedCategory = e.target.parentElement.lastElementChild.textContent
+    const buttonSelectedCategory =
+      e.target.parentElement.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
-    .then(resp => {
-      sectionSelectedBooksByCategory.innerHTML = '';
-      resp.map(book => {
-        sectionSelectedBooksByCategory.insertAdjacentHTML(
-          'beforeend',
+      .then(resp => {
+        bookCategoryTitleContainer.innerHTML = '';
+        let categoryWords = buttonSelectedCategory.split(' ');
 
-          `<div id='${book._id}' class="section-book-card section-card">
+        let firstWords = categoryWords.slice(0, -1).join(' ');
+        let lastWord = categoryWords.slice(-1);
+
+        bookCategoryTitleContainer.innerHTML = `<h2>${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
+        sectionSelectedBooksByCategory.innerHTML = '';
+        resp.map(book => {
+          sectionSelectedBooksByCategory.insertAdjacentHTML(
+            'beforeend',
+
+            `<div id='${book._id}' class="section-book-card section-card">
           <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
           <h4 class="section-book-card-title">${book.title}</h4>
           <p class="section-book-card-text">${book.author}</p>
       </div>`
-        );
-      });
-    })
-    .catch(err => console.log(err));
-    return
+          );
+        });
+      })
+      .catch(err => console.log(err));
+    return;
   }
-  
+
   if (!e.target.parentElement.id) {
     return;
   }
@@ -64,7 +72,8 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 startPage();
 function startPage() {
   sectionSelectedBooksByCategory.innerHTML = '';
-  bookCategoryTitleContainer.innerHTML ='<h2>Best Sellers <span class="last-title-word">Books</span></h2>'
+  bookCategoryTitleContainer.innerHTML =
+    '<h2>Best Sellers <span class="last-title-word">Books</span></h2>';
   getBestBook().then(resp => {
     resp.map(book => {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
