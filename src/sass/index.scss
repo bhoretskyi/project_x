@@ -1,7 +1,9 @@
 @import './common';
 @import './reset';
 @import './book-kategories-list';
-@import './mixin';
+@import './_fonts.scss';
+
+
 .modal {
     display: none;
     position: fixed;

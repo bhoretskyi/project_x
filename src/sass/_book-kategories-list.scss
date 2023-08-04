@@ -8,11 +8,7 @@ color:#4F2EE8;
 cursor: pointer;
 }
 
-// .books-by-category{
-//     display: flex;
-//     gap:24px;
-//     flex-wrap: wrap;
-// }
+
 
 // .section-book-name{
 //     margin-top: 40px;
@@ -24,23 +20,32 @@ cursor: pointer;
 // }
 
 .section-book-card{
+    //display: inline-block;
     margin-top: 40px;
-    margin-right: 20px;
-    margin-left: 20px;
+    //width: 335px;
     
+}
+
+.books-by-category {
+    //text-align: inherit;
+    margin: 0 auto;
+    
+    padding-right: 20px;
+    padding-left: 20px;
+
 }
 
 .section-book-card-title{
     color:#111111;
-   font-family: DM Sans;
-   font-weight: bold;
+   font-family: 'DM Sans Bold';
+   letter-spacing: -4%;
    margin-top: 14px;
    font-size: 16px;
 }
 
 .section-book-card-text{
-    font-family: DM Sans;
-    font-style: italic;
+    font-family: DM Sans Italic;
+    letter-spacing: -4%;
     margin-top: 4px;
     font-size: 12px;
     color: #B4AFAF;
