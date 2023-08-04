@@ -2,7 +2,7 @@ import { openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
 import { getBookByCategory, getCategories } from './js/books_api.js';
 import { getBookById } from './js/books_api.js';
-// import SimpleLightbox from 'simplelightbox';
+
 const modalContent = document.querySelector('.modal-content');
 const closeModalBtn = document.querySelector('.close');
 
@@ -14,23 +14,22 @@ const sectionSelectedBooksByCategory =
 closeModalBtn.addEventListener('click', closeModal);
 sectionSelectedBooksByCategory.addEventListener('click', e => {
   if (!e.target.parentElement.id) {
-   return
+    return;
   }
- 
+
   getBookById(e.target.parentElement.id)
     .then(resp => {
-     if (!resp) {
-      throw new Error('error')
-      
-     }
-      
+      if (!resp) {
+        throw new Error('err');
+      }
+      if (resp.message !== 'Not found') {
         openModal();
         modalContent.innerHTML = ` <img src="${resp.book_image}" alt="" width='287' height='408'>
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p>
       `;
-      
+      }
     })
     .catch(err => console.log(err));
 });
@@ -42,7 +41,7 @@ function startPage() {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
         `
-  <h2>${name[0]}<p>${name[1]}<p/><p>${(name[2] = '')}<p/><p>${(name[3] =
+  <h2>${name[0]}<p>${(name[1] = '')}<p/><p>${(name[2] = '')}<p/><p>${(name[3] =
           '')}<p/><p>${(name[4] = '')}<p/><p>${(name[5] = '')}<p/></h2>
   `
       );
@@ -54,6 +53,7 @@ function startPage() {
           <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
+          <button type="button"> See more</button>
       </div>`
           );
           if (book.books[0].title === thisBook.title) {
@@ -67,32 +67,37 @@ function startPage() {
 }
 
 categorySectionList.addEventListener('click', pushBooksByCategory);
-allCategories.addEventListener('click', () => {
-  getBookByCategory()
-    .then(resp => {
-      sectionSelectedBooksByCategory.innerHTML = '';
-
-      resp.map(book => {
-        sectionSelectedBooksByCategory.insertAdjacentHTML(
-          'beforeend',
-          `<h2>${book.list_name}</h2>`
-        );
-        book.books.map(thisBook => {
-          if (thisBook.list_name === book.list_name) {
-            sectionSelectedBooksByCategory.insertAdjacentHTML(
-              'beforeend',
-              `<div id="${thisBook._id}">
-          <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
-          <h4>${thisBook.title}</h4>
-          <p>${thisBook.author}</p>
-      </div>`
-            );
-          }
-        });
-      });
-    })
-    .catch(err => console.log(err));
+allCategories.addEventListener('click', e => {
+  console.log(e);
+  sectionSelectedBooksByCategory.innerHTML = '';
+  startPage();
 });
+// allCategories.addEventListener('click', () => {
+//   getBookByCategory()
+//     .then(resp => {
+//       sectionSelectedBooksByCategory.innerHTML = '';
+
+//       resp.map(book => {
+//         sectionSelectedBooksByCategory.insertAdjacentHTML(
+//           'beforeend',
+//           `<h2>${book.list_name}</h2>`
+//         );
+//         book.books.map(thisBook => {
+//           if (thisBook.list_name === book.list_name) {
+//             sectionSelectedBooksByCategory.insertAdjacentHTML(
+//               'beforeend',
+//               `<div id="${thisBook._id}">
+//           <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
+//           <h4>${thisBook.title}</h4>
+//           <p>${thisBook.author}</p>
+//       </div>`
+//             );
+//           }
+//         });
+//       });
+//     })
+//     .catch(err => console.log(err));
+// });
 
 function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
