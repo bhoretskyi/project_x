@@ -5,7 +5,9 @@ import { getBookById } from './js/books_api.js';
 
 const modalContent = document.querySelector('.modal-content');
 const closeModalBtn = document.querySelector('.close');
-const bookCategorytTitle = document.querySelector('.book-category-title');
+const bookCategoryTitleContainer = document.querySelector(
+  '.book-category-title-container'
+);
 
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
@@ -36,16 +38,13 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 });
 startPage();
 function startPage() {
+  sectionSelectedBooksByCategory.innerHTML =''
   getBookByCategory().then(resp => {
-    bookCategorytTitle.textContent = 'Best Sellers Books';
-
     resp.map(book => {
-      const name = book.list_name.split(' ' && '-');
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
         `
-  <h2>${name[0]}<p>${(name[1] = '')}<p/><p>${(name[2] = '')}<p/><p>${(name[3] =
-          '')}<p/><p>${(name[4] = '')}<p/><p>${(name[5] = '')}<p/></h2>
+  <h2>${book.list_name}</h2>
   `
       );
       book.books.map(thisBook => {
@@ -72,7 +71,7 @@ function startPage() {
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', e => {
   console.log(e);
-  sectionSelectedBooksByCategory.innerHTML = '';
+  // sectionSelectedBooksByCategory.innerHTML = '';
   startPage();
 });
 // allCategories.addEventListener('click', () => {
@@ -106,7 +105,14 @@ function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
 
   if (selectedCategory.length <= 33) {
-    bookCategorytTitle.textContent = selectedCategory;
+    let categoryWords = selectedCategory.split(' ');
+    console.log(categoryWords);
+    let firstWords = categoryWords.slice(0, -1).join(' ');
+    let lastWord = categoryWords.slice(-1);
+    console.log(lastWord);
+
+    // bookCategorytTitle.textContent = selectedCategory;
+    bookCategoryTitleContainer.innerHTML = `<h2>${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
   }
 
   let booksArr = [];
