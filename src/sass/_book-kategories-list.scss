@@ -8,7 +8,16 @@ color:#4F2EE8;
 cursor: pointer;
 }
 
+<<<<<<< Updated upstream
 
+=======
+.books-by-category{
+    // display: flex;
+    // gap:24px;
+    // flex-wrap: wrap;
+    text-align: center;
+}
+>>>>>>> Stashed changes
 
 // .section-book-name{
 //     margin-top: 40px;
@@ -20,10 +29,19 @@ cursor: pointer;
 // }
 
 .section-book-card{
+<<<<<<< Updated upstream
     //display: inline-block;
     margin-top: 40px;
     //width: 335px;
+=======
+>>>>>>> Stashed changes
     
+    margin-top: 40px;
+    
+    
+    // @media screen and (min-width: 900px) {
+    //     margin-top:20px;
+    // }
 }
 
 .books-by-category {
