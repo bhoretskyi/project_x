@@ -1,51 +1,54 @@
-// .section-all-categories{
-//     margin-left: 20px;
-// }
-
-
-.book-category:hover{
-color:#4F2EE8;
-cursor: pointer;
-}
-
-
-
-// .section-book-name{
-//     margin-top: 40px;
-//     margin-left: 20px;
-//     font-family: DM Sans;
-//     font-size: 32px;
-//     font-weight: bold;
-//     line-height: 38px;
-// }
-
-.section-book-card{
-    //display: inline-block;
-    margin-top: 40px;
-    //width: 335px;
-    
-}
 
 .books-by-category {
-    //text-align: inherit;
+    width: 375px;
     margin: 0 auto;
-    
-    padding-right: 20px;
     padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
 
+    @media screen and (min-width: 768px) {
+        //border: 1px solid red;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding-left: 32px;
+            padding-right: 32px;
+            margin: 0 auto;
+            
+            width: 768px;
+        }
+        @media screen and (min-width: 1440px) {
+            //border: 1px solid red;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            width: 996px;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+}
+
+.section-book-card{
+    margin-bottom: 40px;
+    @media screen and (min-width: 768px) {
+            width: 218px;
+            margin-bottom: 15px;
+        }
+    @media screen and (min-width: 1440px) {
+            width: 180px;
+            margin-bottom: 15px;
+        }
 }
 
 .section-book-card-title{
     color:#111111;
    font-family: 'DM Sans Bold';
-   letter-spacing: -4%;
    margin-top: 14px;
    font-size: 16px;
 }
 
 .section-book-card-text{
-    font-family: DM Sans Italic;
-    letter-spacing: -4%;
+    font-family: 'DM Sans Italic';
     margin-top: 4px;
     font-size: 12px;
     color: #B4AFAF;
@@ -53,4 +56,10 @@ cursor: pointer;
 
 .section-book-card-img{
     border-radius: 8px;
+    @media screen and (min-width: 768px) {
+            width: 218px;
+        }
+    @media screen and (min-width: 1440px) {
+            width: 180px;
+        }
 }
