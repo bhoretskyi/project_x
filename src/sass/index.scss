@@ -3,9 +3,8 @@
 @import './book-kategories-list';
 @import './fonts';
 
-
-
-
+@import './mixin';
+@import './all_categories';
 
 .modal {
     display: none;
