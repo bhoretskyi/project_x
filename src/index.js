@@ -16,7 +16,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
   openModal();
   getBookById(e.target.parentElement.id)
     .then(resp => {
-      modalContent.innerHTML = ` <img src="${resp.book_image}" alt="">
+      modalContent.innerHTML = ` <img src="${resp.book_image}" alt="" width='287' height='408'>
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p>
