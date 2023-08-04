@@ -74,35 +74,8 @@ function startPage() {
 
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', e => {
-  // sectionSelectedBooksByCategory.innerHTML = '';
   startPage();
 });
-// allCategories.addEventListener('click', () => {
-//   getBookByCategory()
-//     .then(resp => {
-//       sectionSelectedBooksByCategory.innerHTML = '';
-
-//       resp.map(book => {
-//         sectionSelectedBooksByCategory.insertAdjacentHTML(
-//           'beforeend',
-//           `<h2>${book.list_name}</h2>`
-//         );
-//         book.books.map(thisBook => {
-//           if (thisBook.list_name === book.list_name) {
-//             sectionSelectedBooksByCategory.insertAdjacentHTML(
-//               'beforeend',
-//               `<div id="${thisBook._id}">
-//           <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
-//           <h4>${thisBook.title}</h4>
-//           <p>${thisBook.author}</p>
-//       </div>`
-//             );
-//           }
-//         });
-//       });
-//     })
-//     .catch(err => console.log(err));
-// });
 
 function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
@@ -113,38 +86,27 @@ function pushBooksByCategory(e) {
     let firstWords = categoryWords.slice(0, -1).join(' ');
     let lastWord = categoryWords.slice(-1);
 
-    // bookCategorytTitle.textContent = selectedCategory;
     bookCategoryTitleContainer.innerHTML = `<h2>${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
   }
 
-  let booksArr = [];
-  getBestBook()
+  getBookByCategory(selectedCategory)
     .then(resp => {
       sectionSelectedBooksByCategory.innerHTML = '';
-      const filteredBooks = resp
-        .filter(book => {
-          return book.list_name === selectedCategory;
-        })
-        .map(book => book.books);
-      booksArr.push(...filteredBooks);
-      const filteredByCategoryBooks = booksArr[0];
-      filteredByCategoryBooks.map(book => {
+      resp.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
           'beforeend',
 
           `<div id='${book._id}' class="section-book-card section-card">
-        <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
-        <h4 class="section-book-card-title">${book.title}</h4>
-        <p class="section-book-card-text">${book.author}</p>
-    </div>`
+          <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">
+          <h4 class="section-book-card-title">${book.title}</h4>
+          <p class="section-book-card-text">${book.author}</p>
+      </div>`
         );
       });
     })
     .catch(err => console.log(err));
 }
-getBookByCategory('Graphic Books and Manga').then(resp => {
-  console.log('hello')
-})
+
 getCategories()
   .then(resp => {
     sectionSelectedBooksByCategory.innerHTML = '';
@@ -159,12 +121,3 @@ getCategories()
     );
   })
   .catch(err => console.log(err));
-
-// getBestBook()
-//   .then(resp => {
-//     if (!resp) {
-//       throw new Error('error');
-//     }
-//   })
-//   .catch(err => console.log(err));
-

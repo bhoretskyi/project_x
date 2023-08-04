@@ -20,7 +20,6 @@ export async function getBookById(id) {
 
 export async function getBookByCategory(category) {
   const response = await fetch(`${API}/books/category?category=${category}`);
-  console.log(response);
   const bookByCategory = await response.json();
   return bookByCategory;
 }
