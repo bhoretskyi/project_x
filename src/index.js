@@ -7,6 +7,7 @@ import {
 } from './js/books_api.js';
 import { getBookById } from './js/books_api.js';
 
+
 const modalContent = document.querySelector('.modal-content');
 const closeModalBtn = document.querySelector('.close');
 const bookCategoryTitleContainer = document.querySelector(
