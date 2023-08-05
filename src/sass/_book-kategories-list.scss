@@ -2,9 +2,23 @@
     color: blue;
 }
 
+.item2, .item3 {
+    display: none;
+   
+    @media screen and (min-width: 768px) {
+        display: block;
+        
+        }
 
+  
 
-
+}
+.item4, .item5 {
+    display: none;
+    @media screen and (min-width: 1440px) {
+        display: block;
+       }
+}
 
 
 
