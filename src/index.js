@@ -20,9 +20,44 @@ const categorySectionList = document.querySelector('.book-kategories-list-js');
 const sectionSelectedBooksByCategory =
   document.querySelector('.books-by-category');
 const BOOKS = [];
+// localStorage.clear()
 
 closeModalBtn.addEventListener('click', closeModal);
 sectionSelectedBooksByCategory.addEventListener('click', e => {
+  const bookId = e.target.parentElement.id;
+  if (BOOKS.includes(bookId)) {
+    addToListBtn.hidden = true
+    removeFromListBtn.hidden = false
+  }
+  if (!BOOKS.includes(bookId)) {
+    addToListBtn.hidden = false
+    removeFromListBtn.hidden = true
+  }
+  function pushBookIdToStorage(array) {
+    localStorage.setItem('books', JSON.stringify(array));
+  }
+  function removeBookFromStorage(book) {
+    const newBooks = BOOKS.filter( item => item !== book)
+    BOOKS.splice(0, BOOKS.length, ... newBooks)
+    localStorage.setItem('books', JSON.stringify(BOOKS));
+    }
+    addToListBtn.addEventListener('click', () => {
+      addToListBtn.hidden = true
+      removeFromListBtn.hidden = false 
+      
+      if (!BOOKS.includes(bookId)) {
+        BOOKS.push(bookId);
+        removeFromListBtn.hidden = false;
+      }
+      
+      pushBookIdToStorage(BOOKS);
+    }); 
+    removeFromListBtn.addEventListener('click', ()=>{
+      addToListBtn.hidden = false
+      removeFromListBtn.hidden = true
+removeBookFromStorage(bookId)
+    })
+  
   if (e.target.type === 'button') {
     const buttonSelectedCategory =
       e.target.parentElement.lastElementChild.textContent;
@@ -46,7 +81,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
           <p class="section-book-card-text">${book.author}</p>    
       </div>`
           );
-        });
+        })
       })
       .catch(err => console.log(err));
     return;
@@ -57,43 +92,14 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
   }
 
   getBookById(e.target.parentElement.id)
-    .then(resp => {const bookId = e.target.parentElement.id;
-      if (BOOKS.includes(bookId)) {
-        addToListBtn.hidden = true
-        removeFromListBtn.hidden = false
-      }
-      if (!BOOKS.includes(bookId)) {
-        addToListBtn.hidden = false
-        removeFromListBtn.hidden = true
-      }
+    .then(resp => {
       
-      addToListBtn.addEventListener('click', () => {
-        addToListBtn.hidden = true
-        removeFromListBtn.hidden = false 
-        // const bookName = e.target.parentElement.children[1].textContent;
-        
-        if (!BOOKS.includes(bookId)) {
-          BOOKS.push(bookId);
-          removeFromListBtn.hidden = false;
-          // addToListBtn.hidden = true;
-        }
-        console.log(BOOKS);
-        pushBookIdToStorage(BOOKS);
-      }); 
-      removeFromListBtn.addEventListener('click', ()=>{
-        addToListBtn.hidden = false
-        removeFromListBtn.hidden = true
-removeBookFromStorage(bookId)
-      })
-      function pushBookIdToStorage(array) {
-        localStorage.setItem('books', JSON.stringify(array));
-      }
-      function removeBookFromStorage(book) {
-        const newBooks = BOOKS.filter( item => item !== book)
-        localStorage.setItem('books', JSON.stringify(newBooks));
-
-
-      }
+     
+      
+      
+      
+      
+      
       if (!resp) {
         throw new Error('err');
       }
