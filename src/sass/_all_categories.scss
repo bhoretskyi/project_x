@@ -76,11 +76,12 @@
 .div-qqq {
     width: 335px;
     height: 352px;
-    color: blue;
+    color: #4F2EE8;
     border: 1px;
-    background-color: blue;
+    background-color: grey;
     margin-top: 40px;
     border-radius: 16px;
+    opacity: 0.5;
 
     @media screen and (min-width: 768px) {
         margin-top: 0;

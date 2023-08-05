@@ -18,8 +18,10 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "jquery": "^3.7.0",
     "modern-normalize": "^1.1.0",
-    "simplelightbox": "^2.14.1"
+    "simplelightbox": "^2.14.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
