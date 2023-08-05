@@ -142,6 +142,10 @@ allCategories.addEventListener('click', e => {
 
 function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
+  if (e.target.localName !== 'li') {
+    return
+    
+  }
 
   if (selectedCategory.length <= 33) {
     let categoryWords = selectedCategory.split(' ');
