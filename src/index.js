@@ -57,9 +57,18 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
   }
 
   getBookById(e.target.parentElement.id)
-    .then(resp => {
-      const bookId = e.target.parentElement.id;
+    .then(resp => {const bookId = e.target.parentElement.id;
+      if (BOOKS.includes(bookId)) {
+        addToListBtn.hidden = true
+        removeFromListBtn.hidden = false
+      }
+      if (!BOOKS.includes(bookId)) {
+        addToListBtn.hidden = false
+        removeFromListBtn.hidden = true
+      }
+      
       addToListBtn.addEventListener('click', () => {
+        addToListBtn.hidden = true
         // const bookName = e.target.parentElement.children[1].textContent;
         
         if (!BOOKS.includes(bookId)) {
@@ -71,6 +80,8 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
         pushBookIdToStorage(BOOKS);
       });
       removeFromListBtn.addEventListener('click', ()=>{
+        addToListBtn.hidden = false
+        removeFromListBtn.hidden = true
 removeBookFromStorage(bookId)
       })
       function pushBookIdToStorage(array) {
