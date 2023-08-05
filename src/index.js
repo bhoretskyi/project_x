@@ -1,3 +1,7 @@
+import './js/header';
+import './js/modal-login-form';
+import './js/account';
+import './js/settings';
 import { openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
 import {
@@ -6,6 +10,7 @@ import {
   getBookByCategory,
 } from './js/books_api.js';
 import { getBookById } from './js/books_api.js';
+
 
 const modalContent = document.querySelector('.modal-content-parent');
 const closeModalBtn = document.querySelector('.close');

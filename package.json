@@ -20,12 +20,14 @@
   "dependencies": {
     "jquery": "^3.7.0",
     "modern-normalize": "^1.1.0",
+    "parce": "^1.2.8",
     "simplelightbox": "^2.14.1",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
     "parcel": "^2.6.0",
+    "parcel-plugin-elm-svg": "^1.0.7",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
