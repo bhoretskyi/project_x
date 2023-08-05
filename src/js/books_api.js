@@ -6,7 +6,7 @@ export async function getCategories() {
   return category;
 }
 
-export async function getBookByCategory() {
+export async function getBestBook() {
   const response = await fetch(`${API}/books/top-books`);
   const bookByCategory = await response.json();
   return bookByCategory;
@@ -17,3 +17,10 @@ export async function getBookById(id) {
   const bookById = await response.json();
   return bookById;
 }
+
+export async function getBookByCategory(category) {
+  const response = await fetch(`${API}/books/category?category=${category}`);
+  const bookByCategory = await response.json();
+  return bookByCategory;
+}
+

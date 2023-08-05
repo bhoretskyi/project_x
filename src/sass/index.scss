@@ -1,43 +1,16 @@
 @import './common';
 @import './reset';
 @import './book-kategories-list';
-@import './mixin';
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: #FFFFFF;
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px;
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #111111;
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
-  }
+@import './fonts';
+@import './charity_fond';
+@import './all_categories';
+//@import './general';
+@import './modal';
+
+body{
+    @media screen and (min-width: 1440px) {
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+}
