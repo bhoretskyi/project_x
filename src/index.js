@@ -25,39 +25,42 @@ const BOOKS = [];
 closeModalBtn.addEventListener('click', closeModal);
 sectionSelectedBooksByCategory.addEventListener('click', e => {
   const bookId = e.target.parentElement.id;
+  removeFromListBtn.addEventListener('click', () => {
+    addToListBtn.hidden = false;
+    removeFromListBtn.hidden = true;
+    removeBookFromStorage(bookId);
+  });
   if (BOOKS.includes(bookId)) {
-    addToListBtn.hidden = true
-    removeFromListBtn.hidden = false
+    addToListBtn.hidden = true;
+    removeFromListBtn.hidden = false;
   }
   if (!BOOKS.includes(bookId)) {
-    addToListBtn.hidden = false
-    removeFromListBtn.hidden = true
+    addToListBtn.hidden = false;
+    removeFromListBtn.hidden = true;
   }
   function pushBookIdToStorage(array) {
     localStorage.setItem('books', JSON.stringify(array));
   }
-  function removeBookFromStorage(book) {
-    const newBooks = BOOKS.filter( item => item !== book)
-    BOOKS.splice(0, BOOKS.length, ... newBooks)
-    localStorage.setItem('books', JSON.stringify(BOOKS));
+  function removeBookFromStorage(bookId) {
+    console.log(bookId);
+    // const newBooks = BOOKS.filter((item) => item !== book);
+    // console.log(newBooks);
+    // BOOKS.splice(0, BOOKS.length, ...newBooks);
+    // localStorage.setItem('books', JSON.stringify(BOOKS));
+  }
+  addToListBtn.addEventListener('click', () => {
+    addToListBtn.hidden = true;
+    removeFromListBtn.hidden = false;
+
+    if (!BOOKS.includes(bookId)) {
+      BOOKS.push(bookId);
+      removeFromListBtn.hidden = false;
     }
-    addToListBtn.addEventListener('click', () => {
-      addToListBtn.hidden = true
-      removeFromListBtn.hidden = false 
-      
-      if (!BOOKS.includes(bookId)) {
-        BOOKS.push(bookId);
-        removeFromListBtn.hidden = false;
-      }
-      
-      pushBookIdToStorage(BOOKS);
-    }); 
-    removeFromListBtn.addEventListener('click', ()=>{
-      addToListBtn.hidden = false
-      removeFromListBtn.hidden = true
-removeBookFromStorage(bookId)
-    })
+
+    pushBookIdToStorage(BOOKS);
+  });
   
+
   if (e.target.type === 'button') {
     const buttonSelectedCategory =
       e.target.parentElement.lastElementChild.textContent;
@@ -81,25 +84,18 @@ removeBookFromStorage(bookId)
           <p class="section-book-card-text">${book.author}</p>    
       </div>`
           );
-        })
+        });
       })
       .catch(err => console.log(err));
     return;
   }
 
   if (!e.target.parentElement.id) {
-    return; 
+    return;
   }
 
   getBookById(e.target.parentElement.id)
     .then(resp => {
-      
-     
-      
-      
-      
-      
-      
       if (!resp) {
         throw new Error('err');
       }
