@@ -87,7 +87,7 @@ function startPage() {
           sectionSelectedBooksByCategory.insertAdjacentHTML(
             'beforeend',
             `<div id="${thisBook._id}" hidden>
-          <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
+          <img src="${thisBook.book_image}" alt="" loading="lazy" width="335" class="section-bookbycat-card-img">
           <h4>${thisBook.title}</h4>
           <p>${thisBook.author}</p>
 
