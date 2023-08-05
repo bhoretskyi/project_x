@@ -78,7 +78,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
         }
         console.log(BOOKS);
         pushBookIdToStorage(BOOKS);
-      });
+      }); 
       removeFromListBtn.addEventListener('click', ()=>{
         addToListBtn.hidden = false
         removeFromListBtn.hidden = true
