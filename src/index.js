@@ -89,7 +89,7 @@ removeBookFromStorage(bookId)
         localStorage.setItem('books', JSON.stringify(array));
       }
       function removeBookFromStorage(book) {
-        newBooks = BOOKS.filter( item => item !== book)
+        const newBooks = BOOKS.filter( item => item !== book)
         localStorage.setItem('books', JSON.stringify(newBooks));
 
 
