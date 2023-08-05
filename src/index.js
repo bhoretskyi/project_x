@@ -29,7 +29,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
         let categoryWords = buttonSelectedCategory.split(' ');
 
         let firstWords = categoryWords.slice(0, -1).join(' ');
-        let lastWord = categoryWords.slice(-1); 
+        let lastWord = categoryWords.slice(-1);
 
         bookCategoryTitleContainer.innerHTML = `<h2>${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
         sectionSelectedBooksByCategory.innerHTML = '';
@@ -73,17 +73,17 @@ startPage();
 function startPage() {
   sectionSelectedBooksByCategory.innerHTML = '';
   bookCategoryTitleContainer.innerHTML =
-    '<h2>Best Sellers <span class="last-title-word">Books</span></h2>';  
-    getBestBook().then(resp =>
-      resp.map(book => {
-        const books = book.books;
-        sectionSelectedBooksByCategory.insertAdjacentHTML(
-          'beforeend',
-          `
+    '<h2>Best Sellers <span class="last-title-word">Books</span></h2>';
+  getBestBook().then(resp =>
+    resp.map(book => {
+      const books = book.books;
+      sectionSelectedBooksByCategory.insertAdjacentHTML(
+        'beforeend',
+        `
             <h2>${book.list_name}</h2>
   <div class="one-category-section">
 
-            <div id="${books[0]._id}" class ="add-book-js">
+            <div id="${books[0]._id}" class ="add-book-js item1">
                        <img src="${books[0].book_image}" alt="" loading="lazy" width="335">
                      <h4>${books[0].title}</h4>
                       <p>${books[0].author}</p>
@@ -92,7 +92,7 @@ function startPage() {
                        <span hidden>${books[0].list_name}</span>
             
                   </div>
-                  <div id="${books[1]._id}" class ="add-book-js">
+                  <div id="${books[1]._id}" class ="add-book-js item2">
                        <img src="${books[1].book_image}" alt="" loading="lazy" width="335">
                      <h4>${books[1].title}</h4>
                       <p>${books[1].author}</p>
@@ -101,7 +101,7 @@ function startPage() {
                        <span hidden>${books[0].list_name}</span>
             
                   </div>
-                  <div id="${books[2]._id}" class ="add-book-js">
+                  <div id="${books[2]._id}" class ="add-book-js item3">
                        <img src="${books[2].book_image}" alt="" loading="lazy" width="335">
                      <h4>${books[2].title}</h4>
                       <p>${books[2].author}</p>
@@ -110,7 +110,7 @@ function startPage() {
                        <span hidden>${books[2].list_name}</span>
             
                   </div>
-                  <div id="${books[3]._id}" class ="add-book-js">
+                  <div id="${books[3]._id}" class ="add-book-js item4">
                        <img src="${books[3].book_image}" alt="" loading="lazy" width="335">
                      <h4>${books[3].title}</h4>
                       <p>${books[3].author}</p>
@@ -119,7 +119,7 @@ function startPage() {
                        <span hidden>${books[3].list_name}</span>
             
                   </div>
-                  <div id="${books[4]._id}" class ="add-book-js">
+                  <div id="${books[4]._id}" class ="add-book-js item5">
                        <img src="${books[4].book_image}" alt="" loading="lazy" width="335">
                      <h4>${books[4].title}</h4>
                       <p>${books[4].author}</p>
@@ -130,43 +130,10 @@ function startPage() {
                   </div>
                   </div>
             `
-        );
-      })
-    );
-//   getBestBook().then(resp => {
-//     resp.map(book => {
-
-//       sectionSelectedBooksByCategory.insertAdjacentHTML(
-//         'beforeend',
-//         `
-//   <h2>${book.list_name}</h2><div class="one-category-js"></div>
-//   `
-//       );
-
-//       book.books.map(thisBook => {
-//         if (thisBook.list_name === book.list_name) {
-//           sectionSelectedBooksByCategory.insertAdjacentHTML(
-//             'beforeend',
-//             `<div id="${thisBook._id}" class ="add-book-js">
-//           <img src="${thisBook.book_image}" alt="" loading="lazy" width="335">
-//           <h4>${thisBook.title}</h4>
-//           <p>${thisBook.author}</p>
-
-//           <button type="button"> See more</button>
-//           <span hidden>${thisBook.list_name}</span>
-
-//       </div>`
-//           );
-
-//           if (book.books[0].title === thisBook.title) {
-//             const element = document.getElementById(thisBook._id);
-//             element.hidden = false;
-//           }
-//         }
-//       });
-//     });
-//   });
- }
+      );
+    })
+  );
+}
 
 categorySectionList.addEventListener('click', pushBooksByCategory);
 allCategories.addEventListener('click', e => {
@@ -217,5 +184,3 @@ getCategories()
     );
   })
   .catch(err => console.log(err));
-
-
