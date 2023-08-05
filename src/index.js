@@ -7,7 +7,7 @@ import {
 } from './js/books_api.js';
 import { getBookById } from './js/books_api.js';
 
-const modalContent = document.querySelector('.modal-content');
+const modalContent = document.querySelector('.modal-content-parent');
 const closeModalBtn = document.querySelector('.close');
 const bookCategoryTitleContainer = document.querySelector(
   '.book-category-title-container'
@@ -40,7 +40,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
             `<div id='${book._id}' class="section-book-card section-card">
           <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">     
           <h4 class="section-book-card-title">${book.title}</h4>
-          <p class="section-book-card-text">${book.author}</p>   
+          <p class="section-book-card-text">${book.author}</p>    
       </div>` 
           ); 
         });
@@ -53,18 +53,21 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
     return;
   }
 
-  getBookById(e.target.parentElement.id)
-    .then(resp => {
+  getBookById(e.target.parentElement.id)   
+    .then(resp => { 
       if (!resp) {
         throw new Error('err');
       }
       if (resp.message !== 'Not found') {
         openModal();
-        modalContent.innerHTML = ` <img src="${resp.book_image}" alt="" width='287' height='408'>
+        modalContent.innerHTML = `<div class="modal-content"><img class='modal-image' src="${resp.book_image}" alt="">
+        <div>
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p>
-      `;
+      </div></div>
+      <button type="button" class="add-to-list-btn">Add to shopping list</button>
+<button type="button" class="remove-from-list-btn" hidden>remove from the shopping list</button>`      
       }
     })
     .catch(err => console.log(err));
