@@ -66,8 +66,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       <p>${resp.author}</p>
       <p>${resp.description}</p>
       </div></div>
-      <button type="button" class="add-to-list-btn">Add to shopping list</button>
-<button type="button" class="remove-from-list-btn" hidden>remove from the shopping list</button>`      
+      `      
       }
     })
     .catch(err => console.log(err));
