@@ -53,7 +53,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
   }
 
   if (!e.target.parentElement.id) {
-    return;
+    return; 
   }
 
   getBookById(e.target.parentElement.id)
@@ -69,6 +69,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       
       addToListBtn.addEventListener('click', () => {
         addToListBtn.hidden = true
+        removeFromListBtn.hidden = false 
         // const bookName = e.target.parentElement.children[1].textContent;
         
         if (!BOOKS.includes(bookId)) {
