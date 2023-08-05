@@ -9,6 +9,8 @@ import { getBookById } from './js/books_api.js';
 
 const modalContent = document.querySelector('.modal-content-parent');
 const closeModalBtn = document.querySelector('.close');
+const addToListBtn = document.querySelector('.add-to-list-btn');
+const removeFromListBtn = document.querySelector('.remove-from-list-btn');
 const bookCategoryTitleContainer = document.querySelector(
   '.book-category-title-container'
 );
@@ -17,6 +19,7 @@ const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
 const sectionSelectedBooksByCategory =
   document.querySelector('.books-by-category');
+const BOOKS = [];
 
 closeModalBtn.addEventListener('click', closeModal);
 sectionSelectedBooksByCategory.addEventListener('click', e => {
@@ -41,8 +44,8 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
           <img class="section-book-card-img"  src="${book.book_image}" alt="" loading="lazy" width="335">     
           <h4 class="section-book-card-title">${book.title}</h4>
           <p class="section-book-card-text">${book.author}</p>    
-      </div>` 
-          ); 
+      </div>`
+          );
         });
       })
       .catch(err => console.log(err));
@@ -53,8 +56,32 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
     return;
   }
 
-  getBookById(e.target.parentElement.id)   
-    .then(resp => { 
+  getBookById(e.target.parentElement.id)
+    .then(resp => {
+      const bookId = e.target.parentElement.id;
+      addToListBtn.addEventListener('click', () => {
+        // const bookName = e.target.parentElement.children[1].textContent;
+        
+        if (!BOOKS.includes(bookId)) {
+          BOOKS.push(bookId);
+          removeFromListBtn.hidden = false;
+          // addToListBtn.hidden = true;
+        }
+        console.log(BOOKS);
+        pushBookIdToStorage(BOOKS);
+      });
+      removeFromListBtn.addEventListener('click', ()=>{
+removeBookFromStorage(bookId)
+      })
+      function pushBookIdToStorage(array) {
+        localStorage.setItem('books', JSON.stringify(array));
+      }
+      function removeBookFromStorage(book) {
+        newBooks = BOOKS.filter( item => item !== book)
+        localStorage.setItem('books', JSON.stringify(newBooks));
+
+
+      }
       if (!resp) {
         throw new Error('err');
       }
@@ -66,7 +93,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       <p>${resp.author}</p>
       <p>${resp.description}</p>
       </div></div>
-      `      
+      `;
       }
     })
     .catch(err => console.log(err));
@@ -145,8 +172,7 @@ allCategories.addEventListener('click', e => {
 function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
   if (e.target.localName !== 'li') {
-    return
-    
+    return;
   }
 
   if (selectedCategory.length <= 33) {
