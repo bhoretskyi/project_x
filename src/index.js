@@ -64,7 +64,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 
   if (e.target.type === 'button') {
     const buttonSelectedCategory =
-      e.target.parentElement.lastElementChild.textContent;
+    e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
         bookCategoryTitleContainer.innerHTML = '';
@@ -136,7 +136,6 @@ function startPage() {
                      <h4 class="all-books-block-title">${books[0].title}</h4>
                       <p class="all-books-block-text">${books[0].author}</p>
             
-                     <button type="button"> See more</button>
                        <span hidden>${books[0].list_name}</span>
             
                   </div>
@@ -145,7 +144,6 @@ function startPage() {
                      <h4 class="all-books-block-title">${books[1].title}</h4>
                       <p class="all-books-block-text">${books[1].author}</p>
             
-                     <button type="button"> See more</button>
                        <span hidden>${books[0].list_name}</span>
             
                   </div>
@@ -154,7 +152,6 @@ function startPage() {
                      <h4 class="all-books-block-title">${books[2].title}</h4>
                       <p class="all-books-block-text">${books[2].author}</p>
             
-                     <button type="button"> See more</button>
                        <span hidden>${books[2].list_name}</span>
             
                   </div>
@@ -163,7 +160,6 @@ function startPage() {
                      <h4 class="all-books-block-title">${books[3].title}</h4>
                       <p class="all-books-block-text">${books[3].author}</p>
             
-                     <button type="button"> See more</button>
                        <span hidden>${books[3].list_name}</span>
             
                   </div>
@@ -171,11 +167,11 @@ function startPage() {
                        <img src="${books[4].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
                      <h4 class="all-books-block-title">${books[4].title}</h4>
                       <p class="all-books-block-text">${books[4].author}</p>
-            
-                     <button type="button"> See more</button>
                        <span hidden>${books[4].list_name}</span>
             
                   </div>
+                  <button type="button" class="see-more-btn"> See more</button> 
+
                   </div>
             `
       );
