@@ -3,7 +3,7 @@ const shopListBookSection = document.querySelector('.shop-list-books-section');
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
 const shop = document.querySelector('.book-shop');
-const trashSvg = document.querySelector('.svg')
+const trashSvg = document.querySelector('.svg');
 
 const savedBooks = JSON.parse(localStorage.getItem('books'));
 function paintBooksFromLocalstorage() {
@@ -11,13 +11,13 @@ function paintBooksFromLocalstorage() {
     getBookById(book)
       .then(resp => {
         if (!resp) {
-          throw new Error('error'); 
+          throw new Error('error');
         }
 
-        shopListBookSection.insertAdjacentHTML( 
+        shopListBookSection.insertAdjacentHTML(
           'beforeend',
           `<div><p hidden>${resp._id}</p>
-    <button type="button" class="trash-btn"><img  src="${trashSvg.src}" alt=""></button>
+    <button type="button" class="trash-btn"><img class="trash-js"  src="${trashSvg.src}" alt=""></button>
 
         <img  src="${resp.book_image}" alt=""> 
          
@@ -41,4 +41,26 @@ function paintBooksFromLocalstorage() {
       .catch(err => console.log(err));
   });
 }
+
 paintBooksFromLocalstorage();
+
+shopListBookSection.addEventListener('click', e => {
+   
+    if (e.target.className === 'trash-js') {
+        const bookToRemoveId = e.target.parentElement.previousElementSibling.textContent
+        const newSavedBooks = savedBooks.filter((item) => item !== bookToRemoveId);
+        localStorage.setItem('books', JSON.stringify(newSavedBooks))
+        location.reload()
+        
+        
+        
+    }
+
+});
+
+// const trashButton = document.querySelector('.trash-btn');
+
+// trashButton.addEventListener('click', e => {
+//     e.stopPropagation()
+//   console.log(e.target);
+// });
