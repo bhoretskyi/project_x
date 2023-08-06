@@ -115,10 +115,11 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p>
+      <p hidden>${resp._id}</p>
       <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>
       <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>
       <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>
-      <p hidden>${resp._id}</p>
+      
 
       `;
       }
