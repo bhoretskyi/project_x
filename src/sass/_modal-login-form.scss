@@ -1,0 +1,204 @@
+.overlayLoginForm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  display: none;
+  background-color: var(--color-blue-component);
+}
+
+.modal-login-form {
+  display: none;
+  position: fixed;
+  width: 335px;
+  height: 384px;
+  background-color: #f6f6f6;
+  border: 2px solid #111111;
+  border-radius: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+}
+
+.sign {
+  background: transparent;
+  border: transparent;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+.underline {
+  text-decoration: underline;
+  color: var(--color-blue-component);
+}
+::placeholder {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--dark-theme-componemt);
+}
+
+.modal-login-in,
+.modal-login-up {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  gap: 40px;
+  align-items: center;
+}
+
+.modal-login-form-close-btn {
+  position: absolute;
+  z-index: 2500;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  font-size: 16px;
+}
+
+.modal-login-form-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 24px;
+}
+
+.modal-login-form-name,
+.modal-login-form-email,
+.modal-login-form-password {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 24px;
+  margin: auto;
+  width: 295px;
+  height: 50px;
+  border: 2px solid var(--dark-theme-componemt);
+  border-radius: 40px;
+}
+
+.modal-login-btn-up,
+.modal-login-btn-in {
+  width: 294px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px 113px;
+  gap: 10px;
+  background: var(--dark-theme-componemt);
+  border-radius: 40px;
+  margin: auto;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -1%;
+  text-transform: uppercase;
+  color: #f3f3f3;
+}
+.modal-login-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: auto;
+  margin-top: 14px;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (min-width: 768px) {
+  .modal-login-form {
+    width: 579px;
+    height: 516px;
+  }
+
+  ::placeholder {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .modal-login-form-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: transparent;
+    stroke: #111111;
+    width: 28px;
+    height: 28px;
+  }
+
+  .modal-login-form-input {
+    margin-top: 80px;
+    gap: 28px;
+  }
+
+  .modal-login-form-name,
+  .modal-login-form-email,
+  .modal-login-form-password {
+    padding: 20px 173px 20px 40px;
+    margin: auto;
+    width: 499px;
+    height: 64px;
+    border-radius: 40px;
+  }
+
+  .modal-login-btn-up,
+  .modal-login-btn-in {
+    width: 499px;
+    height: 64px;
+    padding: 20px 173px;
+    gap: 10px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .modal-login-list{
+    gap: 20px;
+    margin-top: 20px;
+    
+  }
+
+  .sign {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.33;
+    width: fit-content;
+  }
+ 
+}

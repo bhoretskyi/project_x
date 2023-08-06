@@ -1,0 +1,71 @@
+<div class="overlayLoginForm"></div>
+<div class="modal-login-form">
+  <div>
+    <button class="modal-login-form-close-btn">
+      <svg class="button-close-icon" width="14" height="14">
+        <use href="/src/img/icons.svg#icon-x-close"></use>
+      </svg>
+    </button>
+
+    <form class="modal-login-up" name="products-form-up">
+      <div class="modal-login-form-input">
+        <input
+          type="text"
+          class="modal-login-form-name"
+          placeholder="NAME"
+          required
+          minlength="4"
+          title="Name must be at least 4 letters long."
+        />
+
+        <input
+          type="email"
+          class="modal-login-form-email"
+          name="email"
+          placeholder="EMAIL"
+          required
+          title="enter your email address, don't forget to use the obligatory symbol @ "
+        />
+
+        <input
+          type="password"
+          class="modal-login-form-password"
+          name="password"
+          placeholder="PASSWORD"
+          required
+        />
+        <button type="button" class="modal-login-btn-up">SIGN UP</button>
+      </div>
+    </form>
+    <form class="modal-login-in is-hidden" name="products-form-in">
+      <div class="modal-login-form-input">
+        <input
+          type="text"
+          class="modal-login-form-name modal-login-form-name-in"
+          placeholder="NAME"
+          required
+          minlength="4"
+          title="Name must be at least 4 letters long."
+        />
+
+        <input
+          type="password"
+          class="modal-login-form-password modal-login-form-password-in"
+          name="password"
+          placeholder="PASSWORD"
+          required
+        />
+        <button type="button" class="modal-login-btn-in">SIGN IN</button>
+      </div>
+    </form>
+
+    <ul class="modal-login-list">
+      <li>
+        <button class="signUp sign underline">SIGN UP</button>
+      </li>
+      <li>
+        <button class="signIn sign">SIGN IN</button>
+      </li>
+    </ul>
+  </div>
+</div>
