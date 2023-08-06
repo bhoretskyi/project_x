@@ -11,7 +11,9 @@ import {
   getBookByCategory,
 } from './js/books_api.js';
 import { getBookById } from './js/books_api.js';
-
+const amazon = document.querySelector('.amazon');
+const ios = document.querySelector('.book-ios');
+const shop = document.querySelector('.book-shop');
 
 const modalContent = document.querySelector('.modal-content-parent');
 const closeModalBtn = document.querySelector('.close');
@@ -23,7 +25,8 @@ const bookCategoryTitleContainer = document.querySelector(
 
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
-const sectionSelectedBooksByCategory = document.querySelector('.books-by-category');
+const sectionSelectedBooksByCategory =
+  document.querySelector('.books-by-category');
 const BOOKS = [];
 // localStorage.clear()
 
@@ -42,7 +45,6 @@ removeFromListBtn.addEventListener('click', e => {
   const idForRemoveButton =
     e.currentTarget.parentElement.children[1].firstElementChild.lastElementChild
       .children[3].textContent;
-  console.log(idForRemoveButton);
   addToListBtn.hidden = false;
   removeFromListBtn.hidden = true;
   removeBookFromStorage(idForRemoveButton);
@@ -70,7 +72,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 
   if (e.target.type === 'button') {
     const buttonSelectedCategory =
-    e.target.previousElementSibling.lastElementChild.textContent;
+      e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
         bookCategoryTitleContainer.innerHTML = '';
@@ -113,7 +115,11 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p>
+      <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>
+      <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>
+      <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>
       <p hidden>${resp._id}</p>
+
       `;
       }
     })
