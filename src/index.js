@@ -17,8 +17,7 @@ const bookCategoryTitleContainer = document.querySelector(
 
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
-const sectionSelectedBooksByCategory =
-  document.querySelector('.books-by-category');
+const sectionSelectedBooksByCategory = document.querySelector('.books-by-category');
 const BOOKS = [];
 // localStorage.clear()
 
@@ -123,49 +122,49 @@ function startPage() {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
         `
-            <h2>${book.list_name}</h2>
+            <h2 class="book-category-name">${book.list_name}</h2>
   <div class="one-category-section">
 
-            <div id="${books[0]._id}" class ="add-book-js item1">
-                       <img src="${books[0].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[0].title}</h4>
-                      <p>${books[0].author}</p>
+            <div id="${books[0]._id}" class ="add-book-js all-books-block item1">
+                       <img src="${books[0].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[0].title}</h4>
+                      <p class="all-books-block-text">${books[0].author}</p>
             
                      <button type="button"> See more</button>
                        <span hidden>${books[0].list_name}</span>
             
                   </div>
-                  <div id="${books[1]._id}" class ="add-book-js item2">
-                       <img src="${books[1].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[1].title}</h4>
-                      <p>${books[1].author}</p>
+                  <div id="${books[1]._id}" class ="add-book-js all-books-block item2">
+                       <img src="${books[1].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[1].title}</h4>
+                      <p class="all-books-block-text">${books[1].author}</p>
             
                      <button type="button"> See more</button>
                        <span hidden>${books[0].list_name}</span>
             
                   </div>
-                  <div id="${books[2]._id}" class ="add-book-js item3">
-                       <img src="${books[2].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[2].title}</h4>
-                      <p>${books[2].author}</p>
+                  <div id="${books[2]._id}" class ="add-book-js all-books-block item3">
+                       <img src="${books[2].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[2].title}</h4>
+                      <p class="all-books-block-text">${books[2].author}</p>
             
                      <button type="button"> See more</button>
                        <span hidden>${books[2].list_name}</span>
             
                   </div>
-                  <div id="${books[3]._id}" class ="add-book-js item4">
-                       <img src="${books[3].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[3].title}</h4>
-                      <p>${books[3].author}</p>
+                  <div id="${books[3]._id}" class ="add-book-js all-books-block item4">
+                       <img src="${books[3].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[3].title}</h4>
+                      <p class="all-books-block-text">${books[3].author}</p>
             
                      <button type="button"> See more</button>
                        <span hidden>${books[3].list_name}</span>
             
                   </div>
-                  <div id="${books[4]._id}" class ="add-book-js item5">
-                       <img src="${books[4].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[4].title}</h4>
-                      <p>${books[4].author}</p>
+                  <div id="${books[4]._id}" class ="add-book-js all-books-block item5">
+                       <img src="${books[4].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[4].title}</h4>
+                      <p class="all-books-block-text">${books[4].author}</p>
             
                      <button type="button"> See more</button>
                        <span hidden>${books[4].list_name}</span>
