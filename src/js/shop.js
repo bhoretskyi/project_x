@@ -16,15 +16,15 @@ function paintBooksFromLocalstorage() {
 
         shopListBookSection.insertAdjacentHTML(
           'beforeend',
-          `<div><p hidden>${resp._id}</p>
+          `<div class="shopping-list-card"><p hidden>${resp._id}</p>
     <button type="button" class="trash-btn"><img class="trash-js"  src="${trashSvg.src}" alt=""></button>
 
-        <img  src="${resp.book_image}" alt=""> 
+        <img class="shopping-list-image"  src="${resp.book_image}" alt=""> 
          
-      <h4>${resp.title}</h4>
-      <p>${resp.author}</p>
+      <h4 class="shopping-list-title">${resp.title}</h4>
+      <p class="shopping-list-author">${resp.author}</p>
 
-      <p>${resp.description}</p>  
+      <pclass="shopping-list-description">${resp.description}</p>  
       <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a> 
       <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>
       <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>

@@ -112,9 +112,9 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
         openModal();
         modalContent.innerHTML = `<div class="modal-content"><img class='modal-image' src="${resp.book_image}" alt="">
         <div>
-      <h4>${resp.title}</h4>
-      <p>${resp.author}</p>
-      <p>${resp.description}</p>
+      <h4 class="modal-content-title">${resp.title}</h4>
+      <p class="modal-content-author">${resp.author}</p>
+      <p class="modal-content-description">${resp.description}</p>
       <p hidden>${resp._id}</p>
       <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>
       <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>
