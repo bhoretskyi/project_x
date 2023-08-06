@@ -1,7 +1,11 @@
+.body-scroll-lock {
+  overflow: hidden;
+}
 .modal {
 
     display: none;
     position: fixed;
+    overflow: hidden;
     z-index: 1;
     padding-top: 40px;
     padding-left: 24px;
@@ -10,11 +14,9 @@
     top: 50%;
    transform: translate(-50%,-50%);
    text-align: center;
-  
-    // top: 0;
     width: 335px;
     height: 100%;
-    overflow: auto;
+    
     border-radius: 18px;
     border: 2px solid #111;
     background: #FFF;
