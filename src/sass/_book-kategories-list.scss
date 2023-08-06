@@ -24,42 +24,49 @@
 
 
 
-//.books-by-category 
-.one-category-section{
-    width: 335px;
-        
+.books-by-category {
+    padding-left: 20px;
+    padding-right: 20px;
+    @media screen and (min-width: 768px) {
+    
+            padding-left: 32px;
+            padding-right: 32px;
+    
+    
+        }
+    
+}
+.one-category-section {
+    
+        width: 375px;
         padding-bottom: 40px;
         /* padding-left: 20px; */
         /* padding-right: 20px; */
         margin-left: auto;
         margin-right: auto;
 
-    // width: 375px;
-    // //margin: 0 auto;
-    // padding-left: 20px;
-    // padding-right: 20px;
-    // padding-bottom: 40px;
-    // border: 1px solid red;
+    
     @media screen and (min-width: 768px) {
         
+        width: 768px;
             display: flex;
             flex-wrap: wrap;
             gap: 25px;
-            padding-left: 32px;
-            padding-right: 32px;
+            
             //margin: 0 auto;
             
-            width: 770px;
+            
         }
         @media screen and (min-width: 1440px) {
             
-            margin-right: 24px;
+            //margin-right: 24px;
             display: flex;
             flex-wrap: wrap;
             gap: 24px;
             width: 996px;
             padding-left: 0px;
             padding-right: 0px;
+            margin-right: 0;
         }
 }
 

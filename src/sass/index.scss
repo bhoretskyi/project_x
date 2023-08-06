@@ -16,9 +16,11 @@
 
 
 body{ 
-    margin: 0 auto;
+    //margin: 0 auto;
     // margin-left: auto;
     // margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
     @media screen and (min-width: 1440px) {
             max-width: 1440px;
             margin-left: auto;
