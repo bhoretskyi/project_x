@@ -14,7 +14,7 @@ function paintBooksFromLocalstorage() {
         <img  src="${resp.book_image}" alt="">
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
-      <p>${resp.description}</p>
+      <p>${resp.description}</p> 
     
       </div>
 `
