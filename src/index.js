@@ -23,19 +23,42 @@ const bookCategoryTitleContainer = document.querySelector(
 
 const allCategories = document.querySelector('.all-categories-js');
 const categorySectionList = document.querySelector('.book-kategories-list-js');
-const sectionSelectedBooksByCategory =
-  document.querySelector('.books-by-category');
+const sectionSelectedBooksByCategory = document.querySelector('.books-by-category');
 const BOOKS = [];
 // localStorage.clear()
 
 closeModalBtn.addEventListener('click', closeModal);
+addToListBtn.addEventListener('click', e => {
+  const idForButton =
+    e.currentTarget.previousElementSibling.firstElementChild.lastElementChild
+      .children[3].textContent;
+
+  addToListBtn.hidden = true;
+  removeFromListBtn.hidden = false;
+  BOOKS.push(idForButton);
+  pushBookIdToStorage(BOOKS);
+});
+removeFromListBtn.addEventListener('click', e => {
+  const idForRemoveButton =
+    e.currentTarget.parentElement.children[1].firstElementChild.lastElementChild
+      .children[3].textContent;
+  console.log(idForRemoveButton);
+  addToListBtn.hidden = false;
+  removeFromListBtn.hidden = true;
+  removeBookFromStorage(idForRemoveButton);
+});
+
+function pushBookIdToStorage(array) {
+  localStorage.setItem('books', JSON.stringify(array));
+}
+function removeBookFromStorage(book) {
+  const newBooks = BOOKS.filter(item => item !== book);
+  BOOKS.splice(0, BOOKS.length, ...newBooks);
+  localStorage.setItem('books', JSON.stringify(BOOKS));
+}
+
 sectionSelectedBooksByCategory.addEventListener('click', e => {
   const bookId = e.target.parentElement.id;
-  removeFromListBtn.addEventListener('click', () => {
-    addToListBtn.hidden = false;
-    removeFromListBtn.hidden = true;
-    removeBookFromStorage(bookId);
-  });
   if (BOOKS.includes(bookId)) {
     addToListBtn.hidden = true;
     removeFromListBtn.hidden = false;
@@ -44,32 +67,10 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
     addToListBtn.hidden = false;
     removeFromListBtn.hidden = true;
   }
-  function pushBookIdToStorage(array) {
-    localStorage.setItem('books', JSON.stringify(array));
-  }
-  function removeBookFromStorage(bookId) {
-    console.log(bookId);
-    // const newBooks = BOOKS.filter((item) => item !== book);
-    // console.log(newBooks);
-    // BOOKS.splice(0, BOOKS.length, ...newBooks);
-    // localStorage.setItem('books', JSON.stringify(BOOKS));
-  }
-  addToListBtn.addEventListener('click', () => {
-    addToListBtn.hidden = true;
-    removeFromListBtn.hidden = false;
-
-    if (!BOOKS.includes(bookId)) {
-      BOOKS.push(bookId);
-      removeFromListBtn.hidden = false;
-    }
-
-    pushBookIdToStorage(BOOKS);
-  });
-  
 
   if (e.target.type === 'button') {
     const buttonSelectedCategory =
-      e.target.parentElement.lastElementChild.textContent;
+    e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
         bookCategoryTitleContainer.innerHTML = '';
@@ -112,7 +113,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p>
-      </div></div>
+      <p hidden>${resp._id}</p>
       `;
       }
     })
@@ -120,6 +121,10 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 });
 startPage();
 function startPage() {
+  const savedBooksInStorage = JSON.parse(localStorage.getItem('books'));
+  if (savedBooksInStorage) {
+    BOOKS.push(...savedBooksInStorage);
+  }
   sectionSelectedBooksByCategory.innerHTML = '';
   bookCategoryTitleContainer.innerHTML =
     '<h2>Best Sellers <span class="last-title-word">Books</span></h2>';
@@ -129,54 +134,50 @@ function startPage() {
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
         `
-            <h2>${book.list_name}</h2>
+            <h2 class="book-category-name">${book.list_name}</h2>
   <div class="one-category-section">
 
-            <div id="${books[0]._id}" class ="add-book-js item1">
-                       <img src="${books[0].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[0].title}</h4>
-                      <p>${books[0].author}</p>
+            <div id="${books[0]._id}" class ="add-book-js all-books-block item1">
+                       <img src="${books[0].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[0].title}</h4>
+                      <p class="all-books-block-text">${books[0].author}</p>
             
-                     <button type="button"> See more</button>
                        <span hidden>${books[0].list_name}</span>
             
                   </div>
-                  <div id="${books[1]._id}" class ="add-book-js item2">
-                       <img src="${books[1].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[1].title}</h4>
-                      <p>${books[1].author}</p>
+                  <div id="${books[1]._id}" class ="add-book-js all-books-block item2">
+                       <img src="${books[1].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[1].title}</h4>
+                      <p class="all-books-block-text">${books[1].author}</p>
             
-                     <button type="button"> See more</button>
                        <span hidden>${books[0].list_name}</span>
             
                   </div>
-                  <div id="${books[2]._id}" class ="add-book-js item3">
-                       <img src="${books[2].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[2].title}</h4>
-                      <p>${books[2].author}</p>
+                  <div id="${books[2]._id}" class ="add-book-js all-books-block item3">
+                       <img src="${books[2].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[2].title}</h4>
+                      <p class="all-books-block-text">${books[2].author}</p>
             
-                     <button type="button"> See more</button>
                        <span hidden>${books[2].list_name}</span>
             
                   </div>
-                  <div id="${books[3]._id}" class ="add-book-js item4">
-                       <img src="${books[3].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[3].title}</h4>
-                      <p>${books[3].author}</p>
+                  <div id="${books[3]._id}" class ="add-book-js all-books-block item4">
+                       <img src="${books[3].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[3].title}</h4>
+                      <p class="all-books-block-text">${books[3].author}</p>
             
-                     <button type="button"> See more</button>
                        <span hidden>${books[3].list_name}</span>
             
                   </div>
-                  <div id="${books[4]._id}" class ="add-book-js item5">
-                       <img src="${books[4].book_image}" alt="" loading="lazy" width="335">
-                     <h4>${books[4].title}</h4>
-                      <p>${books[4].author}</p>
-            
-                     <button type="button"> See more</button>
+                  <div id="${books[4]._id}" class ="add-book-js all-books-block item5">
+                       <img src="${books[4].book_image}" alt="" loading="lazy" width="335" class="all-books-block-img">
+                     <h4 class="all-books-block-title">${books[4].title}</h4>
+                      <p class="all-books-block-text">${books[4].author}</p>
                        <span hidden>${books[4].list_name}</span>
             
                   </div>
+                  <button type="button" class="see-more-btn"> See more</button> 
+
                   </div>
             `
       );

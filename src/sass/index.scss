@@ -6,12 +6,19 @@
 @import './all_categories';
 @import './general';
 @import './modal';
+
 @import './header';
 @import './modal-login-form';
 @import './settings-modal.scss';
 
 
-body{
+@import './all_books';
+
+
+body{ 
+    margin: 0 auto;
+    // margin-left: auto;
+    // margin-right: auto;
     @media screen and (min-width: 1440px) {
             max-width: 1440px;
             margin-left: auto;
