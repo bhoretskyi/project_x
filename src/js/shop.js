@@ -10,14 +10,12 @@ function paintBooksFromLocalstorage() {
           throw new Error('error');
         }
         console.log(resp);
-        shopListBookSection.insertAdjacentHTML('beforeend', `<div class="shop-card"><p hidden>${resp._id}</p>
-        <img class='modal-image' src="${resp.book_image}" alt="">
+        shopListBookSection.insertAdjacentHTML('beforeend', `<div><p hidden>${resp._id}</p>
+        <img  src="${resp.book_image}" alt="">
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p>
-      <a href="${resp.amazon_product_url}"><img src="/src/img/Amazon.png" alt=""></a>
-      <a href="${resp.book_uri}"><img src="/src/img/book-ios.png" alt=""></a>
-      <a href="${resp.amazon_product_url}"><img src="/src/img/book-shop.png" alt=""></a>
+    
       </div>
 `
       
