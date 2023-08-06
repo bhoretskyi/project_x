@@ -20,3 +20,116 @@ img {
     max-width: 100%;
     height: auto;
 }
+:root {
+    /* Variables */
+    --ligtht-theme: #ffffff;
+    --dark-theme-componemt: #111111;
+    --dark-theme: #202024;
+    --color-blue-component: #4f2ee8;
+    --color-yellow-componemt: #eac645;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+  }
+  .section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 320px;
+    max-width: 375px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  @media screen and (max-width: 767.98px) {
+    .group-thanks {
+      display: none;
+    }
+  }
+  
+  
+  @media screen and (min-width: 768px) and (max-width: 1439.98px) {
+    .section {
+      padding-bottom: 100px;
+    }
+    .container {
+      max-width: 768px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .home-aside {
+      display: flex;
+      gap: 32px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .container {
+      max-width: 1440px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  
+    .home-aside {
+      display: block;
+    }
+    .home-box {
+      display: flex;
+      gap: 40px;
+    }
+  }
+  
+  .main-info {
+    display: block;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1439.98px) {
+    .main-info {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+    }
+  }
+  .group-thanks {
+    margin-left: 50px;
+    width: max-content;
+    font-size: 18px;
+    font-weight: 500; 
+     white-space: nowrap;
+    overflow: hidden;
+    -webkit-animation: type 5s steps(50, end);
+    animation: type 5s steps(50, end) infinite;
+  }
+  
+  
+  @keyframes type {
+    from {
+      width: 0;
+    }
+    to {
+      width: 340px;
+    }
+  }
+  
+  @-webkit-keyframes type {
+    from {
+      width: 0;
+    }
+       to {
+         width: 340px;
+       }
+  }
+  
+  .sign:hover, .sign:focus {
+    color: var(--color-blue-component);
+  }
+  
+  @media screen and (max-width: 348px) {
+    
+  }
