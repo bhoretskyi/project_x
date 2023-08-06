@@ -40,10 +40,15 @@
 }
 
 .book-category-name{
-color: #b4afaf;
-    letter-spacing: .005em;
-    font-family: DM Sans Regular;
+color: #B4AFAF;
+    font-family: 'DM Sans Regular';
     font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+        /* 171.429% */
+    letter-spacing: 0.42px;
     text-transform: uppercase;
-    font-weight: 100;
+    margin-bottom: 18px;
+    //margin-top: 40px;
 }

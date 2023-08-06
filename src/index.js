@@ -71,7 +71,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
         let firstWords = categoryWords.slice(0, -1).join(' ');
         let lastWord = categoryWords.slice(-1);
 
-        bookCategoryTitleContainer.innerHTML = `<h2>${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
+        bookCategoryTitleContainer.innerHTML = `<h2 >${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
         sectionSelectedBooksByCategory.innerHTML = '';
         resp.map(book => {
           sectionSelectedBooksByCategory.insertAdjacentHTML(
@@ -115,7 +115,7 @@ startPage();
 function startPage() {
   sectionSelectedBooksByCategory.innerHTML = '';
   bookCategoryTitleContainer.innerHTML =
-    '<h2>Best Sellers <span class="last-title-word">Books</span></h2>';
+    '<h2 class="title-book-all">Best Sellers <span class="last-title-word">Books</span></h2>';
   getBestBook().then(resp =>
     resp.map(book => {
       const books = book.books;
@@ -194,7 +194,7 @@ function pushBooksByCategory(e) {
     let firstWords = categoryWords.slice(0, -1).join(' ');
     let lastWord = categoryWords.slice(-1);
 
-    bookCategoryTitleContainer.innerHTML = `<h2>${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
+    bookCategoryTitleContainer.innerHTML = `<h2 class="title-book-all">${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
   }
 
   getBookByCategory(selectedCategory)
