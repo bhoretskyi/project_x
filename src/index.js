@@ -1,7 +1,8 @@
-import './js/header';
-import './js/modal-login-form';
-import './js/account';
-import './js/settings';
+import './js/header.js';
+import './js/modal-login-form.js';
+import './js/account.js';
+import './js/settings.js';
+import './js/auth.js';
 import { openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
 import {

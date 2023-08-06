@@ -1,3 +1,13 @@
+:root {
+
+  --ligtht-theme: #ffffff;
+  --dark-theme-componemt: #111111;
+  --dark-theme: #202024;
+  --color-blue-component: #4f2ee8;
+  --color-yellow-componemt: #eac645;
+}
+
+
 body {
   flex-direction: column;
   font-family: DM Sans,sans-serif;
@@ -14,7 +24,7 @@ body {
   display: flex;
   padding-top: 14px;
   padding-bottom: 13px;
-  border: 1.5px solid #111111;;
+  border: 1.5px solid var(--dark-theme-componemt);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -43,7 +53,7 @@ body {
 .logo-link:focus,
 .icon-bookshelf:hover,
 .icon-bookshelf:focus {
-  fill: #4f2ee8;
+  fill: var(--color-blue-component);
 }
 
 .icon-logo {
@@ -56,7 +66,7 @@ body {
 .icon-logo:hover,
 .icon-logo:focus {
   transform: rotate(360deg);
-  fill: #4f2ee8;
+  fill: var(--color-blue-component);
 }
 
 .header-nav {
@@ -120,8 +130,8 @@ body {
 .home-btn:focus,
 .list-btn:hover,
 .list-btn:focus {
-  background-color: #eac645;
-  color: #fff;
+  background-color: var(--color-yellow-componemt);
+  color: var(--ligtht-theme);
   stroke: #00000050;
   fill: white;
   text-shadow: 0px 1px 2px #000000;
@@ -161,8 +171,8 @@ body {
   font-weight: 700;
   font-size: 14px;
   line-height: calc(18 / 16);
-  color: #fff;
-  background-color: #4f2ee8;
+  color: var(--ligtht-theme);
+  background-color: var(--color-blue-component);
   border: none;
   border-radius: 36px;
   padding-left: 12px;
@@ -236,7 +246,7 @@ body.dark-theme .user-btn:hover {
 
 .animate {
   margin-left: 80px;
-  stroke: #eac645;
+  stroke: var(--color-yellow-componemt);
   transition: 350ms linear;
 }
 
@@ -259,8 +269,8 @@ body.dark-theme .user-btn:hover {
   font-size: 14px;
   line-height: calc(18 / 14);
   color: var(--ligtht-theme);
-  background-color: #4f2ee8;
-  border: 1.5px solid #111;
+  background-color: var(--color-blue-component);
+  border: 1.5px solid var(--dark-theme-componemt);
   border-radius: 18px;
   padding-left: 12px;
   padding-right: 18px;
@@ -293,7 +303,7 @@ body.dark-theme .user-btn:hover {
 }
 
 .arr-icon-yellow {
-  stroke: #eac645;
+  stroke: var(--color-yellow-componemt);
   margin-left: 90px;
 }
 
@@ -311,14 +321,14 @@ body.dark-theme .user-btn:hover {
   width: 37px;
   height: 37px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--ligtht-theme);
 }
 
 .checkbox {
   width: 40px;
   height: 20px;
 
-  background: linear-gradient(#4f2ee8 0%, #fff 100%);
+  background: linear-gradient(var(--color-blue-component) 0%, var(--ligtht-theme) 100%);
 
   margin-right: 24px;
   position: relative;
@@ -352,11 +362,11 @@ body.dark-theme .user-btn:hover {
   top: 1px;
   left: 1px;
   z-index: 1;
-  background: #fff;
+  background: var(--ligtht-theme);
   border-radius: 50px;
   transition: all 0.4s ease;
   /* box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); */
-  box-shadow: inset 2px -3px 5px 0px #4f2ee8;
+  box-shadow: inset 2px -3px 5px 0px var(--color-blue-component);
 }
 
 .checkbox-input {
@@ -365,8 +375,8 @@ body.dark-theme .user-btn:hover {
 
 .checkbox-input:checked+label {
   left: 21px;
-  background-color: #fff;
-  box-shadow: inset 0px -3px 5px 0px #4f2ee8;
+  background-color: var(--ligtht-theme);
+  box-shadow: inset 0px -3px 5px 0px var(--color-blue-component);
 }
 
 .burger-meny-btn {
@@ -378,13 +388,13 @@ body.dark-theme .user-btn:hover {
 }
 
 .burger-meny-icon {
-  stroke: #111;
+  stroke: var(--dark-theme-componemt);
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .burger-meny-icon:hover,
 .burger-meny-icon:focus {
-  stroke: #eac645;
+  stroke: var(--color-yellow-componemt);
   transform: rotate(360deg);
 }
 
@@ -419,13 +429,13 @@ body.dark-theme .user-btn:hover {
   padding: 0px;
   background-color: transparent;
   border: transparent;
-  color: #111;
+  color: var(--dark-theme-componemt);
   cursor: pointer;
   /* margin-left: 24px; */
 }
 
 .close-menu-icon {
-  stroke: #111;
+  stroke: var(--dark-theme-componemt);
 
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -433,7 +443,7 @@ body.dark-theme .user-btn:hover {
 .close-menu-icon:hover,
 .close-menu-icon:focus {
 
-  stroke: #eac645;
+  stroke: var(--color-yellow-componemt);
   transform: rotate(360deg);
 }
 
