@@ -1,114 +1,121 @@
 .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
-    left:  50%;
-    top: 50%;
-   transform: translate(-50%,-50%);
-   text-align: center;
-  
-    // top: 0;
-    width: 335px;
+  // top: 0;
+  width: 335px;
+  height: 100%;
+  overflow: auto;
+  border-radius: 18px;
+  border: 2px solid #111;
+  background: #fff;
+  @media screen and (min-width: 768px) {
+    width: 579px;
+    height: 70%;
+  }
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fefefe;
+
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+  @media screen and (min-width: 768px) {
     height: 100%;
-    overflow: auto;
-    border-radius: 18px;
-    border: 2px solid #111;
-    background: #FFF;
-@media screen and (min-width: 768px) {
-  width: 579px;
-height: 70%;
- }
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
+}
 
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: #fefefe;
- 
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px;
-    @media screen and (min-width: 768px) {
-height: 100%;
-flex-direction: row;
-align-items: flex-start;
-flex-wrap: nowrap;
-     }
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #111111;
-    position: absolute;
-    top: 2px;
-    right: 12px;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .modal-image {
-    width: 100%;
-    @media screen and (min-width: 768px) {
-      width: 192px;
-height: 281px;
-     }
-  }
+.modal-content-parent {
+  margin-bottom: 40px;
+}
 
-  .add-to-list-btn {
-    // margin: 0 auto;
-    // display: block;
-    
-    padding: 14px 28px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-    border-radius: 40px;
-border: 2px solid #4F2EE8;
-color: #111;
-font-size: 18px;
-font-style: normal;
-font-weight: 700;
-@media screen and (min-width: 768px) {
-  width: 499px;
-padding: 20px 173px;
-  
- }
+/* The Close Button */
+.close {
+  color: #111111;
+  position: absolute;
+  top: 2px;
+  right: 12px;
+  font-size: 35px;
+  font-weight: bold;
+}
 
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-image {
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 192px;
+    height: 281px;
   }
-  .remove-from-list-btn {
-    padding: 14px 28px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-    border-radius: 40px;
-border: 2px solid #4F2EE8;
-color: #111;
-font-size: 18px;
-font-style: normal;
-font-weight: 700;
-@media screen and (min-width: 768px) {
-  width: 499px;
-padding: 20px 173px;
-  
- }
+}
 
-  }
-  
+.add-to-list-btn {
   // padding: 14px 28px;
+  justify-content: center;
+  align-items: center;
+  // gap: 10px;
+  border-radius: 40px;
+  border: 2px solid #4f2ee8;
+  color: #111;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  width: 499px;
+  height: 64px;
+  @media screen and (min-width: 768px) {
+    padding: 20px 150px;
+  }
+}
+.remove-from-list-btn {
+  // padding: 14px 28px;
+  justify-content: center;
+  align-items: center;
+  // gap: 10px;
+  border-radius: 40px;
+  border: 2px solid #4f2ee8;
+  color: #111;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  width: 499px;
+  height: 64px;
+  @media screen and (min-width: 768px) {
+    padding: 20px 100px;
+  }
+}
+
+.remove-from-list-btn:hover,
+.remove-from-list-btn:focus {
+  background-color: #4f2ee8;
+  color: #ffffff;
+}
+
+.add-to-list-btn:hover,
+.add-to-list-btn:focus {
+  background-color: #4f2ee8;
+  color: #ffffff;
+}
