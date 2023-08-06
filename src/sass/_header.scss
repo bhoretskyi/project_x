@@ -9,12 +9,15 @@
 
 
 body {
+  
   flex-direction: column;
   font-family: DM Sans,sans-serif;
   font-size: 14px;
   font-weight: 400;
   display: flex;
 }
+
+
 .section.header-section {
   padding-top: 0;
   padding-bottom: 0;
@@ -466,4 +469,8 @@ body.dark-theme .user-btn:hover {
 
 .log-out-icon.big {
   margin-left: 85px;
+}
+
+.aaa{
+  background-color: #160e0e;
 }
