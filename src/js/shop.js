@@ -15,8 +15,10 @@ function paintBooksFromLocalstorage() {
       <h4>${resp.title}</h4>
       <p>${resp.author}</p>
       <p>${resp.description}</p> 
+      
     
       </div>
+      
 `
       
       )
@@ -25,3 +27,4 @@ function paintBooksFromLocalstorage() {
   });
 }
 paintBooksFromLocalstorage();
+
