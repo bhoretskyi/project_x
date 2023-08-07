@@ -246,7 +246,17 @@ getCategories()
   .catch(err => console.log(err));
 
 
+//переключние темы. Не удалять!!!
 
+const checkBox = document.querySelector('.checkbox')
+// console.log(loginForm);
+const tegs = document.querySelectorAll('h')
+checkBox.addEventListener('change', chengeTheme);
+
+function chengeTheme() {
+    document.body.classList.toggle('aaa')  
+    //document.h3.classList.toggle('aaa')           
+} 
   
 
   

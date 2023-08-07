@@ -65,19 +65,19 @@
 }
 
 .section-all-categories{
-    
+    z-index: 1000;
     max-width: 375px;
         padding-top: 40px;
-        padding-left: 20px;
-        padding-right: 20px;
+        // padding-left: 20px;
+        // padding-right: 20px;
         padding-bottom: 40px;
         margin: 0 auto;
     @media screen and (min-width: 768px) {
-            max-width: 768px;
+            max-width: 704px;
             display: flex;
             gap: 32px;
-            padding-left: 32px;
-            padding-right: 32px;
+            // padding-left: 32px;
+            // padding-right: 32px;
         }
     @media screen and (min-width: 1440px) {
             position: absolute;
@@ -90,7 +90,7 @@
 }
 
 .div-qqq {
-    z-index: -1;
+    
     width: 335px;
     height: 352px;
     color: #4F2EE8;
@@ -103,20 +103,19 @@
 
     @media screen and (min-width: 768px) {
         margin-top: 0;
-        width: 337px;
-        height: 472px;
+        width: 335px;
+        height: 474px;
     }
 }
 
 
 .title-book-all{
     display: block;
-    width: 375px;
+    width: 335px;
     height: 52px;
     margin: 0 auto;
     margin-bottom: 40px;
-    padding-left: 20px;
-    color: #111;
+    //color: #111;
         font-family: 'DM Sans Regular';
         font-size: 32px;
         font-style: normal;
@@ -124,14 +123,19 @@
         line-height: 38px;
         letter-spacing: -1.28px;
         @media screen and (min-width: 768px) {
-                width: 768px;
-                padding-left: 32px;
+                width: 704px;
+                padding-left: 0;
                 margin-top: 60px;
-                color: #111;
+                margin-left: 0;
+                //color: #111;
                 font-size: 48px;
                 line-height: 52px;
                 letter-spacing: -1.92px;
             }
+                @media screen and (min-width: 1440px) {
+                    margin-left: 404px;
+                    padding-left: 0;
+                }
 }
 
 .last-title-word{
@@ -150,21 +154,40 @@ border: 2px solid #4F2EE8;
     height: 188px;
     margin-top: 44px;
     margin-left: 40px;
+    @media screen and (min-width: 768px) {
+            width: 159px;
+            height: 292px;
+            margin-top: 42px;
+        }
 }
 
 .div-qqq-title{
     display: inline-block;
-    z-index: 1;
+    //z-index: 1;
     color: #FFF;
         font-family: 'DM Sans Regular';
         font-size: 22px;
         font-style: normal;
         font-weight: 700;
         line-height: 24px;
-        /* 109.091% */
         letter-spacing: -0.88px;
         margin-top: 28px;
         margin-left: 40px;
+        @media screen and (min-width: 768px) {
+            margin-top: 26px;
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: -0.96px;
+            }
+}
+
+.slick-prev {
+     left: 0; 
+     display: none;
+}
+
+.slick-prev:before {
+    content: '';
 }
 
 .slick-next {
@@ -174,22 +197,58 @@ border: 2px solid #4F2EE8;
     left: 65%;
     rotate: 90deg;
     opacity: 1;
+    @media screen and (min-width: 768px) {
+            top: 110%;
+            width: 38px;
+        }
 }
 
-// .slick-prev,
-// .slick-next {
-    
-//     width: 32px;
-//     height: 32px;
-// }
 
-// .slick-next .slick-arrow{
-//     width: 32px;
-//     height: 32px;
-// }
 
 .slick-prev:before,
 .slick-next:before {
     
     font-size: 32px;
+    @media screen and (min-width: 768px) {
+           
+            font-size: 38px;
+        }
+}
+
+.slider-link{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    height: 32px;
+}
+
+.slider-link-text{
+    color: #FFF;
+        font-family: 'DM Sans Regular';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        /* 128.571% */
+        letter-spacing: -0.56px;
+}
+
+.slider-item{
+    height: 32px;
+    margin-bottom: 20px;
+}
+
+.slider-link-img{
+    height: 32px;
+}
+
+.support-ukraine-block{
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.support-ukraine-block-svg{
+    height: 32px;
+    width: 20px;
 }
