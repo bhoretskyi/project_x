@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <link
+      rel="shortcut icon"
+      href="./img/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- <script type="module" src="./index.js"></script> -->
+    <script type="module" src="./shop.js"></script>
+  </head>
+
+  <body class="body-shopping-list" data-theme="light">
+    <header>
+      <include src="./partials/header.html"></include>
+    </header>
+    <main>
+      <div class="shopping-list-container">
+        <div class="support-sl visually-hidden">
+          <include src="./partials/support.html"></include>
+        </div>
+        <div class="shopping-list-wrap">
+          <h1 class="shopping-title">
+            Shopping<span class="sl-title"> List</span>
+          </h1>
+          <div class="shopping-list-data"></div>
+        </div>
+      </div>
+
+      <!-- //////////////BOOK CARD -->
+
+      <!-- //////////////BOOK CARD -->
+      <include src="./partials/button-scroll.html"></include>
+    </main>
+
+    <footer>
+      <include src="./partials/footer.html"></include>
+    </footer>
+  </body>
+</html>
