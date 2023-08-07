@@ -6,7 +6,7 @@ export function openModal() {
   backdrop.classList.add('modal-active');
   document.addEventListener('keydown', onEscapeKey)
   backdrop.addEventListener('click', closeModal)
-}
+} 
 export function closeModal() {
   document.getElementById('myModal').style.display = 'none';
   document.body.classList.remove('body-scroll-lock');
