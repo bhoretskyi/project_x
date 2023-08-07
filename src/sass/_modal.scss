@@ -4,7 +4,6 @@
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
   padding-top: 40px;
   padding-left: 24px;
   padding-right: 24px;
@@ -18,19 +17,17 @@
     position: fixed;
     overflow: hidden;
     z-index: 9999;
-    padding-top: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
-    left:  50%;
-    top: 50%;
-   transform: translate(-50%,-50%);
-   text-align: center;
     width: 335px;
     height: 100%;
+    
     
     border-radius: 18px;
     border: 2px solid #111;
     background: #FFF;
+    @media screen and (min-width: 375px) {
+     height: 660px;
+     width: 335px;
+     }
 @media screen and (min-width: 768px) {
   width: 579px;
 height: 70%;
@@ -38,54 +35,41 @@ height: 70%;
 
   }
   
-  /* Modal Content */
-  .modal-content {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: #fefefe;
- 
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px;
-    @media screen and (min-width: 768px) {
-height: 100%;
-flex-direction: row;
-align-items: flex-start;
-flex-wrap: nowrap;
-     }
-  }
+  
   
   /* The Close Button */
-  .close {
-    color: #111111;
-    position: absolute;
-    top: 2px;
-    right: 12px;
-    font-size: 35px;
-    font-weight: bold;
+  // .close {
+  //   color: #111111;
+  //   position: absolute;
+  //   top: 2px;
+  //   right: 12px;
+  //   font-size: 35px;
+  //   font-weight: bold;
 
-  }
+  // }
 
 
 /* Modal Content */
 .modal-content {
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   background-color: #fefefe;
 
-  margin: auto;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 40px;
   padding: 0;
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
+  @media screen and (min-width: 375px) {
+    height: 474px;
+    width: 287px;
+    
+  }
   @media screen and (min-width: 768px) {
     height: 100%;
     flex-direction: row;
@@ -95,7 +79,7 @@ flex-wrap: nowrap;
 }
 
 .modal-content-parent {
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
 }
 
 /* The Close Button */
@@ -133,9 +117,11 @@ flex-wrap: nowrap;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  width: 499px;
-  height: 64px;
+  min-width: 279px;
+  height: 46px;
   @media screen and (min-width: 768px) {
+    width: 499px;
+  
     padding: 20px 150px;
   }
 }
@@ -150,15 +136,10 @@ flex-wrap: nowrap;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  width: 499px;
-  height: 64px;
-  @media screen and (min-width: 768px) {
-    padding: 20px 100px;
-  }
-
-}
-
-.remove-from-list-btn:hover,
+  min-width: 279px;
+  height: 46px;
+  
+  .remove-from-list-btn:hover,
 .remove-from-list-btn:focus {
   background-color: #4f2ee8;
   color: #ffffff;
@@ -169,6 +150,15 @@ flex-wrap: nowrap;
   background-color: #4f2ee8;
   color: #ffffff;
 }
+  @media screen and (min-width: 768px) {
+    width: 499px;
+  height: 64px;
+    padding: 20px 100px;
+  }
+
+}
+
+
 .backdrop {
   position: fixed;
   top: 0;
