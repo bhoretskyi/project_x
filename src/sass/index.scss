@@ -4,10 +4,23 @@
 @import './fonts';
 @import './charity_fond';
 @import './all_categories';
-//@import './general';
+@import './general';
 @import './modal';
 
-body{
+@import './header';
+@import './modal-login-form';
+@import './settings-modal.scss';
+
+
+@import './all_books';
+@import './shopping-list';
+
+
+body{ 
+    margin: 0 auto;
+    background: #F6F6F6;
+    padding-left: 24px;
+    padding-right: 24px;
     @media screen and (min-width: 1440px) {
             max-width: 1440px;
             margin-left: auto;

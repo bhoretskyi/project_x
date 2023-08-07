@@ -1,0 +1,54 @@
+.all-books-block{
+    margin-bottom: 40px;
+    // margin-left: auto;
+    // margin-right: auto;
+        @media screen and (min-width: 768px) {
+            width: 218px;
+            margin-bottom: 15px;
+        }
+    
+        @media screen and (min-width: 1440px) {
+            width: 180px;
+            margin-bottom: 15px;
+        }
+}
+
+.all-books-block-img{
+    border-radius: 8px;
+    
+        @media screen and (min-width: 768px) {
+            width: 218px;
+        }
+    
+        @media screen and (min-width: 1440px) {
+            width: 180px;
+        }
+}
+
+.all-books-block-title{
+    color: #111111;
+        font-family: 'DM Sans Bold';
+        margin-top: 14px;
+        font-size: 16px;
+}
+
+.all-books-block-text{
+    font-family: 'DM Sans Italic';
+        margin-top: 4px;
+        font-size: 12px;
+        color: #B4AFAF;
+}
+
+.book-category-name{
+color: #B4AFAF;
+    font-family: 'DM Sans Regular';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+        /* 171.429% */
+    letter-spacing: 0.42px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    //margin-top: 40px;
+}
