@@ -22,7 +22,6 @@
     "modern-normalize": "^1.1.0",
     "parce": "^1.2.8",
     "simplelightbox": "^2.14.1",
-    "slick-carousel": "^1.8.1",
     "swiper": "^10.1.0"
   },
   "devDependencies": {
