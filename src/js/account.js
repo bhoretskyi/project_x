@@ -46,9 +46,9 @@
 // const userAccount = new Account();
 
 // const userRef = {
-//     userName: "Viktoria",
-//     userEmail: "tori@gmail.com",
-//     userPassword: "134343111"
+//     userName: "Stas",
+//     userEmail: "lazavenko@ukr.net",
+//     userPassword: "1234567890"
 // }
 
 

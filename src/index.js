@@ -3,6 +3,7 @@ import './js/modal-login-form.js';
 import './js/account.js';
 import './js/settings.js';
 import './js/auth.js';
+import './js/modal-mobile-menu.js';
 import { openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
 import { 
