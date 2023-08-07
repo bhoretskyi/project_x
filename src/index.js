@@ -5,7 +5,7 @@ import './js/settings.js';
 import './js/auth.js';
 import { openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
-import {
+import { 
   getBestBook,
   getCategories,
   getBookByCategory,
@@ -13,12 +13,13 @@ import {
 import { getBookById } from './js/books_api.js';
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
-const shop = document.querySelector('.book-shop');
+const shop = document.querySelector('.book-shop'); 
 
 const modalContent = document.querySelector('.modal-content-parent');
 const closeModalBtn = document.querySelector('.close');
 const addToListBtn = document.querySelector('.add-to-list-btn');
 const removeFromListBtn = document.querySelector('.remove-from-list-btn');
+const modalHiddenText = document.querySelector('.modal-hidden-text');
 const bookCategoryTitleContainer = document.querySelector(
   '.book-category-title-container'
 );
@@ -32,21 +33,23 @@ const BOOKS = [];
 
 closeModalBtn.addEventListener('click', closeModal);
 addToListBtn.addEventListener('click', e => {
-  const idForButton = e.currentTarget.previousElementSibling.firstElementChild.children[4].textContent
-    // e.currentTarget.previousElementSibling.firstElementChild.lastElementChild
-    //   .children[3].textContent;
-
+  console.log();
+  const idForButton =
+  e.currentTarget.previousElementSibling.firstElementChild.children[1].children[3].textContent
   addToListBtn.hidden = true;
   removeFromListBtn.hidden = false;
+  modalHiddenText.hidden = false;
   BOOKS.push(idForButton);
-  pushBookIdToStorage(BOOKS);
+  pushBookIdToStorage(BOOKS); 
 });
 removeFromListBtn.addEventListener('click', e => {
-    
+  console.log();
   const idForRemoveButton =
-  e.currentTarget.parentElement.children[1].firstElementChild.children[4].textContent;
+  e.currentTarget.parentElement.children[1].firstElementChild.children[1].children[3].textContent
   addToListBtn.hidden = false;
   removeFromListBtn.hidden = true;
+  modalHiddenText.hidden = true;
+
   removeBookFromStorage(idForRemoveButton);
 });
 
@@ -62,10 +65,13 @@ function removeBookFromStorage(book) {
 sectionSelectedBooksByCategory.addEventListener('click', e => {
   const bookId = e.target.parentElement.id;
   if (BOOKS.includes(bookId)) {
+    modalHiddenText.hidden = false
     addToListBtn.hidden = true;
     removeFromListBtn.hidden = false;
-  }
+  } 
   if (!BOOKS.includes(bookId)) {
+    modalHiddenText.hidden = true
+
     addToListBtn.hidden = false;
     removeFromListBtn.hidden = true;
   }
@@ -111,20 +117,27 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       if (resp.message !== 'Not found') {
         openModal();
         modalContent.innerHTML = `<div class="modal-content"><img class='modal-image' src="${resp.book_image}" alt="">
-        
+        <div class="modal-shop-text">
       <h4 class="modal-content-title">${resp.title}</h4>
-      <p class="modal-content-author">${resp.author}</p>
-      <p class="modal-content-description">${resp.description}</p>
-      <p hidden>${resp._id}</p>
-<div class="modal-shop-list">
+      <p class="modal-content-author">${resp.author}</p> 
+      <p class="modal-content-description">${resp.description}</p> 
+      <p hidden>${resp._id}</p> 
+      <div class="modal-shop-list">
 
+      
+      
       <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>
       <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>
       <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>
       </div>
-      <div>
-      
+      </div>
+<div class>
 
+      
+      </div>
+      
+      
+ 
       `;
       }
     })
@@ -229,9 +242,9 @@ function pushBooksByCategory(e) {
           <p class="section-book-card-text">${book.author}</p>
       </div>`
         );
-      });  
+      });
     })
-    .catch(err => console.log(err)); 
+    .catch(err => console.log(err));
 }
 
 getCategories()
@@ -248,9 +261,3 @@ getCategories()
     );
   })
   .catch(err => console.log(err));
-
-
-
-     
-
-  
