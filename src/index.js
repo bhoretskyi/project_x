@@ -32,9 +32,9 @@ const BOOKS = [];
 
 closeModalBtn.addEventListener('click', closeModal);
 addToListBtn.addEventListener('click', e => {
-  const idForButton =
-    e.currentTarget.previousElementSibling.firstElementChild.lastElementChild
-      .children[3].textContent;
+  const idForButton = e.currentTarget.previousElementSibling.firstElementChild.children[4].textContent
+    // e.currentTarget.previousElementSibling.firstElementChild.lastElementChild
+    //   .children[3].textContent;
 
   addToListBtn.hidden = true;
   removeFromListBtn.hidden = false;
@@ -42,9 +42,9 @@ addToListBtn.addEventListener('click', e => {
   pushBookIdToStorage(BOOKS);
 });
 removeFromListBtn.addEventListener('click', e => {
+    
   const idForRemoveButton =
-    e.currentTarget.parentElement.children[1].firstElementChild.lastElementChild
-      .children[3].textContent;
+  e.currentTarget.parentElement.children[1].firstElementChild.children[4].textContent;
   addToListBtn.hidden = false;
   removeFromListBtn.hidden = true;
   removeBookFromStorage(idForRemoveButton);
@@ -111,14 +111,18 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       if (resp.message !== 'Not found') {
         openModal();
         modalContent.innerHTML = `<div class="modal-content"><img class='modal-image' src="${resp.book_image}" alt="">
-        <div>
+        
       <h4 class="modal-content-title">${resp.title}</h4>
       <p class="modal-content-author">${resp.author}</p>
       <p class="modal-content-description">${resp.description}</p>
       <p hidden>${resp._id}</p>
+<div class="modal-shop-list">
+
       <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>
       <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>
       <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>
+      </div>
+      <div>
       
 
       `;
@@ -225,9 +229,9 @@ function pushBooksByCategory(e) {
           <p class="section-book-card-text">${book.author}</p>
       </div>`
         );
-      });
+      });  
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err)); 
 }
 
 getCategories()
@@ -248,6 +252,7 @@ getCategories()
 
 //переключние темы. Не удалять!!!
 
+
 const checkBox = document.querySelector('.checkbox')
 // console.log(loginForm);
 const tegs = document.querySelectorAll('h')
@@ -258,5 +263,6 @@ function chengeTheme() {
     //document.h3.classList.toggle('aaa')           
 } 
   
+
 
   
