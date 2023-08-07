@@ -90,6 +90,7 @@
 }
 
 .div-qqq {
+    z-index: -1;
     width: 335px;
     height: 352px;
     color: #4F2EE8;
@@ -142,4 +143,53 @@
     padding: 14px 28px;
     border-radius: 40px;
 border: 2px solid #4F2EE8;
+}
+
+.slider{
+    width: 159px;
+    height: 188px;
+    margin-top: 44px;
+    margin-left: 40px;
+}
+
+.div-qqq-title{
+    display: inline-block;
+    z-index: 1;
+    color: #FFF;
+        font-family: 'DM Sans Regular';
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        /* 109.091% */
+        letter-spacing: -0.88px;
+        margin-top: 28px;
+        margin-left: 40px;
+}
+
+.slick-next {
+    width: 32px;
+    position: absolute;
+    top: 100%;
+    left: 65%;
+    rotate: 90deg;
+    opacity: 1;
+}
+
+// .slick-prev,
+// .slick-next {
+    
+//     width: 32px;
+//     height: 32px;
+// }
+
+// .slick-next .slick-arrow{
+//     width: 32px;
+//     height: 32px;
+// }
+
+.slick-prev:before,
+.slick-next:before {
+    
+    font-size: 32px;
 }
