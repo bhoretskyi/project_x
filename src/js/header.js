@@ -14,8 +14,6 @@ const userSelectBtnEl = document.querySelector('.js-user-select-btn')
 const logOutBtn = document.querySelector('.js-log-out-btn')
 const loginForm = document.querySelector('.overlayLoginForm')
 
-const checkBox = document.querySelector('.checkbox')
-// console.log(loginForm);
 
 
 if (shopList) {
@@ -57,22 +55,3 @@ function showSingUpForm(event) {
 
 
 
-checkBox.addEventListener('change', chengeTheme);
-
-function chengeTheme(event) {
-
-    document.body.classList.toggle('aaa')
-    console.log(event.currentTarget)
-        
-    // if (document.body.classList.contains('aaa')) {
-    //     document.body.classList.remove('aaa')
-    //     console.log(document.body.classList)
-    // }
-    // else {
-    //     document.body.classList.add('aaa')
-    // }
-        
-        
-    
-        
-} 

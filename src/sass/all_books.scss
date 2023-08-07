@@ -26,7 +26,7 @@
 }
 
 .all-books-block-title{
-    color: #111111;
+    //color: #111111;
         font-family: 'DM Sans Bold';
         margin-top: 14px;
         font-size: 16px;
@@ -51,4 +51,9 @@ color: #B4AFAF;
     text-transform: uppercase;
     margin-bottom: 18px;
     //margin-top: 40px;
+    @media screen and (min-width: 1440px) {
+    
+          margin-bottom: 0; 
+    
+        }
 }
