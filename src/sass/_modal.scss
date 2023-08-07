@@ -147,17 +147,8 @@ height: 465px;
   min-width: 279px;
   height: 46px;
   
-  .remove-from-list-btn:hover,
-.remove-from-list-btn:focus {
-  background-color: #4f2ee8;
-  color: #ffffff;
-}
+  
 
-.add-to-list-btn:hover,
-.add-to-list-btn:focus {
-  background-color: #4f2ee8;
-  color: #ffffff;
-}
   @media screen and (min-width: 768px) {
     width: 499px;
   height: 64px;
@@ -253,4 +244,14 @@ letter-spacing: -0.4px;
     flex-direction: column;
     align-items: flex-start;
   }
+}
+.remove-from-list-btn:hover,
+.remove-from-list-btn:focus {
+  background-color: #4f2ee8;
+  color: #ffffff;
+}
+.add-to-list-btn:hover,
+.add-to-list-btn:focus {
+  background-color: #4f2ee8;
+  color: #ffffff;
 }
