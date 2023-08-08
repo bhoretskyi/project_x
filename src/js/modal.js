@@ -36,8 +36,3 @@ export function closeBurgerModal() {
   // backdrop.removeEventListener('click', closeModal)
 }
 
-function onEscapeKey(e) {
-  if (e.key === 'Escape') {
-    closeModal();
-  }
-} 
