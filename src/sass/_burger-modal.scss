@@ -7,6 +7,7 @@
     max-height: calc((100vh - 46px));
     display: none;
   position: fixed;
+  overflow: hidden;
   
   left: 50%;
   
@@ -56,6 +57,7 @@ text-transform: uppercase;
 .fill-white {
   fill: #FFF;
 }
+
 .burger-buttons { 
   margin-top: 130px;
   margin-left: 129px;
@@ -79,6 +81,9 @@ letter-spacing: -0.44px;
 }
 
 .burger-login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 118px;
 height: 48px;
