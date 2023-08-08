@@ -294,3 +294,8 @@ burgerBtn.addEventListener('click', ()=>{
   burgerBtn.hidden =false
 
  })
+
+ if(window.innerWidth >= 768){
+  console.log(window.innerWidth);
+  closeBurgerModal()
+}
