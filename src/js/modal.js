@@ -21,7 +21,7 @@ function onEscapeKey(e) {
 }
  
 export function openBurgerModal() {
-  document.getElementById('burgerModal').style.display = 'block';      
+  document.getElementById('burgerModal').style.display = 'block';        
    
   document.body.classList.add('body-scroll-lock'); 
    
