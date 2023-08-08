@@ -20,6 +20,7 @@
   "dependencies": {
     "jquery": "^3.7.0",
     "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6",
     "parce": "^1.2.8",
     "simplelightbox": "^2.14.1",
     "swiper": "^10.1.0"

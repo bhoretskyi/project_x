@@ -16,6 +16,8 @@
 
 @import './all_books';
 @import './shopping-list';
+@import './burger-modal';
+
 
 
 body{ 
@@ -40,7 +42,33 @@ body{
     }
 
 
-.aaa {
-    background-color: #160e0e;
+.dark-thema {
+    background-color: #202024;
+    color: #ffffff;
+}
+
+.svg-icon-header{
+    fill: #F3F3F3;
+    
+}
+
+
+.header-fone{
+    background-color: #111;
+    border: 1.5px solid #FFF;
+}
+
+.shopping-card{
+background-color: #111;
+}
+
+.list-item-color-thema{
+    color: rgba(255,
+                255,
+                255,
+                0.60);
+}
+
+.rrr{
     color: #ffffff;
 }

@@ -3,10 +3,12 @@ import './js/modal-login-form.js';
 import './js/account.js';
 import './js/settings.js';
 import './js/auth.js';
-import './js/modal-mobile-menu.js';
-import { openModal } from './js/modal.js';
+import Notiflix from 'notiflix';
+import { Loading } from 'notiflix';
+
+import { closeBurgerModal, openBurgerModal, openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
-import { 
+import {
   getBestBook,
   getCategories,
   getBookByCategory,
@@ -14,7 +16,7 @@ import {
 import { getBookById } from './js/books_api.js';
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
-const shop = document.querySelector('.book-shop'); 
+const shop = document.querySelector('.book-shop');
 
 const modalContent = document.querySelector('.modal-content-parent');
 const closeModalBtn = document.querySelector('.close');
@@ -36,17 +38,19 @@ closeModalBtn.addEventListener('click', closeModal);
 addToListBtn.addEventListener('click', e => {
   console.log();
   const idForButton =
-  e.currentTarget.previousElementSibling.firstElementChild.children[1].children[3].textContent
+    e.currentTarget.previousElementSibling.firstElementChild.children[1]
+      .children[3].textContent;
   addToListBtn.hidden = true;
   removeFromListBtn.hidden = false;
   modalHiddenText.hidden = false;
   BOOKS.push(idForButton);
-  pushBookIdToStorage(BOOKS); 
+  pushBookIdToStorage(BOOKS);
 });
 removeFromListBtn.addEventListener('click', e => {
   console.log();
   const idForRemoveButton =
-  e.currentTarget.parentElement.children[1].firstElementChild.children[1].children[3].textContent
+    e.currentTarget.parentElement.children[1].firstElementChild.children[1]
+      .children[3].textContent;
   addToListBtn.hidden = false;
   removeFromListBtn.hidden = true;
   modalHiddenText.hidden = true;
@@ -66,12 +70,12 @@ function removeBookFromStorage(book) {
 sectionSelectedBooksByCategory.addEventListener('click', e => {
   const bookId = e.target.parentElement.id;
   if (BOOKS.includes(bookId)) {
-    modalHiddenText.hidden = false
+    modalHiddenText.hidden = false;
     addToListBtn.hidden = true;
     removeFromListBtn.hidden = false;
-  } 
+  }
   if (!BOOKS.includes(bookId)) {
-    modalHiddenText.hidden = true
+    modalHiddenText.hidden = true;
 
     addToListBtn.hidden = false;
     removeFromListBtn.hidden = true;
@@ -82,6 +86,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
+        
         bookCategoryTitleContainer.innerHTML = '';
         let categoryWords = buttonSelectedCategory.split(' ');
 
@@ -101,8 +106,14 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       </div>`
           );
         });
+        
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        Notiflix.Notify.failure(
+          'Oops... something went wrong. Please reload the page'
+        );
+        console.log(err);
+      });
     return;
   }
 
@@ -142,7 +153,12 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       `;
       }
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      Notiflix.Notify.failure(
+        'Oops... something went wrong. Please reload the page'
+      );
+      console.log(err);
+    });
 });
 startPage();
 function startPage() {
@@ -154,7 +170,7 @@ function startPage() {
   bookCategoryTitleContainer.innerHTML =
     '<h2 class="title-book-all">Best Sellers <span class="last-title-word">Books</span></h2>';
   getBestBook().then(resp =>
-    resp.map(book => {
+    {resp.map(book => {
       const books = book.books;
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
@@ -207,7 +223,13 @@ function startPage() {
             `
       );
     })
-  );
+    Loading.remove()}
+  ).catch(err => {
+    Notiflix.Notify.failure(
+      'Oops... something went wrong. Please reload the page'
+    );
+    console.log(err);
+  })  
 }
 
 categorySectionList.addEventListener('click', pushBooksByCategory);
@@ -232,6 +254,7 @@ function pushBooksByCategory(e) {
 
   getBookByCategory(selectedCategory)
     .then(resp => {
+      Loading.remove()
       sectionSelectedBooksByCategory.innerHTML = '';
       resp.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
@@ -245,7 +268,12 @@ function pushBooksByCategory(e) {
         );
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      Notiflix.Notify.failure(
+        'Oops... something went wrong. Please reload the page'
+      );
+      console.log(err);
+    });
 }
 
 getCategories()
@@ -261,23 +289,56 @@ getCategories()
       )
     );
   })
-  .catch(err => console.log(err));
-
+  .catch(err => {
+    Notiflix.Notify.failure(
+      'Oops... something went wrong. Please reload the page'
+    );
+    console.log(err);
+  });
 
 //переключние темы. Не удалять!!!
 
-
-const checkBox = document.querySelector('.checkbox')
+const checkBox = document.querySelector('.checkbox');
 // console.log(loginForm);
-const tegs = document.querySelectorAll('h')
+
+const svgIconHeader = document.querySelector('.icon-bookshelf');
+const listItemQ = document.querySelector('.book-categories-list');
+const svgIconShop = document.querySelector('.list-btn-svg');
+const headerFone = document.querySelector('.header-container');
+const allCat = document.querySelector('.all-categories');
+
 checkBox.addEventListener('change', chengeTheme);
 
 function chengeTheme() {
-    document.body.classList.toggle('aaa')  
-    //document.h3.classList.toggle('aaa')           
-} 
-  
+  console.log('Клик работает');
+  document.body.classList.toggle('dark-thema');
+  svgIconHeader.classList.toggle('svg-icon-header');
+  svgIconShop.classList.toggle('svg-icon-header');
+  listItemQ.classList.toggle('list-item-color-thema');
+  headerFone.classList.toggle('header-fone');
+  allCat.classList.toggle('list-item-color-thema');
+}
 
+const burgerBtn = document.querySelector('.js-burger');
+const burgerCloseBtn = document.querySelector('.js-close-menu');
 
-  
+burgerBtn.addEventListener('click', () => {
+  openBurgerModal();
+  burgerBtn.hidden = true;
+  burgerCloseBtn.classList.remove('is-hidden-btn');
+});
+burgerCloseBtn.addEventListener('click', () => {
+  closeBurgerModal();
+  burgerCloseBtn.classList.add('is-hidden-btn');
+  burgerBtn.hidden = false;
+});
+
+function chekWindowSize() {
+  if (window.innerWidth >= 768) {
+    closeBurgerModal();
+    burgerCloseBtn.classList.add('is-hidden-btn');
+    burgerBtn.hidden = false;
+  }
+}
+window.addEventListener('resize', chekWindowSize);
 
