@@ -41,7 +41,7 @@ background: #FFF;
   }
   @media screen and (min-width: 1440px) {
     width: 996px;
-     ;
+    margin-bottom: 20px;
     height: 213px;
   }
 }
@@ -120,7 +120,7 @@ margin-right: 30px;
 
 .shop-list-section-title{
     color: #111;
-       
+       margin-bottom: 40px;
         font-size: 48px;
         font-style: normal;
         font-weight: 700;
@@ -140,3 +140,63 @@ margin-right: 30px;
 }
 
 
+// .shop-general-block{
+//     margin-top: 40px;
+//     display: flex;
+//     gap: 40px;
+// }
+
+.block-charity{
+        
+    display: none;
+    width: 335px;
+        height: 352px;
+        color: #4F2EE8;
+        border: 1px;
+        border-radius: 16px;
+        background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 34.19%, #FFF 100%);
+        box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.10);
+        margin-top: 40px;
+    
+    
+        @media screen and (min-width: 768px) {
+            margin-top: 0;
+            width: 335px;
+            height: 474px;
+        }
+                @media screen and (min-width: 1440px) {
+                   display: block;
+                }
+}
+
+
+.shop-list-general-block{
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+
+
+.div-charity{
+        @media screen and (min-width: 375px) {
+                display: none;
+            }
+
+        @media screen and (min-width: 1440px) {
+            display: block;
+            //position: absolute;
+            width: 356px;
+                height: 474px;
+                color: #4F2EE8;
+                border: 1px;
+                border-radius: 16px;
+                background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 34.19%, #FFF 100%);
+                box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.10);
+                margin-top: 0;
+        }
+        
+
+
+        
+    }
