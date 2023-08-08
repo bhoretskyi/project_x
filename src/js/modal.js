@@ -21,12 +21,12 @@ function onEscapeKey(e) {
 }
  
 export function openBurgerModal() {
-  document.getElementById('burgerModal').style.display = 'block';      
+  document.getElementById('burgerModal').style.display = 'block';        
    
   document.body.classList.add('body-scroll-lock'); 
    
   // backdrop.classList.add('modal-active');
-  // document.addEventListener('keydown', onEscapeKey)
+  document.addEventListener('keydown', onEscapeKey)
   // backdrop.addEventListener('click', closeModal)
 }
 export function closeBurgerModal() {
@@ -36,8 +36,3 @@ export function closeBurgerModal() {
   // backdrop.removeEventListener('click', closeModal)
 }
 
-function onEscapeKey(e) {
-  if (e.key === 'Escape') {
-    closeModal();
-  }
-} 

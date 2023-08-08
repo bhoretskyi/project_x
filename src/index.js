@@ -5,7 +5,7 @@ import './js/settings.js';
 import './js/auth.js';
 import { closeBurgerModal, openBurgerModal, openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
-import { 
+import {
   getBestBook,
   getCategories,
   getBookByCategory,
@@ -13,7 +13,7 @@ import {
 import { getBookById } from './js/books_api.js';
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
-const shop = document.querySelector('.book-shop'); 
+const shop = document.querySelector('.book-shop');
 
 const modalContent = document.querySelector('.modal-content-parent');
 const closeModalBtn = document.querySelector('.close');
@@ -35,17 +35,19 @@ closeModalBtn.addEventListener('click', closeModal);
 addToListBtn.addEventListener('click', e => {
   console.log();
   const idForButton =
-  e.currentTarget.previousElementSibling.firstElementChild.children[1].children[3].textContent
+    e.currentTarget.previousElementSibling.firstElementChild.children[1]
+      .children[3].textContent;
   addToListBtn.hidden = true;
   removeFromListBtn.hidden = false;
   modalHiddenText.hidden = false;
   BOOKS.push(idForButton);
-  pushBookIdToStorage(BOOKS); 
+  pushBookIdToStorage(BOOKS);
 });
 removeFromListBtn.addEventListener('click', e => {
   console.log();
   const idForRemoveButton =
-  e.currentTarget.parentElement.children[1].firstElementChild.children[1].children[3].textContent
+    e.currentTarget.parentElement.children[1].firstElementChild.children[1]
+      .children[3].textContent;
   addToListBtn.hidden = false;
   removeFromListBtn.hidden = true;
   modalHiddenText.hidden = true;
@@ -65,12 +67,12 @@ function removeBookFromStorage(book) {
 sectionSelectedBooksByCategory.addEventListener('click', e => {
   const bookId = e.target.parentElement.id;
   if (BOOKS.includes(bookId)) {
-    modalHiddenText.hidden = false
+    modalHiddenText.hidden = false;
     addToListBtn.hidden = true;
     removeFromListBtn.hidden = false;
-  } 
+  }
   if (!BOOKS.includes(bookId)) {
-    modalHiddenText.hidden = true
+    modalHiddenText.hidden = true;
 
     addToListBtn.hidden = false;
     removeFromListBtn.hidden = true;
@@ -262,12 +264,11 @@ getCategories()
   })
   .catch(err => console.log(err));
 
-
 //переключние темы. Не удалять!!!
 
-
-const checkBox = document.querySelector('.checkbox')
+const checkBox = document.querySelector('.checkbox');
 // console.log(loginForm);
+
 const svgIconHeader = document.querySelector('.icon-bookshelf');
 const listItemQ = document.querySelector('.book-categories-list');
 const svgIconShop = document.querySelector('.list-btn-svg');
@@ -287,27 +288,32 @@ function chengeTheme() {
  
   
 } 
-///////////////////////////////////////////////  
+
+
+
+
 
 
 const burgerBtn = document.querySelector('.js-burger');
-const burgerCloseBtn = document.querySelector('.js-close-menu')
+const burgerCloseBtn = document.querySelector('.js-close-menu');
 
-burgerBtn.addEventListener('click', ()=>{
-  
-  openBurgerModal()
-  burgerBtn.hidden = true
-  burgerCloseBtn.classList.remove('is-hidden-btn')
-  
- })
- burgerCloseBtn.addEventListener('click', ()=>{
-  closeBurgerModal()
-  burgerCloseBtn.classList.add('is-hidden-btn')
-  burgerBtn.hidden =false
+burgerBtn.addEventListener('click', () => {
+  openBurgerModal();
+  burgerBtn.hidden = true;
+  burgerCloseBtn.classList.remove('is-hidden-btn');
+});
+burgerCloseBtn.addEventListener('click', () => {
+  closeBurgerModal();
+  burgerCloseBtn.classList.add('is-hidden-btn');
+  burgerBtn.hidden = false;
+});
 
- })
-
- if(window.innerWidth >= 768){
-  console.log(window.innerWidth);
-  closeBurgerModal()
+function chekWindowSize () {
+  if (window.innerWidth >= 768) {
+    closeBurgerModal()
+    burgerCloseBtn.classList.add('is-hidden-btn');
+  burgerBtn.hidden = false;
+    
+  }
 }
+window.addEventListener('resize', chekWindowSize )

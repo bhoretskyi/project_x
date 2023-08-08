@@ -1,9 +1,14 @@
+import { openBurgerModal, closeBurgerModal } from './modal';
 import { getBookById } from './books_api';
 const shopListBookSection = document.querySelector('.shop-list-books-section');
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
 const shop = document.querySelector('.book-shop');
 const trashSvg = document.querySelector('.svg');
+const homeBtn = document.querySelector('.home-btn')
+homeBtn.classList.remove('current')
+const shoplistBtn = document.querySelector('.list-btn')
+shoplistBtn.classList.add('current')
 
 const savedBooks = JSON.parse(localStorage.getItem('books'));
 function paintBooksFromLocalstorage() {
@@ -86,6 +91,7 @@ shopListBookSection.addEventListener('click', e => {
 // });
 
 
+
 const checkBox = document.querySelector('.checkbox')
  //console.log(loginForm);
 const svgIconHeader = document.querySelector('.icon-bookshelf');
@@ -115,3 +121,28 @@ function chengeThemeShopp() {
   
 
 } 
+
+const burgerBtn = document.querySelector('.js-burger');
+const burgerCloseBtn = document.querySelector('.js-close-menu');
+
+burgerBtn.addEventListener('click', () => {
+  openBurgerModal();
+  burgerBtn.hidden = true;
+  burgerCloseBtn.classList.remove('is-hidden-btn');
+});
+burgerCloseBtn.addEventListener('click', () => {
+  closeBurgerModal();
+  burgerCloseBtn.classList.add('is-hidden-btn');
+  burgerBtn.hidden = false;
+});
+
+function chekWindowSize () {
+  if (window.innerWidth >= 768) {
+    closeBurgerModal()
+    burgerCloseBtn.classList.add('is-hidden-btn');
+  burgerBtn.hidden = false;
+    
+  }
+}
+window.addEventListener('resize', chekWindowSize )
+

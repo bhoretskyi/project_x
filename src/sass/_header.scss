@@ -449,6 +449,10 @@ color: #FFFFFF;
   border: transparent;
   color: var(--dark-theme-componemt);
   cursor: pointer;
+  @media screen and (min-width: 767.98px) {
+    display: none;
+  pointer-events: none;
+   }
   /* margin-left: 24px; */
 }
 
