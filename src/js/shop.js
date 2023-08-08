@@ -13,30 +13,51 @@ function paintBooksFromLocalstorage() {
         if (!resp) {
           throw new Error('error');
         }
+        let shortdescription = ''
+        const words = resp.description.split(' ')
+        if (words.length > 10) {
+          shortdescription = words.slice(0, 10).join(' ') + '...';  
+        }
 
         shopListBookSection.insertAdjacentHTML(
           'beforeend',
-          `<div class="shopping-list-card"><p hidden>${resp._id}</p>
-    <button type="button" class="trash-btn"><img class="trash-js"  src="${trashSvg.src}" alt=""></button>
-
-        <img class="shopping-list-image"  src="${resp.book_image}" alt=""> 
-         
+          `<div class="shopping-list-card">
+    
+          
+        <img class="shopping-list-image"  src="${resp.book_image}" alt="">   
+        <div class="shopping-list-info">
+        
+<div class="shopping-list-title-container">
+          
       <h4 class="shopping-list-title">${resp.title}</h4>
+      <h5 class="shopping-list-classlist">${resp.list_name}</h5> 
+
+      
+       
+      <p class="shopping-list-description" hidden>${resp.description}</p>  
+      <p class="shopping-list-description-short">${shortdescription}</p>   
+      </div>
+      
+      <div class="shopping-list-book-links">
       <p class="shopping-list-author">${resp.author}</p>
-
-      <pclass="shopping-list-description">${resp.description}</p>  
-      <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a> 
-      <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>
+      <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>   
+      <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>  
       <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>
+      </div>
+      </div>
+        
     
 
       
       
-    
+      <button type="button" class="trash-btn"><img class="trash-js"  src="${trashSvg.src}" alt=""></button>
+      <p hidden>${resp._id}</p> 
       </div>
       
 `
         );
+        
+        
       })
       .catch(err => console.log(err));
   });
@@ -45,17 +66,16 @@ function paintBooksFromLocalstorage() {
 paintBooksFromLocalstorage();
 
 shopListBookSection.addEventListener('click', e => {
-   
-    if (e.target.className === 'trash-js') {
-        const bookToRemoveId = e.target.parentElement.previousElementSibling.textContent
-        const newSavedBooks = savedBooks.filter((item) => item !== bookToRemoveId);
-        localStorage.setItem('books', JSON.stringify(newSavedBooks))
-        location.reload()
-        
-        
-        
-    }
+  if (e.target.className === 'trash-js') {
 
+
+  
+    const bookToRemoveId =
+    e.target.parentElement.parentElement.lastElementChild.textContent
+    const newSavedBooks = savedBooks.filter(item => item !== bookToRemoveId);
+    localStorage.setItem('books', JSON.stringify(newSavedBooks));
+    location.reload();
+  }
 });
 
 // const trashButton = document.querySelector('.trash-btn');

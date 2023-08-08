@@ -11,8 +11,72 @@
     display: none;
 }
 .trash-btn {
+    position: absolute;
+    left: 285px;
     width: 34px;
 height: 34px;
 background-color: #4F2EE8;
 border-radius: 50%;
+}
+
+.shopping-list-card {
+    position: relative;
+    display: flex;
+    padding: 14px;
+    
+width: 335px;
+border-radius: 16px;
+border: 2px solid rgba(79, 46, 232, 0.40);
+background: #FFF;
+}
+.shopping-list-image {
+    width: 100px;
+    height: 165px;
+    border-radius: 8px;
+    margin-right: 14px;
+}
+.shopping-list-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.shopping-list-book-links {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}
+.shopping-list-title {
+    color: #111;
+
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px; /* 112.5% */
+letter-spacing: -0.64px;
+text-transform: uppercase;
+}
+.shopping-list-classlist {
+    color: #B4AFAF;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 14px; /* 116.667% */
+letter-spacing: 0.36px;
+}
+.shopping-list-description-short {
+color: #111;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 128.571% */
+letter-spacing: -0.56px;
+}
+.shopping-list-author {
+    color: #B4AFAF;
+font-size: 12px;
+font-style: italic;
+font-weight: 400;
+line-height: 14px; /* 116.667% */
+letter-spacing: -0.48px;
+margin-right: 30px;
 }
