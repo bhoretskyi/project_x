@@ -1,4 +1,3 @@
-import Notiflix from 'notiflix';
 import { openBurgerModal, closeBurgerModal } from './modal';
 import { getBookById } from './books_api';
 const shopListBookSection = document.querySelector('.shop-list-books-section');
