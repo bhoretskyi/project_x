@@ -57,11 +57,15 @@
 .book-category:hover {
     color: #4F2EE8;
     cursor: pointer;
+    text-transform: uppercase;
+    transition: text-transform 0.3s ease;
 }
 
 .book-category:focus {
     color: #4F2EE8;
     cursor: pointer;
+    text-transform: uppercase;
+    transition: text-transform 0.3s ease;
 }
 
 .section-all-categories{
