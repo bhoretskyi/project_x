@@ -5,6 +5,10 @@ const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
 const shop = document.querySelector('.book-shop');
 const trashSvg = document.querySelector('.svg');
+const homeBtn = document.querySelector('.home-btn')
+homeBtn.classList.remove('current')
+const shoplistBtn = document.querySelector('.list-btn')
+shoplistBtn.classList.add('current')
 
 const savedBooks = JSON.parse(localStorage.getItem('books'));
 function paintBooksFromLocalstorage() {
