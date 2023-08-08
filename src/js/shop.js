@@ -100,3 +100,13 @@ burgerCloseBtn.addEventListener('click', () => {
   burgerCloseBtn.classList.add('is-hidden-btn');
   burgerBtn.hidden = false;
 });
+
+function chekWindowSize () {
+  if (window.innerWidth >= 768) {
+    closeBurgerModal()
+    burgerCloseBtn.classList.add('is-hidden-btn');
+  burgerBtn.hidden = false;
+    
+  }
+}
+window.addEventListener('resize', chekWindowSize )
