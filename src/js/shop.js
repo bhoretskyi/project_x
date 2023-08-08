@@ -101,7 +101,7 @@ const listItemQ = document.querySelector('.book-categories-list');
 const svgIconShop = document.querySelector('.list-btn-svg');
 const headerFone = document.querySelector('.header-container');
 const section = document.querySelector('.shop-list-books-section')
-//const shoppingListtitle = document.querySelector('section.div')
+const shopTitleGen = document.querySelector('.shop-list-section-title')
 //console.log(shoppingListtitle.textContent);
 
 checkBox.addEventListener('change', chengeThemeShopp);
@@ -112,14 +112,19 @@ function chengeThemeShopp() {
   svgIconHeader.classList.toggle('svg-icon-header');
   svgIconShop.classList.toggle('svg-icon-header');
   headerFone.classList.toggle('header-fone');
-  //shoppingListCard.classList.toggle('shopping-card');
+  shopTitleGen.classList.toggle('title-color');
   //shoppingListtitle.classList.toggle('shopping-card');
-  const ttt = section.getElementsByClassName('shopping-list-card');
-  console.log(ttt);
-  for (const a of ttt) {
-    a.classList.toggle('shopping-card'); 
+  const cardFone = section.getElementsByClassName('shopping-list-card');
+  console.log(cardFone);
+  for (const card of cardFone) {
+    card.classList.toggle('shopping-card'); 
+    const textTitle = card.getElementsByClassName('shopping-list-title')
+    console.log(textTitle);
+    for (const title of textTitle) {
+      title.classList.toggle('title-color')
+    }
   }
-  console.log(ttt)
+  console.log(cardFone)
   
 
 } 
@@ -146,5 +151,15 @@ function chekWindowSize () {
     
   }
 }
-window.addEventListener('resize', chekWindowSize )
+window.addEventListener('resize', chekWindowSize)
 
+
+
+$(function(){
+            $('.slider').slick({
+                vertical: true,
+                verticalSwiping: true,
+                slidesToShow: 6,
+                autoplay: false,
+            });
+        });
