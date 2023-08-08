@@ -26,7 +26,7 @@ export function openBurgerModal() {
   document.body.classList.add('body-scroll-lock'); 
    
   // backdrop.classList.add('modal-active');
-  // document.addEventListener('keydown', onEscapeKey)
+  document.addEventListener('keydown', onEscapeKey)
   // backdrop.addEventListener('click', closeModal)
 }
 export function closeBurgerModal() {
