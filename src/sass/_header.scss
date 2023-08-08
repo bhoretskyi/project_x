@@ -423,8 +423,14 @@ body.dark-theme .user-btn:hover {
 }
 
 .is-hidden-btn {
-  display: none;
+  
+  @media screen and (max-width: 767.98px) {
+    display: none;
   pointer-events: none;
+   }
+  
+  
+  
 }
 
 .close-menu-btn {
