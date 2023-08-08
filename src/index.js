@@ -276,16 +276,16 @@ function chengeTheme() {
   //document.h3.classList.toggle('aaa')
 }
 
-const burgerBtn = document.querySelector('.js-burger');
-const burgerCloseBtn = document.querySelector('.js-close-menu');
+// const burgerBtn = document.querySelector('.js-burger');
+// const burgerCloseBtn = document.querySelector('.js-close-menu');
 
-burgerBtn.addEventListener('click', () => {
-  openBurgerModal();
-  burgerBtn.hidden = true;
-  burgerCloseBtn.classList.remove('is-hidden-btn');
-});
-burgerCloseBtn.addEventListener('click', () => {
-  closeBurgerModal();
-  burgerCloseBtn.classList.add('is-hidden-btn');
-  burgerBtn.hidden = false;
-});
+// burgerBtn.addEventListener('click', () => {
+//   openBurgerModal();
+//   burgerBtn.hidden = true;
+//   burgerCloseBtn.classList.remove('is-hidden-btn');
+// });
+// burgerCloseBtn.addEventListener('click', () => {
+//   closeBurgerModal();
+//   burgerCloseBtn.classList.add('is-hidden-btn');
+//   burgerBtn.hidden = false;
+// });
