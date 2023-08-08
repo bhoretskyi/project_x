@@ -17,6 +17,7 @@ export async function getBestBook() {
 }
 
 export async function getBookById(id) {
+  Loading.circle()
   const response = await fetch(`${API}/books/${id}`);
   const bookById = await response.json();
   return bookById;

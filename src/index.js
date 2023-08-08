@@ -123,6 +123,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 
   getBookById(e.target.parentElement.id)
     .then(resp => {
+      Loading.remove()
       if (!resp) {
         throw new Error('err');
       }
