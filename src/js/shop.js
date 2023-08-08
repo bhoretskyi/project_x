@@ -41,7 +41,7 @@ function paintBooksFromLocalstorage() {
       <div class="shopping-list-book-links">
       <p class="shopping-list-author">${resp.author}</p>
       <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>   
-      <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>  
+      <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>   
       <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>
       </div>
       </div>
@@ -72,7 +72,7 @@ shopListBookSection.addEventListener('click', e => {
   
     const bookToRemoveId =
     e.target.parentElement.parentElement.lastElementChild.textContent
-    const newSavedBooks = savedBooks.filter(item => item !== bookToRemoveId);
+    const newSavedBooks = savedBooks.filter(item => item !== bookToRemoveId);   
     localStorage.setItem('books', JSON.stringify(newSavedBooks));
     location.reload();
   }
