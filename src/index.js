@@ -4,6 +4,8 @@ import './js/account.js';
 import './js/settings.js';
 import './js/auth.js';
 import Notiflix from 'notiflix';
+import { Loading } from 'notiflix';
+
 import { closeBurgerModal, openBurgerModal, openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
 import {
@@ -84,6 +86,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
+        
         bookCategoryTitleContainer.innerHTML = '';
         let categoryWords = buttonSelectedCategory.split(' ');
 
@@ -103,10 +106,14 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       </div>`
           );
         });
+        
       })
       .catch(err => {
-        Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
-        console.log(err)});
+        Notiflix.Notify.failure(
+          'Oops... something went wrong. Please reload the page'
+        );
+        console.log(err);
+      });
     return;
   }
 
@@ -147,8 +154,11 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       }
     })
     .catch(err => {
-      Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
-      console.log(err)});
+      Notiflix.Notify.failure(
+        'Oops... something went wrong. Please reload the page'
+      );
+      console.log(err);
+    });
 });
 startPage();
 function startPage() {
@@ -160,7 +170,7 @@ function startPage() {
   bookCategoryTitleContainer.innerHTML =
     '<h2 class="title-book-all">Best Sellers <span class="last-title-word">Books</span></h2>';
   getBestBook().then(resp =>
-    resp.map(book => {
+    {resp.map(book => {
       const books = book.books;
       sectionSelectedBooksByCategory.insertAdjacentHTML(
         'beforeend',
@@ -213,7 +223,13 @@ function startPage() {
             `
       );
     })
-  );
+    Loading.remove()}
+  ).catch(err => {
+    Notiflix.Notify.failure(
+      'Oops... something went wrong. Please reload the page'
+    );
+    console.log(err);
+  })  
 }
 
 categorySectionList.addEventListener('click', pushBooksByCategory);
@@ -238,6 +254,7 @@ function pushBooksByCategory(e) {
 
   getBookByCategory(selectedCategory)
     .then(resp => {
+      Loading.remove()
       sectionSelectedBooksByCategory.innerHTML = '';
       resp.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
@@ -252,8 +269,11 @@ function pushBooksByCategory(e) {
       });
     })
     .catch(err => {
-      Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
-      console.log(err)});
+      Notiflix.Notify.failure(
+        'Oops... something went wrong. Please reload the page'
+      );
+      console.log(err);
+    });
 }
 
 getCategories()
@@ -270,8 +290,11 @@ getCategories()
     );
   })
   .catch(err => {
-    Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
-    console.log(err)});
+    Notiflix.Notify.failure(
+      'Oops... something went wrong. Please reload the page'
+    );
+    console.log(err);
+  });
 
 //переключние темы. Не удалять!!!
 
@@ -282,26 +305,19 @@ const svgIconHeader = document.querySelector('.icon-bookshelf');
 const listItemQ = document.querySelector('.book-categories-list');
 const svgIconShop = document.querySelector('.list-btn-svg');
 const headerFone = document.querySelector('.header-container');
-const allCat = document.querySelector('.all-categories')
+const allCat = document.querySelector('.all-categories');
 
 checkBox.addEventListener('change', chengeTheme);
 
 function chengeTheme() {
-  console.log('Клик работает')
+  console.log('Клик работает');
   document.body.classList.toggle('dark-thema');
   svgIconHeader.classList.toggle('svg-icon-header');
   svgIconShop.classList.toggle('svg-icon-header');
   listItemQ.classList.toggle('list-item-color-thema');
   headerFone.classList.toggle('header-fone');
   allCat.classList.toggle('list-item-color-thema');
- 
-  
-} 
-
-
-
-
-
+}
 
 const burgerBtn = document.querySelector('.js-burger');
 const burgerCloseBtn = document.querySelector('.js-close-menu');
@@ -317,12 +333,12 @@ burgerCloseBtn.addEventListener('click', () => {
   burgerBtn.hidden = false;
 });
 
-function chekWindowSize () {
+function chekWindowSize() {
   if (window.innerWidth >= 768) {
-    closeBurgerModal()
+    closeBurgerModal();
     burgerCloseBtn.classList.add('is-hidden-btn');
-  burgerBtn.hidden = false;
-    
+    burgerBtn.hidden = false;
   }
 }
-window.addEventListener('resize', chekWindowSize )
+window.addEventListener('resize', chekWindowSize);
+
