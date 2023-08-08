@@ -84,3 +84,34 @@ shopListBookSection.addEventListener('click', e => {
 //     e.stopPropagation()
 //   console.log(e.target);
 // });
+
+
+const checkBox = document.querySelector('.checkbox')
+ //console.log(loginForm);
+const svgIconHeader = document.querySelector('.icon-bookshelf');
+const listItemQ = document.querySelector('.book-categories-list');
+const svgIconShop = document.querySelector('.list-btn-svg');
+const headerFone = document.querySelector('.header-container');
+const section = document.querySelector('.shop-list-books-section')
+//const shoppingListtitle = document.querySelector('section.div')
+//console.log(shoppingListtitle.textContent);
+
+checkBox.addEventListener('change', chengeThemeShopp);
+
+function chengeThemeShopp() {
+  console.log('Клик работает')
+  document.body.classList.toggle('dark-thema');
+  svgIconHeader.classList.toggle('svg-icon-header');
+  svgIconShop.classList.toggle('svg-icon-header');
+  headerFone.classList.toggle('header-fone');
+  //shoppingListCard.classList.toggle('shopping-card');
+  //shoppingListtitle.classList.toggle('shopping-card');
+  const ttt = section.getElementsByClassName('shopping-list-card');
+  console.log(ttt);
+  for (const a of ttt) {
+    a.classList.toggle('shopping-card'); 
+  }
+  console.log(ttt)
+  
+
+} 

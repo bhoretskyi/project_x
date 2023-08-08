@@ -268,14 +268,26 @@ getCategories()
 
 const checkBox = document.querySelector('.checkbox')
 // console.log(loginForm);
-const tegs = document.querySelectorAll('h')
+const svgIconHeader = document.querySelector('.icon-bookshelf');
+const listItemQ = document.querySelector('.book-categories-list');
+const svgIconShop = document.querySelector('.list-btn-svg');
+const headerFone = document.querySelector('.header-container');
+const allCat = document.querySelector('.all-categories')
+
 checkBox.addEventListener('change', chengeTheme);
 
 function chengeTheme() {
-    document.body.classList.toggle('aaa')    
-    //document.h3.classList.toggle('aaa')           
-} 
+  console.log('Клик работает')
+  document.body.classList.toggle('dark-thema');
+  svgIconHeader.classList.toggle('svg-icon-header');
+  svgIconShop.classList.toggle('svg-icon-header');
+  listItemQ.classList.toggle('list-item-color-thema');
+  headerFone.classList.toggle('header-fone');
+  allCat.classList.toggle('list-item-color-thema');
+ 
   
+} 
+///////////////////////////////////////////////  
 
 
 const burgerBtn = document.querySelector('.js-burger');
