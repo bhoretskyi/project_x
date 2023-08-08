@@ -1,0 +1,148 @@
+// MENU
+// .menu-section {
+ 
+//     background: url(../img/img-menu/Subcribe-mob.jpg),
+//         linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+//       background-repeat: no-repeat;
+//       background-size: cover;
+      
+//     }
+    
+//     @media (min-device-pixel-ratio: 2),
+//       (min-resolution: 192dpi),
+//       (min-resolution: 2dppx) {
+//       .menu-section {
+//         background-image: url(../img/img-menu/Subcribe-mob2x.jpg),
+//           linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7));
+//       }
+//     }
+.menu-container {
+    width: 375px;
+    height: 812px;
+    background-image: linear-gradient(
+190deg,
+#4F2EE8 32%,
+#ffffff
+);       
+//   text-align: center; 
+margin: 0 auto; 
+}
+
+.menu-signup {
+    display: inline-flex;
+    min-height: 48px;
+    min-width: 184px;
+    background-color: #4F2EE8;
+    border-radius: 12px;
+    box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    line-height: 1.22;
+    // margin: 104px 171px 660px 20px; 
+    padding: 14px;
+    justify-content: space-between;
+    gap: 80px;
+
+    margin-left: 20px;
+    margin-top: 104px;
+  }
+
+  .menu-but-text {
+    color: #ffffff;
+    // margin-left: 14px;
+  }
+
+.menu-photo {
+    position: absolute;
+    width: 375px;
+    // height: 133.54px;
+    margin-top: 285px;
+}
+
+// .photo13 {
+//     margin: 535.93px 319.32px 124.01px 65px;
+// }
+
+// .photo14 {
+//     margin: 505.48px 205.71px 155.86px 53.88px;
+// }
+
+// .photo11 {
+//     margin: 473.18px 85.14px 186.71px 168.98px;
+// }
+
+// .photo15 {
+//     margin: 442.96px 27.62px 217.35px283.36px;
+// }
+
+.menu-group-photo {
+    width: 450px;
+    height: 439px;
+display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 48px;
+}
+// .menu-text {
+//   /* width: 326px; */
+//   letter-spacing: -0.02em;
+//   color: var(--light-font-color);
+//   margin-bottom: 24px;
+// }
+
+// @media screen and (min-width: 768px) {
+//   .menu-section {
+//     background: url(../img/img-menu/Subcribe-tab.jpg),
+//       linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+//     background-size: cover;
+//   }
+//   .menu-container {
+//     min-width: 768px;
+//     padding: 72px 151px;
+//   }
+// }
+
+
+// @media screen and (min-width: 768px) {
+//   .menu-section {
+//     background: url(../img/img-menu/Subcribe-tab.jpg),
+//       linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+//     background-size: cover;
+//   }
+
+//   @media (min-device-pixel-ratio: 2),
+//     (min-resolution: 192dpi),
+//     (min-resolution: 2dppx) {
+//     .menu-section {
+//       background-image: url(../img/img-menu/Subcribe-tab2x.jpg),
+//         linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+//     }
+//   }
+
+//   .menu-title {
+//     width: 378px;
+//     margin: 0 auto 24px;
+//   }
+//   .menu-text {
+//     width: 467px;
+//     color: var(--light-font-color);
+//     margin: 0 auto 24px;
+//   }
+  
+// }
+
+// @media screen and (min-width: 1200px) {
+//   .menu-section {
+//     background: url(../img/img-menu/Subcribe-desk.jpg),
+//       linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+//     background-size: cover;
+//   }
+
+//   @media (min-device-pixel-ratio: 2),
+//     (min-resolution: 192dpi),
+//     (min-resolution: 2dppx) {
+//     .menu-section {
+//       background-image: url(../img/img-menu/Subcribe-desk2x.jpg),
+//         linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+//     }
+//   }
+// }
