@@ -72,8 +72,8 @@ shopListBookSection.addEventListener('click', e => {
   
     const bookToRemoveId =
     e.target.parentElement.parentElement.lastElementChild.textContent
-    const newSavedBooks = savedBooks.filter(item => item !== bookToRemoveId);   
-    localStorage.setItem('books', JSON.stringify(newSavedBooks));
+    const newSavedBooks = savedBooks.filter(item => item !== bookToRemoveId);    
+    localStorage.setItem('books', JSON.stringify(newSavedBooks)); 
     location.reload();
   }
 });
