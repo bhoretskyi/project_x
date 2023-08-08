@@ -3,6 +3,7 @@ import './js/modal-login-form.js';
 import './js/account.js';
 import './js/settings.js';
 import './js/auth.js';
+import Notiflix from 'notiflix';
 import { closeBurgerModal, openBurgerModal, openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
 import {
@@ -103,7 +104,9 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
           );
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
+        console.log(err)});
     return;
   }
 
@@ -143,7 +146,9 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       `;
       }
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
+      console.log(err)});
 });
 startPage();
 function startPage() {
@@ -246,7 +251,9 @@ function pushBooksByCategory(e) {
         );
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
+      console.log(err)});
 }
 
 getCategories()
@@ -262,7 +269,9 @@ getCategories()
       )
     );
   })
-  .catch(err => console.log(err));
+  .catch(err => {
+    Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
+    console.log(err)});
 
 //переключние темы. Не удалять!!!
 

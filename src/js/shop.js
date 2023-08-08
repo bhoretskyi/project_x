@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { openBurgerModal, closeBurgerModal } from './modal';
 import { getBookById } from './books_api';
 const shopListBookSection = document.querySelector('.shop-list-books-section');
@@ -64,7 +65,9 @@ function paintBooksFromLocalstorage() {
         
         
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        Notiflix.Notify.failure('Oops... something went wrong. Please reload the page')
+        console.log(err)});
   });
 }
 
