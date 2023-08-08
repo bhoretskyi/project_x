@@ -86,7 +86,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
-        
+        Loading.remove()
         bookCategoryTitleContainer.innerHTML = '';
         let categoryWords = buttonSelectedCategory.split(' ');
 
@@ -123,6 +123,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 
   getBookById(e.target.parentElement.id)
     .then(resp => {
+      Loading.remove()
       if (!resp) {
         throw new Error('err');
       }

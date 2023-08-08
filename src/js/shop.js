@@ -1,3 +1,4 @@
+import { Loading } from 'notiflix';
 import { openBurgerModal, closeBurgerModal } from './modal';
 import { getBookById } from './books_api';
 const shopListBookSection = document.querySelector('.shop-list-books-section');
@@ -15,6 +16,7 @@ function paintBooksFromLocalstorage() {
   savedBooks.map(book => {
     getBookById(book)
       .then(resp => {
+        Loading.remove()
         if (!resp) {
           throw new Error('error');
         }
