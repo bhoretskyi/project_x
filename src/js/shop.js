@@ -65,7 +65,7 @@ function paintBooksFromLocalstorage() {
 
 paintBooksFromLocalstorage();
 
-shopListBookSection.addEventListener('click', e => { 
+shopListBookSection.addEventListener('click', e => {  
   if (e.target.className === 'trash-js') {
 
 

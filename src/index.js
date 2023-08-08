@@ -3,7 +3,7 @@ import './js/modal-login-form.js';
 import './js/account.js';
 import './js/settings.js';
 import './js/auth.js';
-import { openModal } from './js/modal.js';
+import { closeBurgerModal, openBurgerModal, openModal } from './js/modal.js';
 import { closeModal } from './js/modal.js';
 import { 
   getBestBook,
@@ -272,11 +272,25 @@ const tegs = document.querySelectorAll('h')
 checkBox.addEventListener('change', chengeTheme);
 
 function chengeTheme() {
-    document.body.classList.toggle('aaa')  
+    document.body.classList.toggle('aaa')    
     //document.h3.classList.toggle('aaa')           
 } 
   
 
 
-  
+const burgerBtn = document.querySelector('.js-burger');
+const burgerCloseBtn = document.querySelector('.js-close-menu')
 
+burgerBtn.addEventListener('click', ()=>{
+  
+  openBurgerModal()
+  burgerBtn.hidden = true
+  burgerCloseBtn.classList.remove('is-hidden-btn')
+  
+ })
+ burgerCloseBtn.addEventListener('click', ()=>{
+  closeBurgerModal()
+  burgerCloseBtn.classList.add('is-hidden-btn')
+  burgerBtn.hidden =false
+
+ })

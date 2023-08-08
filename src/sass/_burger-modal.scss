@@ -1,0 +1,22 @@
+.burger-modal {
+    z-index: 9995;
+    margin-top: 58px;
+    width: 335px;
+    height: 812px;
+    display: none;
+  position: fixed;
+  
+  top: 404px;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+  background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
+//   @media screen and (min-width: 375px) {
+//     z-index: -1;
+// }
+    
+  
+}
+.group-img {
+  margin-top: 210px;
+}
