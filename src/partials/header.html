@@ -1,0 +1,107 @@
+<header class="header">
+  <div class="container header__container">
+    <div class="menu-container">
+      <a class="header-logo" href="./index.html" aria-label="Home">
+        <svg alt="Logo" width="24" height="24" class="header-logo__icon">
+          <use href="./images/sprite.svg#logo"></use>
+        </svg>
+        <svg alt="Logo-text" width="77" height="13.3" class="header-logo__text">
+          <use href="./images/sprite.svg#bookshelf_white"></use>
+        </svg>
+      </a>
+      <nav class="navigation">
+        <ul class="navigation__list">
+          <li class="navigation__item navigation__item_home active-tab">
+            <a
+              class="navigation__link navigation__link_home"
+              href="./index.html"
+              >Home</a
+            >
+          </li>
+          <li class="navigation__item navigation__item_shopping no-active-tab">
+            <a class="navigation__link navigation__link_shopping" href="">
+              <span>Shopping list</span>
+              <svg width="20" height="20" class="shopping-icon">
+                <use href="./images/sprite.svg#icon-shopper"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="switcher">
+        <input type="checkbox" id="toggle-button" class="switcher__button" />
+      </div>
+      <button type="button" class="header-user">
+        <img
+          class="header-user__img"
+          src="./images/user.jpg"
+          alt="user"
+          width="37"
+          height="37"
+        />
+        <span class="header-user__name">Stephen</span>
+        <svg width="28" height="28">
+          <use href="./images/sprite.svg#fi-ss-caret-down"></use>
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="mob-menu-open__btn js-open-menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg width="28" height="28" aria-label="Menu">
+          <use href="./images/sprite.svg#icon-menu-open"></use>
+        </svg>
+      </button>
+      <button type="button" class="mob-menu-close__btn js-close-menu">
+        <svg width="28" height="28">
+          <use href="./images/sprite.svg#icon-menu-close"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mob__container js-menu-container" id="mobile-menu">
+      <div class="mob-menu__container">
+        <p class="mob-user">
+          <img
+            class="mob-user__img"
+            src="./images/user.jpg"
+            alt="user"
+            width="37"
+            height="37"
+          />
+          <span class="mob-user__name">Stephen</span>
+        </p>
+        <nav class="mob-navigation">
+          <ul class="mob-navigation__list">
+            <li class="mob-navigation__item_home active-tab">
+              <a
+                class="mob-navigation__link mob-navigation__link_home"
+                href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="mob-navigation__item_shopping no-active-tab">
+              <a
+                class="mob-navigation__link mob-navigation__link_shopping"
+                href=""
+              >
+                <span>Shopping list</span>
+                <svg width="20" height="20" class="shopping-icon">
+                  <use href="./images/sprite.svg#icon-shopper"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <button type="button" class="mob-user-logout">
+          <span class="mob-user-logout-text">Log out</span>
+          <svg width="20" height="20">
+            <use href="./images/sprite.svg#forward-arrow"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
