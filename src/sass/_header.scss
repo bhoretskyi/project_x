@@ -207,6 +207,7 @@ body.dark-theme .user-btn:hover {
 }
 
 .select-user-container {
+  display: none;
   position: relative;
   z-index: 1000;
 }
@@ -434,6 +435,7 @@ body.dark-theme .user-btn:hover {
 }
 
 .close-menu-btn {
+  display: none;
   width: 28px;
   height: 28px;
   padding: 0px;
@@ -458,6 +460,7 @@ body.dark-theme .user-btn:hover {
 }
 
 .log-out-btn-big {
+  display: none;
   padding: 14px;
   align-items: center;
   text-align: center;
