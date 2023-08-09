@@ -312,10 +312,9 @@ const svgIconShop = document.querySelector('.list-btn-svg');
 const headerFone = document.querySelector('.header-container');
 const allCat = document.querySelector('.all-categories');
 const modalThema = document.querySelector('.modal');
-const qwer = document.querySelector('.modal-content')
+const modalContentTitle = document.querySelector('modal-content-title')
 
-
-console.log(qwer)
+console.log(modalContentTitle)
 checkBox.addEventListener('change', chengeTheme);
 
 function chengeTheme() {
@@ -328,9 +327,10 @@ function chengeTheme() {
   allCat.classList.toggle('list-item-color-thema');
   modalThema.classList.toggle('dark-thema');
   const modalContentParent = document.querySelector('.modal-content-parent');
+  //console.log(modalContentParent)
   modalContentParent.classList.toggle('dark-thema');
-  const qwer = modalContentParent.getElementsByTagName('*')
-  console.log(qwer)
+  const childrenModal = modalThema.children;
+ 
 }
 
 const burgerBtn = document.querySelector('.js-burger');
