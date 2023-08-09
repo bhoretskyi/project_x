@@ -163,6 +163,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 });
 startPage();
 function startPage() {
+  allCategories.classList.add('all-categories-hover')
   const savedBooksInStorage = JSON.parse(localStorage.getItem('books'));
   if (savedBooksInStorage) {
     BOOKS.push(...savedBooksInStorage);
@@ -255,6 +256,7 @@ function pushBooksByCategory(e) {
 
   getBookByCategory(selectedCategory)
     .then(resp => {
+      allCategories.classList.remove('all-categories-hover')
       Loading.remove()
       sectionSelectedBooksByCategory.innerHTML = '';
       resp.map(book => {
