@@ -47,9 +47,9 @@ function paintBooksFromLocalstorage() {
       
       <div class="shopping-list-book-links">
       <p class="shopping-list-author">${resp.author}</p>
-      <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>   
-      <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>   
-      <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>
+      <a href="${resp.buy_links[0].url}" target="_blank"></a>   
+      <a href="${resp.buy_links[1].url}" target="_blank"></a>   
+      <a href="${resp.buy_links[4].url}" target="_blank"></a>
       </div>
       </div>
         
