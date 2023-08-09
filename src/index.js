@@ -311,7 +311,11 @@ const listItemQ = document.querySelector('.book-categories-list');
 const svgIconShop = document.querySelector('.list-btn-svg');
 const headerFone = document.querySelector('.header-container');
 const allCat = document.querySelector('.all-categories');
+const modalThema = document.querySelector('.modal');
+const qwer = document.querySelector('.modal-content')
 
+
+console.log(qwer)
 checkBox.addEventListener('change', chengeTheme);
 
 function chengeTheme() {
@@ -322,6 +326,11 @@ function chengeTheme() {
   listItemQ.classList.toggle('list-item-color-thema');
   headerFone.classList.toggle('header-fone');
   allCat.classList.toggle('list-item-color-thema');
+  modalThema.classList.toggle('dark-thema');
+  const modalContentParent = document.querySelector('.modal-content-parent');
+  modalContentParent.classList.toggle('dark-thema');
+  const qwer = modalContentParent.getElementsByTagName('*')
+  console.log(qwer)
 }
 
 const burgerBtn = document.querySelector('.js-burger');
