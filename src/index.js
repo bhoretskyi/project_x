@@ -38,7 +38,6 @@ const BOOKS = [];
 
 closeModalBtn.addEventListener('click', closeModal);
 addToListBtn.addEventListener('click', e => {
-  console.log();
   const idForButton =
     e.currentTarget.previousElementSibling.firstElementChild.children[1]
       .children[3].textContent;
@@ -49,7 +48,6 @@ addToListBtn.addEventListener('click', e => {
   pushBookIdToStorage(BOOKS);
 });
 removeFromListBtn.addEventListener('click', e => {
-  console.log();
   const idForRemoveButton =
     e.currentTarget.parentElement.children[1].firstElementChild.children[1]
       .children[3].textContent;
@@ -278,8 +276,6 @@ function pushBooksByCategory(e) {
 
     bookCategoryTitleContainer.innerHTML = `<h2 class="title-book-all">${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
   }
-  // console.log(bookCategoryTitleContainer.firstElementChild.children);
-  // console.log(selectedCategory.split(' '));
   getBookByCategory(selectedCategory)
     .then(resp => {
       allCategories.classList.remove('all-categories-hover');
@@ -328,7 +324,6 @@ getCategories()
 //переключние темы. Не удалять!!!
 
 const checkBox = document.querySelector('.checkbox');
-// console.log(loginForm);
 
 const svgIconHeader = document.querySelector('.icon-bookshelf');
 const listItemQ = document.querySelector('.book-categories-list');
@@ -339,7 +334,6 @@ const modalThema = document.querySelector('.modal');
 const qwer = document.querySelector('.modal-content')
 
 
-console.log(qwer)
 checkBox.addEventListener('change', chengeTheme);
 
 function chengeTheme() {
@@ -354,7 +348,6 @@ function chengeTheme() {
   const modalContentParent = document.querySelector('.modal-content-parent');
   modalContentParent.classList.toggle('dark-thema');
   const qwer = modalContentParent.getElementsByTagName('*')
-  console.log(qwer)
 }
 
 const burgerBtn = document.querySelector('.js-burger'); 
@@ -370,7 +363,7 @@ burgerCloseBtn.addEventListener('click', () => {
   burgerCloseBtn.classList.add('is-hidden-btn');
   burgerBtn.hidden = false;
 });
-
+window.addEventListener('resize', chekWindowSize);
 function chekWindowSize() {
   if (window.innerWidth >= 768) {
     closeBurgerModal();
@@ -378,4 +371,4 @@ function chekWindowSize() {
     burgerBtn.hidden = false;
   }
 }
-window.addEventListener('resize', chekWindowSize);
+
