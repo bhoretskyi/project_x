@@ -40,6 +40,7 @@
     line-height: 18px;
         /* 112.5% */
     letter-spacing: -0.32px;
+    cursor: pointer;
 }
 
 .book-category{
@@ -54,14 +55,16 @@
         letter-spacing: -0.32px;
 }
 
-.book-category:hover {
-    color: #4F2EE8;
+.book-category{
+    
     cursor: pointer;
+    
 }
 
-.book-category:focus {
-    color: #4F2EE8;
+.book-category {
+    
     cursor: pointer;
+    
 }
 
 .section-all-categories{
@@ -151,7 +154,7 @@ gap: 10px;
     height: 46px;
     border-radius: 40px;
 border: 2px solid #4F2EE8;
-margin-left: 231px;
+margin-left: 211px;
 color: #111;
 font-size: 12px;
 font-style: normal;
@@ -272,4 +275,14 @@ margin-left: 580px;
 .support-ukraine-block-svg{
     height: 32px;
     width: 20px;
+}
+
+.all-categories-hover {
+    color: #4F2EE8;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 133.333% */
+letter-spacing: -0.36px;
+text-transform: uppercase;
 }
