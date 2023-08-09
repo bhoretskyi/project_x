@@ -1,7 +1,9 @@
+import '../sass/_scroll_up.scss';
+
 const scrollToTopButton = document.getElementById('scrollToTopBtn');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
+    if (window.scrollY > 300) {
         scrollToTopButton.style.display = 'block';
     } else {
         scrollToTopButton.style.display = 'none';

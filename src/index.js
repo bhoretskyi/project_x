@@ -3,7 +3,7 @@ import './js/modal-login-form.js';
 import './js/account.js';
 import './js/settings.js';
 import './js/auth.js';
-import './js/scroll_up.js'
+import './js/scroll_up.js';
 import Notiflix from 'notiflix';
 import { Loading } from 'notiflix';
 
