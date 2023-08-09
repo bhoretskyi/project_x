@@ -164,6 +164,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 startPage();
 function startPage() {
   allCategories.classList.add('all-categories-hover');
+[...allCategories.nextElementSibling.children].forEach(element=>element.classList.remove('all-categories-hover'))
   const savedBooksInStorage = JSON.parse(localStorage.getItem('books'));
   if (savedBooksInStorage) {
     BOOKS.push(...savedBooksInStorage);
@@ -246,6 +247,11 @@ function pushBooksByCategory(e) {
   if (e.target.localName !== 'li') {
     return;
   }
+  // console.log(e.target.parentElement);
+  [...e.target.parentElement.children].forEach(element=>element.classList.remove('all-categories-hover'))
+  
+  e.target.classList.add('all-categories-hover')
+
 
   if (selectedCategory.length <= 33) {
     let categoryWords = selectedCategory.split(' ');
