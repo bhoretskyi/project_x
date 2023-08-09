@@ -23,7 +23,7 @@ function onEscapeKey(e) {
 export function openBurgerModal() {
   document.getElementById('burgerModal').style.display = 'block';        
    
-  // document.body.classList.add('body-scroll-lock'); 
+  document.body.classList.add('body-scroll-lock'); 
    
   // backdrop.classList.add('modal-active');
   document.addEventListener('keydown', onEscapeKey)

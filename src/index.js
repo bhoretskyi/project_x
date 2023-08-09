@@ -3,6 +3,7 @@ import './js/modal-login-form.js';
 import './js/account.js';
 import './js/settings.js';
 import './js/auth.js';
+import './js/scroll_up.js';
 import Notiflix from 'notiflix';
 import { Loading } from 'notiflix';
 
@@ -37,7 +38,6 @@ const BOOKS = [];
 
 closeModalBtn.addEventListener('click', closeModal);
 addToListBtn.addEventListener('click', e => {
-  console.log();
   const idForButton =
     e.currentTarget.previousElementSibling.firstElementChild.children[1]
       .children[3].textContent;
@@ -48,7 +48,6 @@ addToListBtn.addEventListener('click', e => {
   pushBookIdToStorage(BOOKS);
 });
 removeFromListBtn.addEventListener('click', e => {
-  console.log();
   const idForRemoveButton =
     e.currentTarget.parentElement.children[1].firstElementChild.children[1]
       .children[3].textContent;
@@ -87,6 +86,15 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
+        const allElementsLinkFromFunction =
+          e.target.parentElement.parentElement.parentElement.parentElement
+            .children[3].firstElementChild.lastElementChild.children;
+        [...allElementsLinkFromFunction].forEach(e => {
+          if (e.innerHTML === resp[0].list_name) {
+            e.classList.add('all-categories-hover');
+            allCategories.classList.remove('all-categories-hover');
+          }
+        });
         Loading.remove();
         bookCategoryTitleContainer.innerHTML = '';
         let categoryWords = buttonSelectedCategory.split(' ');
@@ -164,6 +172,9 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 startPage();
 function startPage() {
   allCategories.classList.add('all-categories-hover');
+  [...allCategories.nextElementSibling.children].forEach(element =>
+    element.classList.remove('all-categories-hover')
+  );
   const savedBooksInStorage = JSON.parse(localStorage.getItem('books'));
   if (savedBooksInStorage) {
     BOOKS.push(...savedBooksInStorage);
@@ -243,9 +254,19 @@ allCategories.addEventListener('click', e => {
 
 function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
+
+  if (e.target.textContent !== selectedCategory) {
+    return;
+  }
+
   if (e.target.localName !== 'li') {
     return;
   }
+  [...e.target.parentElement.children].forEach(element =>
+    element.classList.remove('all-categories-hover')
+  );
+
+  e.target.classList.add('all-categories-hover');
 
   if (selectedCategory.length <= 33) {
     let categoryWords = selectedCategory.split(' ');
@@ -255,7 +276,6 @@ function pushBooksByCategory(e) {
 
     bookCategoryTitleContainer.innerHTML = `<h2 class="title-book-all">${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
   }
-
   getBookByCategory(selectedCategory)
     .then(resp => {
       allCategories.classList.remove('all-categories-hover');
@@ -304,7 +324,6 @@ getCategories()
 //переключние темы. Не удалять!!!
 
 const checkBox = document.querySelector('.checkbox');
-// console.log(loginForm);
 
 const svgIconHeader = document.querySelector('.icon-bookshelf');
 const listItemQ = document.querySelector('.book-categories-list');
@@ -314,7 +333,7 @@ const allCat = document.querySelector('.all-categories');
 const modalThema = document.querySelector('.modal');
 const modalContentTitle = document.querySelector('modal-content-title')
 
-console.log(modalContentTitle)
+
 checkBox.addEventListener('change', chengeTheme);
 
 function chengeTheme() {
@@ -329,11 +348,12 @@ function chengeTheme() {
   const modalContentParent = document.querySelector('.modal-content-parent');
   //console.log(modalContentParent)
   modalContentParent.classList.toggle('dark-thema');
+
   const childrenModal = modalThema.children;
  
-}
 
-const burgerBtn = document.querySelector('.js-burger');
+
+const burgerBtn = document.querySelector('.js-burger'); 
 const burgerCloseBtn = document.querySelector('.js-close-menu');
 
 burgerBtn.addEventListener('click', () => {
@@ -346,7 +366,7 @@ burgerCloseBtn.addEventListener('click', () => {
   burgerCloseBtn.classList.add('is-hidden-btn');
   burgerBtn.hidden = false;
 });
-
+window.addEventListener('resize', chekWindowSize);
 function chekWindowSize() {
   if (window.innerWidth >= 768) {
     closeBurgerModal();
@@ -354,4 +374,4 @@ function chekWindowSize() {
     burgerBtn.hidden = false;
   }
 }
-window.addEventListener('resize', chekWindowSize);
+
