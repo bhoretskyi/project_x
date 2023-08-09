@@ -173,7 +173,7 @@ function startPage() {
   getBestBook().then(resp =>
     {resp.map(book => {
       const books = book.books;
-      sectionSelectedBooksByCategory.insertAdjacentHTML(
+      sectionSelectedBooksByCategory.insertAdjacentHTML( 
         'beforeend',
         `
             <h2 class="book-category-name">${book.list_name}</h2>
