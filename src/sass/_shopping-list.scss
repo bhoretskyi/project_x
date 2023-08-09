@@ -179,7 +179,7 @@ margin-right: 30px;
 
 
 .div-charity{
-        @media screen and (min-width: 375px) {
+        @media screen and (min-width: 1px) {
                 display: none;
             }
 
@@ -200,3 +200,16 @@ margin-right: 30px;
 
         
     }
+
+        .slider2 {
+            width: 159px;
+            height: 188px;
+            margin-top: 44px;
+            margin-left: 40px;
+    
+            @media screen and (min-width: 768px) {
+                width: 159px;
+                height: 292px;
+                margin-top: 42px;
+            }
+        }
