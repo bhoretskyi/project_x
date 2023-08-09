@@ -17,6 +17,7 @@ import { getBookById } from './js/books_api.js';
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
 const shop = document.querySelector('.book-shop');
+// const allCategoriesListElements = document.querySelectorAll('.all-category')
 
 const modalContent = document.querySelector('.modal-content-parent');
 const closeModalBtn = document.querySelector('.close');
@@ -86,7 +87,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
-        Loading.remove()
+        Loading.remove();
         bookCategoryTitleContainer.innerHTML = '';
         let categoryWords = buttonSelectedCategory.split(' ');
 
@@ -106,7 +107,6 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       </div>`
           );
         });
-        
       })
       .catch(err => {
         Notiflix.Notify.failure(
@@ -123,7 +123,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 
   getBookById(e.target.parentElement.id)
     .then(resp => {
-      Loading.remove()
+      Loading.remove();
       if (!resp) {
         throw new Error('err');
       }
@@ -163,7 +163,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 });
 startPage();
 function startPage() {
-  allCategories.classList.add('all-categories-hover')
+  allCategories.classList.add('all-categories-hover');
   const savedBooksInStorage = JSON.parse(localStorage.getItem('books'));
   if (savedBooksInStorage) {
     BOOKS.push(...savedBooksInStorage);
@@ -171,12 +171,13 @@ function startPage() {
   sectionSelectedBooksByCategory.innerHTML = '';
   bookCategoryTitleContainer.innerHTML =
     '<h2 class="title-book-all">Best Sellers <span class="last-title-word">Books</span></h2>';
-  getBestBook().then(resp =>
-    {resp.map(book => {
-      const books = book.books;
-      sectionSelectedBooksByCategory.insertAdjacentHTML( 
-        'beforeend',
-        `
+  getBestBook()
+    .then(resp => {
+      resp.map(book => {
+        const books = book.books;
+        sectionSelectedBooksByCategory.insertAdjacentHTML(
+          'beforeend',
+          `
             <h2 class="book-category-name">${book.list_name}</h2>
   <div class="one-category-section">
 
@@ -223,15 +224,16 @@ function startPage() {
 
                   </div>
             `
-      );
+        );
+      });
+      Loading.remove();
     })
-    Loading.remove()}
-  ).catch(err => {
-    Notiflix.Notify.failure(
-      'Oops... something went wrong. Please reload the page'
-    );
-    console.log(err);
-  })  
+    .catch(err => {
+      Notiflix.Notify.failure(
+        'Oops... something went wrong. Please reload the page'
+      );
+      console.log(err);
+    });
 }
 
 categorySectionList.addEventListener('click', pushBooksByCategory);
@@ -256,8 +258,8 @@ function pushBooksByCategory(e) {
 
   getBookByCategory(selectedCategory)
     .then(resp => {
-      allCategories.classList.remove('all-categories-hover')
-      Loading.remove()
+      allCategories.classList.remove('all-categories-hover');
+      Loading.remove();
       sectionSelectedBooksByCategory.innerHTML = '';
       resp.map(book => {
         sectionSelectedBooksByCategory.insertAdjacentHTML(
@@ -344,4 +346,3 @@ function chekWindowSize() {
   }
 }
 window.addEventListener('resize', chekWindowSize);
-
