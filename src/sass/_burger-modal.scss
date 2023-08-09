@@ -2,7 +2,7 @@
     z-index: 9995;
     position: relative;
     top: 46px;
-    width: 335px;
+   width: 100%;
     height: 100%;
     max-height: calc((100vh - 46px));
     display: none;
@@ -13,9 +13,9 @@
   
   transform: translate(-50%);
   background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
-//   @media screen and (min-width: 375px) {
-//     z-index: -1;
-// }
+  @media screen and (min-width: 375px) {
+    width: 335px;
+}
     
   
 }

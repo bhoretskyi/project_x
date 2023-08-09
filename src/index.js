@@ -357,7 +357,7 @@ function chengeTheme() {
   console.log(qwer)
 }
 
-const burgerBtn = document.querySelector('.js-burger');
+const burgerBtn = document.querySelector('.js-burger'); 
 const burgerCloseBtn = document.querySelector('.js-close-menu');
 
 burgerBtn.addEventListener('click', () => {
