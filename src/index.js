@@ -3,7 +3,7 @@ import './js/modal-login-form.js';
 import './js/account.js';
 import './js/settings.js';
 import './js/auth.js';
-import './js/scroll_up.js'
+import './js/scroll_up.js';
 import Notiflix from 'notiflix';
 import { Loading } from 'notiflix';
 
@@ -88,6 +88,15 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
       e.target.previousElementSibling.lastElementChild.textContent;
     getBookByCategory(buttonSelectedCategory)
       .then(resp => {
+        const allElementsLinkFromFunction =
+          e.target.parentElement.parentElement.parentElement.parentElement
+            .children[3].firstElementChild.lastElementChild.children;
+        [...allElementsLinkFromFunction].forEach(e => {
+          if (e.innerHTML === resp[0].list_name) {
+            e.classList.add('all-categories-hover');
+            allCategories.classList.remove('all-categories-hover');
+          }
+        });
         Loading.remove();
         bookCategoryTitleContainer.innerHTML = '';
         let categoryWords = buttonSelectedCategory.split(' ');
@@ -247,13 +256,10 @@ allCategories.addEventListener('click', e => {
 
 function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
-  
+
   if (e.target.textContent !== selectedCategory) {
-    return
-    
+    return;
   }
-  
-  
 
   if (e.target.localName !== 'li') {
     return;
@@ -261,7 +267,7 @@ function pushBooksByCategory(e) {
   [...e.target.parentElement.children].forEach(element =>
     element.classList.remove('all-categories-hover')
   );
-  
+
   e.target.classList.add('all-categories-hover');
 
   if (selectedCategory.length <= 33) {
