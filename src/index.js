@@ -164,7 +164,9 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
 startPage();
 function startPage() {
   allCategories.classList.add('all-categories-hover');
-[...allCategories.nextElementSibling.children].forEach(element=>element.classList.remove('all-categories-hover'))
+  [...allCategories.nextElementSibling.children].forEach(element =>
+    element.classList.remove('all-categories-hover')
+  );
   const savedBooksInStorage = JSON.parse(localStorage.getItem('books'));
   if (savedBooksInStorage) {
     BOOKS.push(...savedBooksInStorage);
@@ -244,14 +246,22 @@ allCategories.addEventListener('click', e => {
 
 function pushBooksByCategory(e) {
   const selectedCategory = e.target.outerText;
+  
+  if (e.target.textContent !== selectedCategory) {
+    return
+    
+  }
+  
+  
+
   if (e.target.localName !== 'li') {
     return;
   }
-  // console.log(e.target.parentElement);
-  [...e.target.parentElement.children].forEach(element=>element.classList.remove('all-categories-hover'))
+  [...e.target.parentElement.children].forEach(element =>
+    element.classList.remove('all-categories-hover')
+  );
   
-  e.target.classList.add('all-categories-hover')
-
+  e.target.classList.add('all-categories-hover');
 
   if (selectedCategory.length <= 33) {
     let categoryWords = selectedCategory.split(' ');
@@ -261,7 +271,8 @@ function pushBooksByCategory(e) {
 
     bookCategoryTitleContainer.innerHTML = `<h2 class="title-book-all">${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
   }
-
+  // console.log(bookCategoryTitleContainer.firstElementChild.children);
+  // console.log(selectedCategory.split(' '));
   getBookByCategory(selectedCategory)
     .then(resp => {
       allCategories.classList.remove('all-categories-hover');
