@@ -66,7 +66,7 @@ function addDarkClassThemaShop() {
       const cardFone = section.getElementsByClassName('shopping-list-card');
   for (const card of cardFone) {
     card.classList.remove('shopping-card');
-    const textTitle = card.getElementsByClassName('shopping-list-title');    
+    const textTitle = card.getElementsByClassName('shopping-list-title');     
     for (const title of textTitle) {
       title.classList.remove('title-color');
     }
@@ -126,9 +126,9 @@ function paintBooksFromLocalstorage() {
       
       <div class="shopping-list-book-links">
       <p class="shopping-list-author">${resp.author}</p>
-      <a href="${resp.buy_links[0].url}" target="_blank" class="shoping-link-icon shoping-link-icon-amazon"></a>   
-      <a href="${resp.buy_links[1].url}" target="_blank" class="shoping-link-icon shoping-link-icon-book"></a>   
-      <a href="${resp.buy_links[4].url}" target="_blank" class="shoping-link-icon shoping-link-icon-none"></a>
+      <a href="${resp.buy_links[0].url}" target="_blank"><img src="${amazon.src}" alt=""></a>   
+      <a href="${resp.buy_links[1].url}" target="_blank"><img src="${ios.src}" alt=""></a>   
+      <a href="${resp.buy_links[4].url}" target="_blank"><img src="${shop.src}" alt=""></a>
       </div>
       </div>
         
