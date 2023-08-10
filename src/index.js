@@ -26,9 +26,9 @@ const svgIconShop = document.querySelector('.list-btn-svg');
 const headerFone = document.querySelector('.header-container');
 const allCat = document.querySelector('.all-categories');
 const modalThema = document.querySelector('.modal');
-const modalContentTitle = document.querySelector('modal-content-title')
-
-
+const modalContentTitle = document.querySelector('modal-content-title');
+const modalTextHiden = document.querySelector('.modal-hidden-text');
+const modalContentParent = document.querySelector('.modal-content-parent')
 
 const checkBox = document.querySelector('.checkbox');
 
@@ -55,11 +55,13 @@ function addDarkClassThema() {
       headerFone.classList.add('header-fone');
       modalThema.classList.add('dark-thema');
       modalContentParent.classList.add('dark-thema');
+      modalTextHiden.classList.add('dark-thema')
     } else {
       document.body.classList.remove('dark-thema');
       headerFone.classList.remove('header-fone');
       modalThema.classList.remove('dark-thema');
       modalContentParent.classList.remove('dark-thema');
+      modalTextHiden.classList.remove('dark-thema')
   }
   }
   catch(err) { }
