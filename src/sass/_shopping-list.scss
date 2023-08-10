@@ -11,6 +11,7 @@
     display: none;
 }
 .trash-btn {
+
     @media screen and (min-width: 320px) {
         width: 34px;
         height: 34px;
@@ -18,7 +19,7 @@
         background-color: #4F2EE8;
         border-radius: 50%;
         left: 225px;
-        top: 145px;
+        top: 120px;
     }
         @media screen and (min-width: 375px) {
         top: 24px;
@@ -92,6 +93,7 @@ letter-spacing: -0.64px;
 text-transform: uppercase;
 }
 .shopping-list-classlist {
+    margin-bottom: 14px;
     color: #B4AFAF;
 font-size: 12px;
 font-style: normal;
