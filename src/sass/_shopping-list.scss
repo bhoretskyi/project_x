@@ -11,12 +11,24 @@
     display: none;
 }
 .trash-btn {
-    position: absolute;
-    left: 285px;
-    width: 34px;
-height: 34px;
-background-color: #4F2EE8;
-border-radius: 50%;
+    @media screen and (min-width: 320px) {
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        background-color: #4F2EE8;
+        border-radius: 50%;
+        left: 225px;
+        top: 145px;
+    }
+        @media screen and (min-width: 375px) {
+        top: 24px;
+            left: 285px;
+            width: 34px;
+            height: 34px;
+            background-color: #4F2EE8;
+            border-radius: 50%;
+        }
+    
 @media screen and (min-width: 768px) {
     left: 655px;
   }
@@ -24,23 +36,28 @@ border-radius: 50%;
     left: 950px;
   }
 }
+// .trash-js {
+   
+
+// }
 
 .shopping-list-card {
+
     position: relative;
     display: flex;
     padding: 14px;
     
-width: 335px;
+max-width: 335px;
 border-radius: 16px;
 border: 2px solid rgba(79, 46, 232, 0.40);
-background: #FFF;
+margin-bottom: 20px;
 @media screen and (min-width: 768px) {
-    width: 704px;
+    max-width: 704px;
     gap: 24px   ;
     height: 213px;
   }
   @media screen and (min-width: 1440px) {
-    width: 996px;
+    max-width: 996px;
     margin-bottom: 20px;
     height: 213px;
   }
@@ -179,7 +196,7 @@ margin-right: 30px;
 
 
 .div-charity{
-        @media screen and (min-width: 375px) {
+        @media screen and (min-width: 1px) {
                 display: none;
             }
 
@@ -200,3 +217,18 @@ margin-right: 30px;
 
         
     }
+
+        .slider2 {
+            width: 159px;
+            height: 188px;
+            margin-top: 44px;
+            margin-left: 40px;
+    
+            @media screen and (min-width: 768px) {
+                width: 159px;
+                height: 292px;
+                margin-top: 42px;
+            }
+        }
+
+
