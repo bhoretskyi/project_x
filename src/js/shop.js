@@ -66,7 +66,7 @@ function addDarkClassThemaShop() {
       const cardFone = section.getElementsByClassName('shopping-list-card');
   for (const card of cardFone) {
     card.classList.remove('shopping-card');
-    const textTitle = card.getElementsByClassName('shopping-list-title');
+    const textTitle = card.getElementsByClassName('shopping-list-title');    
     for (const title of textTitle) {
       title.classList.remove('title-color');
     }

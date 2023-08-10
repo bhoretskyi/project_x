@@ -164,6 +164,11 @@ line-height: 18px; /* 128.571% */
 letter-spacing: -0.14px;
 text-transform: uppercase;
 align-items: center;
+margin-left: 150px;
+@media screen and (min-width: 375px) {
+    margin-left: 211px;
+}
+
 @media screen and (min-width: 768px) {
 margin-left: 580px;
     
