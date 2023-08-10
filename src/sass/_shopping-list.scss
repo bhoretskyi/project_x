@@ -11,6 +11,13 @@
     display: none;
 }
 .trash-btn {
+    width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: #4F2EE8;
+        border-radius: 50%;
+        left: 225px;
+        top: 120px;
 
     @media screen and (min-width: 320px) {
         width: 34px;
