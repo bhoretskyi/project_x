@@ -1,6 +1,85 @@
 import { Loading } from 'notiflix';
 import { openBurgerModal, closeBurgerModal } from './modal';
 import { getBookById } from './books_api';
+
+//Блок Смена фона///////////////////////////////////
+const checkBox = document.querySelector('.checkbox');
+const svgIconHeader = document.querySelector('.icon-bookshelf');
+const listItemQ = document.querySelector('.book-categories-list');
+const svgIconShop = document.querySelector('.list-btn-svg');
+const headerFone = document.querySelector('.header-container');
+const section = document.querySelector('.shop-list-books-section');
+const shopTitleGen = document.querySelector('.shop-list-section-title');
+
+checkBox.addEventListener('change', chengeThemeShopp);
+
+function chengeThemeShopp() {
+  
+  if (localStorage.getItem('thema') === 'dark-thema') {
+    localStorage.removeItem('thema');
+  //   const cardFone = section.getElementsByClassName('shopping-list-card');
+  // console.log(cardFone);
+  // for (const card of cardFone) {
+  //   card.classList.toggle('shopping-card');
+  //   const textTitle = card.getElementsByClassName('shopping-list-title');
+  //   console.log(textTitle);
+  //   for (const title of textTitle) {
+  //     title.classList.toggle('title-color');
+  //   }
+  // } 
+  } else {
+    localStorage.setItem('thema', 'dark-thema');
+  //   const cardFone = section.getElementsByClassName('shopping-list-card');
+  // for (const card of cardFone) {
+  //   card.classList.toggle('shopping-card');
+  //   const textTitle = card.getElementsByClassName('shopping-list-title');
+  //   for (const title of textTitle) {
+  //     title.classList.toggle('title-color');
+  //   }
+  // }
+  }
+  addDarkClassThemaShop();
+}
+  
+
+function addDarkClassThemaShop() {
+  try {
+    if (localStorage.getItem('thema') === 'dark-thema') {
+      document.body.classList.add('dark-thema');
+      headerFone.classList.add('header-fone');
+      shopTitleGen.classList.add('title-color');
+        const cardFone = section.getElementsByClassName('shopping-list-card');
+  console.log(cardFone);
+  for (const card of cardFone) {
+    card.classList.add('shopping-card');
+    const textTitle = card.getElementsByClassName('shopping-list-title');
+    console.log(textTitle);
+    
+    for (const title of textTitle) {
+      title.classList.add('title-color');
+    }
+  } 
+    } else {
+      document.body.classList.remove('dark-thema');
+      headerFone.classList.remove('header-fone');
+      shopTitleGen.classList.remove('title-color');
+      const cardFone = section.getElementsByClassName('shopping-list-card');
+  for (const card of cardFone) {
+    card.classList.remove('shopping-card');
+    const textTitle = card.getElementsByClassName('shopping-list-title');
+    for (const title of textTitle) {
+      title.classList.remove('title-color');
+    }
+  }
+    }
+  }
+  catch (err) { }    
+};
+
+addDarkClassThemaShop();
+
+
+
 const shopListBookSection = document.querySelector('.shop-list-books-section');
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
@@ -92,38 +171,36 @@ shopListBookSection.addEventListener('click', e => {
 //   console.log(e.target);
 // });
 
-const checkBox = document.querySelector('.checkbox');
-//console.log(loginForm);
-const svgIconHeader = document.querySelector('.icon-bookshelf');
-const listItemQ = document.querySelector('.book-categories-list');
-const svgIconShop = document.querySelector('.list-btn-svg');
-const headerFone = document.querySelector('.header-container');
-const section = document.querySelector('.shop-list-books-section');
-const shopTitleGen = document.querySelector('.shop-list-section-title');
-//console.log(shoppingListtitle.textContent);
 
-checkBox.addEventListener('change', chengeThemeShopp);
 
-function chengeThemeShopp() {
-  console.log('Клик работает');
-  document.body.classList.toggle('dark-thema');
-  svgIconHeader.classList.toggle('svg-icon-header');
-  svgIconShop.classList.toggle('svg-icon-header');
-  headerFone.classList.toggle('header-fone');
-  shopTitleGen.classList.toggle('title-color');
-  //shoppingListtitle.classList.toggle('shopping-card');
-  const cardFone = section.getElementsByClassName('shopping-list-card');
-  console.log(cardFone);
-  for (const card of cardFone) {
-    card.classList.toggle('shopping-card');
-    const textTitle = card.getElementsByClassName('shopping-list-title');
-    console.log(textTitle);
-    for (const title of textTitle) {
-      title.classList.toggle('title-color');
-    }
-  }
-  console.log(cardFone);
-}
+
+
+
+// function chengeThemeShopp() {
+
+
+
+
+
+  // svgIconHeader.classList.toggle('svg-icon-header');
+  // svgIconShop.classList.toggle('svg-icon-header');
+  // headerFone.classList.toggle('header-fone');
+  // shopTitleGen.classList.toggle('title-color');
+
+  // const cardFone = section.getElementsByClassName('shopping-list-card');
+  // console.log(cardFone);
+  // for (const card of cardFone) {
+  //   card.classList.toggle('shopping-card');
+  //   const textTitle = card.getElementsByClassName('shopping-list-title');
+  //   console.log(textTitle);
+  //   for (const title of textTitle) {
+  //     title.classList.toggle('title-color');
+  //   }
+  // }
+//   console.log(cardFone);
+// }
+
+///////////////////////////////////////////////////////////////////////////
 
 const burgerBtn = document.querySelector('.js-burger');
 const burgerCloseBtn = document.querySelector('.js-close-menu');
