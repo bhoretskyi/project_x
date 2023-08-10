@@ -37,7 +37,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 25px;
-            
+            padding-bottom: 0;
             
         }
         @media screen and (min-width: 1440px) {
@@ -92,11 +92,10 @@
 
 .books-by-category-section{
     @media screen and (min-width: 768px) {
-            width: 704px;
+            //width: 704px;
         }
                 @media screen and (min-width: 1440px) {
-                    width: 996px;
-                    margin-left: 402px
+                        margin-left: 396px !important;
                 }
 }
 

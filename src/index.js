@@ -15,6 +15,59 @@ import {
   getBookByCategory,
 } from './js/books_api.js';
 import { getBookById } from './js/books_api.js';
+
+//переключние темы. Не удалять!!!
+
+
+
+const svgIconHeader = document.querySelector('.icon-bookshelf');
+const listItemQ = document.querySelector('.book-categories-list');
+const svgIconShop = document.querySelector('.list-btn-svg');
+const headerFone = document.querySelector('.header-container');
+const allCat = document.querySelector('.all-categories');
+const modalThema = document.querySelector('.modal');
+const modalContentTitle = document.querySelector('modal-content-title')
+
+
+
+const checkBox = document.querySelector('.checkbox');
+
+checkBox.addEventListener('change', chengeTheme);
+
+function chengeTheme() {
+  
+  if (localStorage.getItem('thema') === 'dark-thema') {
+    localStorage.removeItem('thema');
+    
+  } else {
+    localStorage.setItem('thema', 'dark-thema');
+    
+  }
+  addDarkClassThema();
+  }
+  
+
+function addDarkClassThema() {
+  try {
+    if (localStorage.getItem('thema') === 'dark-thema') {
+    //localStorage.removeItem('thema');
+      document.body.classList.add('dark-thema');
+      headerFone.classList.add('header-fone');
+      modalThema.classList.add('dark-thema');
+      modalContentParent.classList.add('dark-thema');
+    } else {
+      document.body.classList.remove('dark-thema');
+      headerFone.classList.remove('header-fone');
+      modalThema.classList.remove('dark-thema');
+      modalContentParent.classList.remove('dark-thema');
+  }
+  }
+  catch(err) { }
+};
+
+addDarkClassThema()
+
+
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
 const shop = document.querySelector('.book-shop');
@@ -321,57 +374,27 @@ getCategories()
     console.log(err);
   });
 
-//переключние темы. Не удалять!!!
-
-const checkBox = document.querySelector('.checkbox');
-
-const svgIconHeader = document.querySelector('.icon-bookshelf');
-const listItemQ = document.querySelector('.book-categories-list');
-const svgIconShop = document.querySelector('.list-btn-svg');
-const headerFone = document.querySelector('.header-container');
-const allCat = document.querySelector('.all-categories');
-const modalThema = document.querySelector('.modal');
-const modalContentTitle = document.querySelector('modal-content-title')
 
 
-checkBox.addEventListener('change', chengeTheme);
+  const burgerBtn = document.querySelector('.js-burger');
+  const burgerCloseBtn = document.querySelector('.js-close-menu');
 
-function chengeTheme() {
-  console.log('Клик работает');
-  document.body.classList.toggle('dark-thema');
-  svgIconHeader.classList.toggle('svg-icon-header');
-  svgIconShop.classList.toggle('svg-icon-header');
-  listItemQ.classList.toggle('list-item-color-thema');
-  headerFone.classList.toggle('header-fone');
-  allCat.classList.toggle('list-item-color-thema');
-  modalThema.classList.toggle('dark-thema');
-  const modalContentParent = document.querySelector('.modal-content-parent');
-  //console.log(modalContentParent)
-  modalContentParent.classList.toggle('dark-thema');
-
-  const childrenModal = modalThema.children;
- 
-
-
-const burgerBtn = document.querySelector('.js-burger'); 
-const burgerCloseBtn = document.querySelector('.js-close-menu');
-
-burgerBtn.addEventListener('click', () => {
-  openBurgerModal();
-  burgerBtn.hidden = true;
-  burgerCloseBtn.classList.remove('is-hidden-btn');
-});
-burgerCloseBtn.addEventListener('click', () => {
-  closeBurgerModal();
-  burgerCloseBtn.classList.add('is-hidden-btn');
-  burgerBtn.hidden = false;
-});
-window.addEventListener('resize', chekWindowSize);
-function chekWindowSize() {
-  if (window.innerWidth >= 768) {
+  burgerBtn.addEventListener('click', () => {
+    openBurgerModal();
+    burgerBtn.hidden = true;
+    burgerCloseBtn.classList.remove('is-hidden-btn');
+  });
+  burgerCloseBtn.addEventListener('click', () => {
     closeBurgerModal();
     burgerCloseBtn.classList.add('is-hidden-btn');
     burgerBtn.hidden = false;
+  });
+  window.addEventListener('resize', chekWindowSize);
+  function chekWindowSize() {
+    if (window.innerWidth >= 768) {
+      closeBurgerModal();
+      burgerCloseBtn.classList.add('is-hidden-btn');
+      burgerBtn.hidden = false;
+    }
   }
-}
 
