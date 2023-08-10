@@ -29,11 +29,16 @@
     
         max-width: 335px;
         padding-bottom: 40px;
-
+        @media screen and (min-width: 375px) {
+            
+            min-width: 335px;
+                
+        
+            }
     
     @media screen and (min-width: 768px) {
         
-        width: 704px;
+        min-width: 704px;
             display: flex;
             flex-wrap: wrap;
             gap: 25px;
@@ -41,8 +46,8 @@
             
         }
         @media screen and (min-width: 1440px) {
-
-            width: 996px;
+            
+            min-width: 996px;
             flex-wrap: wrap;
             gap: 24px;
             padding-left: 0;
