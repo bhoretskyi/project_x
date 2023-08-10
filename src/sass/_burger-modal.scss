@@ -43,6 +43,7 @@ text-transform: uppercase;
 }
 .burger-list-btn {
   
+  
   display: flex;
   align-items: flex-end;
   background: none;
@@ -62,6 +63,8 @@ text-transform: uppercase;
 }
 
 .burger-buttons { 
+  position: absolute;
+  z-index: 2;
   width: 150px;
   height: 70px;
   margin-top: 130px;
