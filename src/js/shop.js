@@ -80,7 +80,7 @@ addDarkClassThemaShop();
 
 
 
-const shopListBookSection = document.querySelector('.shop-list-books-section');
+const shopListBookSection = document.querySelector('.shop-list-books-section');  
 const amazon = document.querySelector('.amazon');
 const ios = document.querySelector('.book-ios');
 const shop = document.querySelector('.book-shop');
