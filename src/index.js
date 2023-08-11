@@ -157,7 +157,7 @@ sectionSelectedBooksByCategory.addEventListener('click', e => {
         let firstWords = categoryWords.slice(0, -1).join(' ');
         let lastWord = categoryWords.slice(-1);
 
-        bookCategoryTitleContainer.innerHTML = `<h2 >${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
+        bookCategoryTitleContainer.innerHTML = `<h2 class="book-category-title">${firstWords}<span class="last-title-word"> ${lastWord}</span></h2>`;
         sectionSelectedBooksByCategory.innerHTML = '';
         resp.map(book => {
           sectionSelectedBooksByCategory.insertAdjacentHTML(

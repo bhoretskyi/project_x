@@ -86,9 +86,11 @@
 }
 
 .section-book-card-img{
+    height: 485px;
     border-radius: 8px;
     @media screen and (min-width: 768px) {
             width: 218px;
+            height: 316px;
         }
     @media screen and (min-width: 1440px) {
             width: 180px;
