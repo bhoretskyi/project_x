@@ -1,65 +1,70 @@
-// const LOCAL_KEY = "user";
-// class Account {
+const LOCAL_KEY = "user";
 
-//     signIn(name, email, password ) {
-//         const userAccount = {
-//             userId: this.getId(),
-//             userName: name,
-//             userEmail: email,
-//             userPassword: password
-//         }
-//         localStorage.setItem(LOCAL_KEY, JSON.stringify(userAccount));  
-//     }
+class Account {
+    constructor() {
+        const auth = localStorage.getItem(LOCAL_KEY);
+        if (auth) {
+            this.authenticated = true;
+            const user = JSON.parse(auth);
+            this.userId = user.userId;
+            this.userName = user.userName;
+            this.userEmail = user.userEmail;
+            this.userPassword = user.userPassword;
+        } else {
+            this.authenticated = false;
+            this.userId = null;
+            this.userName = null;
+            this.userEmail = null;
+            this.userPassword = null;
+        }
+    }
 
-//     signOut() {
-//         localStorage.removeItem(LOCAL_KEY);
-//     }
+    signIn(name, email, password) {
+        const userAccount = {
+            userId: this.getId(),
+            userName: name,
+            userEmail: email,
+            userPassword: password,
+        };
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(userAccount));
+        this.authenticated = true;
+        this.userId = userAccount.userId;
+        this.userName = userAccount.userName;
+        this.userEmail = userAccount.userEmail;
+        this.userPassword = userAccount.userPassword;
+    }
 
-//     getId() {
-//         return Math.random().toString(16).slice(2);
-//     }
+    signOut() {
+        localStorage.removeItem(LOCAL_KEY);
+        this.authenticated = false;
+        this.userId = null;
+        this.userName = null;
+        this.userEmail = null;
+        this.userPassword = null;
+    }
 
-//     isAuthentificated() {
-//         const auth = localStorage.getItem(LOCAL_KEY);
-//         if (auth) {
-//             return true;
-//         } else {
-//             return false;
-//         }
-//     }
-//     get user() {
-//         const user = JSON.parse(localStorage.getItem(LOCAL_KEY));
-//         return {
-//             userId: user.userId,
-//             userName: user.userName,
-//             userEmail: userEmail,
-//             userPassword: user.userPassword
-//         }
-//     }
-   
-//     signUp(id, name, email, password) {
+    getId() {
+        return Math.random().toString(16).slice(2);
+    }
 
-//     }
-    
-// }
+    isAuthentificated() {
+        return this.authenticated;
+    }
 
-// const userAccount = new Account();
+    signUp(name, email, password) {
+        const userAccount = {
+            userId: this.getId(),
+            userName: name,
+            userEmail: email,
+            userPassword: password,
+        };
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(userAccount));
+        this.authenticated = true;
+        this.userId = userAccount.userId;
+        this.userName = userAccount.userName;
+        this.userEmail = userAccount.userEmail;
+        this.userPassword = userAccount.userPassword;
+    }
+}
 
-// const userRef = {
-//     userName: "Stas",
-//     userEmail: "lazavenko@ukr.net",
-//     userPassword: "1234567890"
-// }
-
-
-
-// let user = userAccount.signIn(userRef);
-// user = userAccount.signOut();
-
-// let auth = userAccount.isAuthentificated();
-// console.log(auth)
-
-
-
-
-
+export default Account;
